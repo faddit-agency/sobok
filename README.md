@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SOBOK
 
 SOBOK 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
@@ -70,3 +71,6 @@ src/
 
 Copyright © SOBOK All rights reserved.
 
+=======
+# sobok
+>>>>>>> 07df290abf8a28fe094cf056c38f9a19dec8ad7f
