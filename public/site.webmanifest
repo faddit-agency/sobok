@@ -1,7 +1,7 @@
 {
   "name": "SOBOK",
   "short_name": "SOBOK",
-  "description": "K-뷰티 브랜드를 위한 원스톱 운영 파트너",
+  "description": "브랜드 맞춤형 보자기 제작 서비스. 슬라브·오간자·크리스탈과 직조 패턴 보자기를 한 번에 제작합니다.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
