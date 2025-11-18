@@ -30,6 +30,12 @@ export function ServicesFeatureSection() {
       bgColor: "bg-black"
     }
   ]
+
+  const panelBackgrounds: Record<number, string> = {
+    1: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=60",
+    2: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=60",
+    3: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=60"
+  }
   
   return (
     <section 
@@ -51,38 +57,14 @@ export function ServicesFeatureSection() {
               <div className={`absolute inset-0 transition-opacity duration-500 ${
                 hoveredPanel === panel.id ? 'opacity-0' : 'opacity-100'
               }`}>
-                {panel.id === 1 && (
-                  <div className="w-full h-full">
-                    <img
-                      src="/images/jacqueline-brandwayn-r4fSDicAlvQ-unsplash.jpg"
-                      alt="Fabric texture"
-                      className="w-full h-full object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-gray-800/60"></div>
-                  </div>
-                )}
-                
-                {panel.id === 2 && (
-                  <div className="w-full h-full">
-                    <img
-                      src="/images/deepak-rautela-w8-Vl-j2-Lc-unsplash.jpg"
-                      alt="Textile weaving"
-                      className="w-full h-full object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-gray-900/70"></div>
-                  </div>
-                )}
-                
-                {panel.id === 3 && (
-                  <div className="w-full h-full">
-                    <img
-                      src="/images/chris-liverani-9cd8qOgeNIY-unsplash.jpg"
-                      alt="Bojagi fabric"
-                      className="w-full h-full object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-black/60"></div>
-                  </div>
-                )}
+                <div className="w-full h-full">
+                  <img
+                    src={panelBackgrounds[panel.id]}
+                    alt="fabric inspiration"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-black/60 mix-blend-darken"></div>
+                </div>
               </div>
 
               {/* 텍스트 영역 - 중앙 정렬 */}

@@ -22,7 +22,7 @@ export function LineupSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
             <OptimizedImage
-              src="/images/concept-1.png"
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=60"
               alt="SOBOK 뷰티 컨셉"
               className="w-full h-full"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -31,7 +31,7 @@ export function LineupSection() {
           </div>
           <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
             <OptimizedImage
-              src="/images/concept-2.jpg"
+              src="https://images.unsplash.com/photo-1502767089025-6572583495b4?auto=format&fit=crop&w=1400&q=60"
               alt="SOBOK 라인 일러스트"
               className="w-full h-full"
               sizes="(max-width: 768px) 100vw, 50vw"

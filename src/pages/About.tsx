@@ -28,7 +28,7 @@ export function About() {
         <section className="text-center mb-20">
           <div className="mb-8 max-w-2xl mx-auto">
             <OptimizedImage
-              src="/images/concept-1.png"
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=60"
               alt="SOBOK"
               className="w-full h-auto rounded-lg shadow-lg"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 672px"

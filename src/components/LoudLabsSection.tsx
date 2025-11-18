@@ -22,7 +22,7 @@ export function LoudLabsSection() {
         <div className="mt-12">
           <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
             <OptimizedImage
-              src="/images/concept-1.png"
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=60"
               alt="LoudLabs AI 기술"
               className="w-full h-full"
               sizes="100vw"
