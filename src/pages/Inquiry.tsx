@@ -19,7 +19,8 @@ export function Inquiry() {
     email: "",
     phone: "",
     details: "",
-    designFile: null as File | null
+    designFile: null as File | null,
+    privacyConsent: false
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,8 +32,8 @@ export function Inquiry() {
   if (isSubmitted) {
     return (
       <main className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-2xl">
-          <div className="bg-white rounded-lg shadow-lg p-12 text-center">
+        <div className="container mx-auto px-4">
+          <div className="bg-white rounded-lg shadow-lg p-12 text-center max-w-2xl mx-auto">
             <h1 className="text-3xl font-bold mb-4">{t("inquiry.success.title")}</h1>
             <p className="text-lg text-gray-600">{t("inquiry.success.desc")}</p>
           </div>
@@ -43,7 +44,7 @@ export function Inquiry() {
 
   return (
     <main className="pt-32 pb-20 px-4">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{t("inquiry.title")}</h1>
           <p className="text-lg text-gray-600">{t("inquiry.subtitle")}</p>
@@ -242,8 +243,23 @@ export function Inquiry() {
             </div>
           </section>
 
-          <div className="text-center">
-            <Button type="submit" size="lg" className="px-12">
+          <div className="space-y-6 text-center">
+            <label className="flex items-start gap-3 text-left text-sm text-gray-600">
+              <input
+                type="checkbox"
+                checked={formData.privacyConsent}
+                onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
+                className="mt-1"
+                required
+              />
+              <span>
+                {t("inquiry.privacy.consent")}{" "}
+                <a href="/privacy" className="text-gray-900 underline">
+                  {t("inquiry.privacy.link")}
+                </a>
+              </span>
+            </label>
+            <Button type="submit" size="lg" className="px-12" disabled={!formData.privacyConsent}>
               {t("inquiry.submit")}
             </Button>
           </div>
