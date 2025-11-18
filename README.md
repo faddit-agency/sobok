@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SOBOK
 
 SOBOK 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
@@ -48,12 +47,22 @@ src/
 │   ├── ui/             # shadcn/ui 컴포넌트
 │   ├── Header.tsx      # 헤더 컴포넌트
 │   ├── Hero.tsx        # 히어로 섹션
-│   ├── LineupSection.tsx
-│   ├── LoudLabsSection.tsx
-│   ├── FeaturesSection.tsx
-│   ├── NewsletterSection.tsx
-│   ├── LineupUpdateSection.tsx
+│   ├── ImageSlider.tsx # 이미지 슬라이더
+│   ├── WhoWeAreSection.tsx
+│   ├── ServicesFeatureSection.tsx
+│   ├── ProcessSection.tsx
+│   ├── CTASection.tsx
 │   └── Footer.tsx
+├── pages/              # 페이지 컴포넌트
+│   ├── Home.tsx
+│   ├── About.tsx
+│   ├── Inquiry.tsx
+│   ├── Works.tsx
+│   └── FAQ.tsx
+├── contexts/           # React Context
+│   └── LanguageContext.tsx
+├── hooks/              # Custom Hooks
+│   └── useScrollAnimation.ts
 ├── lib/                # 유틸리티 함수
 ├── App.tsx             # 메인 앱 컴포넌트
 ├── main.tsx            # 진입점
@@ -62,15 +71,13 @@ src/
 
 ## 주요 기능
 
-- 반응형 디자인
+- 반응형 디자인 (모바일, 태블릿, 데스크톱)
+- 다국어 지원 (한국어/영어)
+- 이미지 슬라이더
+- 스크롤 애니메이션
 - 모바일 메뉴
-- 뉴스레터 구독 폼
-- 섹션별 네비게이션
+- 문의 폼
 
 ## 라이선스
 
 Copyright © SOBOK All rights reserved.
-
-=======
-# sobok
->>>>>>> 07df290abf8a28fe094cf056c38f9a19dec8ad7f
