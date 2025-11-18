@@ -1,0 +1,19 @@
+{
+  "name": "SOBOK",
+  "short_name": "SOBOK",
+  "description": "K-뷰티 브랜드를 위한 원스톱 운영 파트너",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "lang": "ko-KR",
+  "icons": [
+    {
+      "src": "/Sobok_black.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+
