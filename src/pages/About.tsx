@@ -23,7 +23,7 @@ export function About() {
 
   return (
     <main className="pt-32 pb-20 px-4">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto px-4">
         {/* Hero Section */}
         <section className="text-center mb-20">
           <div className="mb-8 max-w-2xl mx-auto">

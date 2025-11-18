@@ -7,7 +7,7 @@ export function Hero() {
   
   return (
     <section className="pt-32 sm:pt-48 md:pt-64 pb-4 px-4 md:px-8 bg-white relative">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-4">
           {/* 왼쪽 텍스트 */}
           <div className="flex-1">

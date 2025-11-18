@@ -12,7 +12,7 @@ export function WhoWeAreSection() {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* 왼쪽: 텍스트 */}
           <div className="space-y-8">

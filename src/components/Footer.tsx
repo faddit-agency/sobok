@@ -6,9 +6,9 @@ export function Footer() {
   
   return (
     <footer className="text-white py-12 px-4" style={{ backgroundColor: '#222222' }}>
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between gap-12 mb-8">
+          <div className="flex-1">
             <div className="mb-4">
               <img 
                 src="/Sobok_white.svg" 
@@ -24,21 +24,21 @@ export function Footer() {
             </div>
           </div>
           
-          <div>
-            <div className="flex flex-wrap gap-4 mb-6">
+          <div className="flex-1">
+            <div className="flex flex-wrap gap-4 mb-6 justify-start md:justify-end">
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.privacy")}</a>
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.terms")}</a>
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.notice")}</a>
             </div>
             
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 justify-start md:justify-end">
               <Mail size={16} className="text-gray-300" />
               <a href="mailto:contact@faddit.co.kr" className="text-sm text-gray-300 hover:text-white">
                 contact@faddit.co.kr
               </a>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 justify-start md:justify-end">
               <a href="#" className="text-gray-300 hover:text-white">
                 <Instagram size={20} />
               </a>

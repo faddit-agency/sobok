@@ -42,7 +42,7 @@ export function ProcessSection() {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 text-gray-900 text-sm font-medium rounded-full mb-4">
             <span className="w-1.5 h-1.5 bg-gray-900 rounded-full"></span>

@@ -51,7 +51,7 @@ export function Works() {
 
   return (
     <main className="pt-32 pb-20 px-4">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <section className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">{t("works.title")}</h1>
