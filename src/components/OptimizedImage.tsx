@@ -38,7 +38,7 @@ export function OptimizedImage({
         onError={() => setHasError(true)}
         decoding="async"
         style={{
-          imageRendering: "high-quality"
+          imageRendering: "auto"
         }}
       />
     </div>
