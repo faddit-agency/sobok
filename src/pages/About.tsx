@@ -3,11 +3,12 @@ import { ImageSlider } from "../components/ImageSlider"
 export function About() {
 
   const sketchImages = [
-    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop"
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/05-004_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_sevqcw.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/06-007_Concept_ae7yt8.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512567/02-004_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_wx5f5x.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-002_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_1_o8nmnn.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-009_Concept_a04gsa.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/06-001_%E1%84%86%E1%85%A7%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%AF2_epgofq.png"
   ]
 
   return (
@@ -24,11 +25,13 @@ export function About() {
             {/* Text */}
             <div className="space-y-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-tight">
-                Three Generations Under One Belief
+                Crafted with Care, <br /> Wrapped with Meaning
               </h1>
-              <p className="text-lg md:text-xl text-black">
-                3대째 이어온 믿음, 철학을 이어가겠습니다.
-              </p>
+              <div className="space-y-3 text-lg md:text-xl text-black">
+                <p>정성으로 만든 포장, 브랜드의 가치를 담습니다.</p>
+                <p>브랜드를 위한 맞춤형 보자기 제작 서비스.</p>
+                <p>전통적 감성과 현대적 디자인을 결합해 소복만의 차별화된 포장 솔루션을 제공합니다.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -54,21 +57,21 @@ export function About() {
                 <div className="w-0.5 bg-white flex-shrink-0 h-full"></div>
                 
                 {/* Text content */}
-                <div className="flex-1 space-y-3 md:space-y-4 relative pl-4">
+                <div className="flex-1 relative pl-8 md:pl-10">
                   {/* Additional left line */}
                   <div className="absolute left-0 top-0 bottom-0 w-px bg-white/50"></div>
-                  <h2 className="text-2xl md:text-3xl font-bold">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-0">
                     SOBOK
                   </h2>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                    소복은 3대째 이어오던 가업을 글로벌 브랜드로 성장시키기 위해 설립되었습니다.
-                  </p>
-                  <div className="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-300 leading-relaxed">
+                  <div className="space-y-3 md:space-y-4 text-lg md:text-xl text-gray-300 leading-relaxed mt-3 md:mt-4">
                     <p>
-                      창업주께서 강조하시던 "고객에게 신뢰를 얻고 만족을 드리라"는 핵심 가치 아래 더욱 만족스러운 디자인, 더욱 만족스러운 가격을 제공하여 보자기의 아름다움을 착용한 사람, 보는 사람 모두 즐길 수 있도록 하고 있습니다.
+                      소복은 브랜드의 이야기를 '포장'이라는 형태로 담아내는 맞춤형 보자기 제작 전문 브랜드입니다.
                     </p>
                     <p>
-                      흔들리지 않는 철학을 가지고 한발 한발 나아가 세계인들이 하이퀄리티, 굿디자인의 소복을 함께 누릴 수 있도록 노력하겠습니다.
+                      슬라브·오간자·크리스탈 등 다양한 소재부터 브랜드 패턴을 활용한 직조 보자기 제작까지 지원하며, 디자인 파일 전달만으로 맞춤 목업을 제작해 브랜드가 원하는 분위기와 아이덴티티에 맞춘 결과물을 제공합니다.
+                    </p>
+                    <p>
+                      단순한 포장을 넘어 브랜드 경험을 완성하는 패키지를 만들기 위해 끊임없이 연구하며, 품질과 완성도에 대한 기준을 지켜가고 있습니다.
                     </p>
                   </div>
                 </div>
@@ -90,8 +93,10 @@ export function About() {
         </div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-2 drop-shadow-lg">Design Laboratory</h2>
-            <p className="text-base md:text-lg text-white/90 drop-shadow-md">SOBOK</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 drop-shadow-lg">Design Laboratory — SOBOK</h2>
+            <p className="text-base md:text-lg text-white/90 drop-shadow-md max-w-2xl mx-auto px-4">
+              소복 보자기 디자인 연구소는 브랜드의 개성과 스토리를 시각적으로 표현할 수 있는 보자기 패턴과 패키지 디자인을 개발하고 있습니다.
+            </p>
           </div>
         </div>
       </section>
@@ -115,12 +120,14 @@ export function About() {
                 Design Laboratory
               </h2>
               <div className="border-t border-gray-300 w-16"></div>
-              <p className="text-lg md:text-xl text-gray-700 mb-4">
-                소복 보자기 디자인 연구소
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                디자인 연구소를 통해 소복만의 감성과 스토리를 담은 보자기 및 다양한 제품을 연구하고 있습니다.
-              </p>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  소복 보자기 디자인 연구소는 브랜드가 원하는 분위기, 시즌 무드, 프로젝트 목적에 맞춘 맞춤형 보자기 및 포장 소모품 디자인을 연구합니다.
+                </p>
+                <p>
+                  자재 선택부터 제작 방식까지 브랜드 컨셉과 톤앤매너에 맞추어 브랜드를 가장 잘 표현할 수 있는 포장 솔루션을 제공합니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -128,7 +135,7 @@ export function About() {
 
       {/* Design Sketches Slider */}
       <section className="py-20 bg-gray-50">
-        <ImageSlider images={sketchImages} visibleCount={4} autoPlay={false} />
+        <ImageSlider images={sketchImages} visibleCount={5} autoPlay={false} />
       </section>
     </main>
   )
