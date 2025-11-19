@@ -52,7 +52,7 @@ export function FAQ() {
           {/* Left Intro / Categories */}
           <div className="md:w-1/3 space-y-8">
             <div>
-              <h1 className="text-[80px] leading-none font-extrabold tracking-tight text-black">
+              <h1 className="text-5xl md:text-6xl font-bold text-black">
                 FAQ
               </h1>
             </div>

@@ -16,17 +16,17 @@ export function About() {
       <section 
         className="min-h-[45vh] flex items-center pt-16 mt-16 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://res.cloudinary.com/dsg01xpat/image/upload/v1763523615/Untitled-1_ergimk.svg')`
+          backgroundImage: `url('https://res.cloudinary.com/dsg01xpat/image/upload/v1763527778/%E1%84%89%E1%85%A9%E1%84%87%E1%85%A9%E1%86%A8_%E1%84%87%E1%85%A9%E1%84%8C%E1%85%A1%E1%84%80%E1%85%B5_1_n4ovhy.png')`
         }}
       >
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
             {/* Text */}
             <div className="space-y-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-tight">
                 Three Generations Under One Belief
               </h1>
-              <p className="text-lg md:text-xl text-white">
+              <p className="text-lg md:text-xl text-black">
                 3대째 이어온 믿음, 철학을 이어가겠습니다.
               </p>
             </div>
