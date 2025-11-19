@@ -1,8 +1,6 @@
-import { useLanguage } from "../contexts/LanguageContext"
 import { ImageSlider } from "../components/ImageSlider"
 
 export function About() {
-  const { t } = useLanguage()
 
   const sketchImages = [
     "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",

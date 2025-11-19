@@ -1,8 +1,6 @@
-import { useLanguage } from "../contexts/LanguageContext"
 import { useScrollAnimation } from "../hooks/useScrollAnimation"
 
 export function TeamSection() {
-  const { t } = useLanguage()
   const { ref, isVisible } = useScrollAnimation()
 
   const teamMembers = [
