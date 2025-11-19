@@ -1,96 +1,137 @@
-import { Link } from "react-router-dom"
-import { Button } from "../components/ui/button"
 import { useLanguage } from "../contexts/LanguageContext"
-import { OptimizedImage } from "../components/OptimizedImage"
+import { ImageSlider } from "../components/ImageSlider"
 
 export function About() {
   const { t } = useLanguage()
-  
-  const values = [
-    {
-      title: t("about.values.custom.title"),
-      description: t("about.values.custom.desc")
-    },
-    {
-      title: t("about.values.trust.title"),
-      description: t("about.values.trust.desc")
-    },
-    {
-      title: t("about.values.flexible.title"),
-      description: t("about.values.flexible.desc")
-    }
+
+  const sketchImages = [
+    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=500&fit=crop"
   ]
 
   return (
-    <main className="pt-32 pb-20 px-4">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <section className="text-center mb-20">
-          <div className="mb-8 max-w-2xl mx-auto">
-            <OptimizedImage
-              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=60"
-              alt="SOBOK"
-              className="w-full h-auto rounded-lg shadow-lg"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 672px"
-              loading="eager"
-            />
+    <main>
+      {/* Top Section */}
+      <section 
+        className="min-h-[45vh] flex items-center pt-16 mt-16 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/dsg01xpat/image/upload/v1763523615/Untitled-1_ergimk.svg')`
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            {/* Text */}
+            <div className="space-y-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
+                Three Generations Under One Belief
+              </h1>
+              <p className="text-lg md:text-xl text-white">
+                3대째 이어온 믿음, 철학을 이어가겠습니다.
+              </p>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">{t("about.title")}</h1>
-        </section>
+        </div>
+      </section>
 
-        {/* Brand Introduction */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("about.intro.title")}</h2>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
-            {t("about.intro.desc")}
-          </p>
-        </section>
+      {/* Bottom Section */}
+      <section className="min-h-[30vh] w-full flex items-center">
+        <div className="w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full min-h-[30vh]">
+            {/* Left: Sketch Image */}
+            <div className="relative w-full h-full min-h-[30vh]">
+              <img
+                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=600&fit=crop"
+                alt="Design sketches"
+                className="w-full h-full object-cover min-h-[30vh]"
+              />
+            </div>
 
-        {/* Culture Perspective */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("about.culture.title")}</h2>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
-            {t("about.culture.desc")}
-          </p>
-        </section>
-
-        {/* Values */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t("about.values.title")}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-8">
-                <h3 className="text-xl font-bold mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+            {/* Right: Text Content */}
+            <div className="bg-black text-white flex items-center p-8 md:p-12 min-h-[30vh]">
+              <div className="flex gap-6 md:gap-8 w-full max-w-2xl">
+                {/* Left border line */}
+                <div className="w-0.5 bg-white flex-shrink-0 h-full"></div>
+                
+                {/* Text content */}
+                <div className="flex-1 space-y-3 md:space-y-4 relative pl-4">
+                  {/* Additional left line */}
+                  <div className="absolute left-0 top-0 bottom-0 w-px bg-white/50"></div>
+                  <h2 className="text-2xl md:text-3xl font-bold">
+                    SOBOK
+                  </h2>
+                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                    소복은 3대째 이어오던 가업을 글로벌 브랜드로 성장시키기 위해 설립되었습니다.
+                  </p>
+                  <div className="space-y-2 md:space-y-3 text-xs md:text-sm text-gray-300 leading-relaxed">
+                    <p>
+                      창업주께서 강조하시던 "고객에게 신뢰를 얻고 만족을 드리라"는 핵심 가치 아래 더욱 만족스러운 디자인, 더욱 만족스러운 가격을 제공하여 보자기의 아름다움을 착용한 사람, 보는 사람 모두 즐길 수 있도록 하고 있습니다.
+                    </p>
+                    <p>
+                      흔들리지 않는 철학을 가지고 한발 한발 나아가 세계인들이 하이퀄리티, 굿디자인의 소복을 함께 누릴 수 있도록 노력하겠습니다.
+                    </p>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Cases */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t("about.cases.title")}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg p-8 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-4">{t("about.cases.retail")}</h3>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-4">{t("about.cases.event")}</h3>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="text-center bg-gray-50 rounded-lg p-12">
-          <h2 className="text-3xl font-bold mb-4">{t("about.cta.title")}</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            {t("about.cta.desc")}
-          </p>
-          <Link to="/inquiry">
-            <Button size="lg">{t("about.cta.button")}</Button>
-          </Link>
-        </section>
-      </div>
+      {/* Design Laboratory Banner */}
+      <section className="relative h-[400px] md:h-[500px] overflow-hidden mt-20">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1600&h=800&fit=crop"
+            alt="Design process"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-md"></div>
+        </div>
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-2 drop-shadow-lg">Design Laboratory</h2>
+            <p className="text-base md:text-lg text-white/90 drop-shadow-md">SOBOK</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Laboratory Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left: Desk Image */}
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&h=600&fit=crop"
+                alt="Design workspace"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Right: Text Content */}
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-serif text-gray-900">
+                Design Laboratory
+              </h2>
+              <div className="border-t border-gray-300 w-16"></div>
+              <p className="text-lg md:text-xl text-gray-700 mb-4">
+                소복 보자기 디자인 연구소
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                디자인 연구소를 통해 소복만의 감성과 스토리를 담은 보자기 및 다양한 제품을 연구하고 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Sketches Slider */}
+      <section className="py-20 bg-gray-50">
+        <ImageSlider images={sketchImages} visibleCount={4} autoPlay={false} />
+      </section>
     </main>
   )
 }

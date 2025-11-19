@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Linkedin, Mail } from "lucide-react"
+import { Link } from "react-router-dom"
 import { useLanguage } from "../contexts/LanguageContext"
 
 export function Footer() {
@@ -26,7 +27,7 @@ export function Footer() {
           
           <div className="flex-1">
             <div className="flex flex-wrap gap-4 mb-6 justify-start md:justify-end">
-              <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.privacy")}</a>
+              <Link to="/privacy" className="text-sm text-gray-300 hover:text-white">{t("footer.privacy")}</Link>
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.terms")}</a>
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.notice")}</a>
             </div>

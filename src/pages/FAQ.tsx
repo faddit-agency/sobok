@@ -6,37 +6,44 @@ export function FAQ() {
   const { t } = useLanguage()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const [query, setQuery] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState<"SERVICE" | "ETC">("SERVICE")
 
-  const faqs = [
+  const serviceFaqs = [
     { question: t("faq.q1"), answer: t("faq.a1") },
     { question: t("faq.q2"), answer: t("faq.a2") },
     { question: t("faq.q3"), answer: t("faq.a3") },
-    { question: t("faq.q4"), answer: t("faq.a4") },
+    { question: t("faq.q4"), answer: t("faq.a4") }
+  ].map((faq, index) => ({ ...faq, index, category: "SERVICE" as const }))
+
+  const etcFaqs = [
     { question: t("faq.q5"), answer: t("faq.a5") },
     { question: t("faq.q6"), answer: t("faq.a6") }
-  ].map((faq, index) => ({ ...faq, index }))
+  ].map((faq, index) => ({ ...faq, index: index + serviceFaqs.length, category: "ETC" as const }))
+
+  const currentFaqs = selectedCategory === "SERVICE" ? serviceFaqs : etcFaqs
+
+  const handleCategoryChange = (category: "SERVICE" | "ETC") => {
+    setSelectedCategory(category)
+    const newFaqs = category === "SERVICE" ? serviceFaqs : etcFaqs
+    setOpenIndex(newFaqs.length > 0 ? newFaqs[0].index : null) // 카테고리 변경 시 첫 번째 항목 열기
+  }
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
   const filteredFaqs = useMemo(() => {
-    if (!query.trim()) return faqs
+    if (!query.trim()) return currentFaqs
     const lower = query.toLowerCase()
-    return faqs.filter(
+    return currentFaqs.filter(
       (faq) =>
         faq.question.toLowerCase().includes(lower) ||
         faq.answer.toLowerCase().includes(lower)
     )
-  }, [faqs, query])
+  }, [currentFaqs, query])
 
-  const categories = [
-    { label: "FAQ", active: true },
-    { label: "SERVICE", active: false },
-    { label: "ETC", active: false }
-  ]
-  const placeholderText = t("faq.searchPlaceholder") || "검색어를 입력해주세요."
-  const noResultText = t("faq.noResult") || "일치하는 결과가 없습니다."
+  const placeholderText = "검색어를 입력해주세요."
+  const noResultText = "검색결과가 없습니다."
 
   return (
     <main className="pt-32 pb-20 px-4">
@@ -45,26 +52,30 @@ export function FAQ() {
           {/* Left Intro / Categories */}
           <div className="md:w-1/3 space-y-8">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-6">
-                {t("faq.subtitle")}
-              </p>
               <h1 className="text-[80px] leading-none font-extrabold tracking-tight text-black">
                 FAQ
               </h1>
             </div>
 
-            <div className="space-y-4">
-              {categories.map((category) => (
-                <div
-                  key={category.label}
-                  className={`text-4xl font-extrabold tracking-wide ${
-                    category.active ? "text-black" : "text-gray-300"
-                  }`}
-                >
-                  {category.label}
-                  {category.active && <sup className="text-lg ml-1">°</sup>}
-                </div>
-              ))}
+            <div className="flex flex-col space-y-4">
+              <button
+                onClick={() => handleCategoryChange("SERVICE")}
+                className={`text-4xl font-extrabold tracking-wide text-left w-full ${
+                  selectedCategory === "SERVICE" ? "text-black" : "text-gray-300"
+                } cursor-pointer hover:text-gray-500 transition-colors`}
+              >
+                SERVICE
+                {selectedCategory === "SERVICE" && <sup className="text-lg ml-1">°</sup>}
+              </button>
+              <button
+                onClick={() => handleCategoryChange("ETC")}
+                className={`text-4xl font-extrabold tracking-wide text-left w-full ${
+                  selectedCategory === "ETC" ? "text-black" : "text-gray-300"
+                } cursor-pointer hover:text-gray-500 transition-colors`}
+              >
+                ETC
+                {selectedCategory === "ETC" && <sup className="text-lg ml-1">°</sup>}
+              </button>
             </div>
           </div>
 
@@ -82,7 +93,7 @@ export function FAQ() {
             </div>
 
             <div className="space-y-2">
-              {filteredFaqs.length === 0 && (
+              {query.trim() && filteredFaqs.length === 0 && (
                 <div className="text-gray-500 py-10 text-center border rounded-2xl">
                   {noResultText}
                 </div>
@@ -118,7 +129,7 @@ export function FAQ() {
         </section>
 
         {/* Contact Section */}
-        <section className="bg-gray-50 rounded-lg p-12 text-center">
+        <section className="bg-gray-50 rounded-lg p-12 text-center mt-20">
           <h2 className="text-2xl font-bold mb-4">{t("faq.contact.title")}</h2>
           <p className="text-gray-600 mb-6">
             {t("faq.contact.desc")}
@@ -126,8 +137,8 @@ export function FAQ() {
           <div className="space-y-2">
             <p className="text-lg">
               <strong>{t("faq.contact.email")}</strong>{" "}
-              <a href="mailto:info@sobok.com" className="text-blue-600 hover:underline">
-                info@sobok.com
+              <a href="mailto:contact@faddit.co.kr" className="text-blue-600 hover:underline">
+                contact@faddit.co.kr
               </a>
             </p>
             <p className="text-sm text-gray-500">

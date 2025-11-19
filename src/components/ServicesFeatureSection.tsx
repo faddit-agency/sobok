@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useScrollAnimation } from "../hooks/useScrollAnimation"
+import { PartnersCarousel } from "./PartnersCarousel"
 
 export function ServicesFeatureSection() {
   const { t } = useLanguage()
@@ -32,9 +33,9 @@ export function ServicesFeatureSection() {
   ]
 
   const panelBackgrounds: Record<number, string> = {
-    1: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=60",
-    2: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=60",
-    3: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=60"
+    1: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512542/jacqueline-brandwayn-r4fSDicAlvQ-unsplash_fpkhal.jpg", // easy
+    2: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512543/deepak-rautela-w8-Vl-j2-Lc-unsplash_nnahxr.jpg", // proven
+    3: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512542/chris-liverani-9cd8qOgeNIY-unsplash_xgjkyi.jpg" // reliable
   }
   
   return (
@@ -90,9 +91,7 @@ export function ServicesFeatureSection() {
           ))}
         </div>
         
-        <div className="text-center px-4">
-          <p className="text-lg font-semibold text-gray-900">{t("home.services.partners")}</p>
-        </div>
+        <PartnersCarousel />
       </div>
     </section>
   )

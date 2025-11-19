@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { useLanguage } from "../contexts/LanguageContext"
@@ -243,25 +244,33 @@ export function Inquiry() {
             </div>
           </section>
 
-          <div className="space-y-6 text-center">
-            <label className="flex items-start gap-3 text-left text-sm text-gray-600">
-              <input
-                type="checkbox"
-                checked={formData.privacyConsent}
-                onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
-                className="mt-1"
-                required
-              />
-              <span>
-                {t("inquiry.privacy.consent")}{" "}
-                <a href="/privacy" className="text-gray-900 underline">
-                  {t("inquiry.privacy.link")}
-                </a>
-              </span>
-            </label>
-            <Button type="submit" size="lg" className="px-12" disabled={!formData.privacyConsent}>
-              {t("inquiry.submit")}
-            </Button>
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 text-sm">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.privacyConsent}
+                  onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
+                  className="w-4 h-4"
+                  required
+                />
+                <span className="text-gray-900">
+                  (필수) 개인정보 수집 및 이용안내
+                </span>
+              </label>
+              <Link
+                to="/privacy"
+                target="_blank"
+                className="text-gray-600 underline hover:text-gray-900"
+              >
+                보기
+              </Link>
+            </div>
+            <div className="text-center">
+              <Button type="submit" size="lg" className="px-12" disabled={!formData.privacyConsent}>
+                {t("inquiry.submit")}
+              </Button>
+            </div>
           </div>
         </form>
       </div>

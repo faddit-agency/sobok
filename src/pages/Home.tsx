@@ -7,18 +7,18 @@ import { CTASection } from "../components/CTASection"
 
 export function Home() {
   const images = [
-    "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=60"
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/05-004_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_sevqcw.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/06-007_Concept_ae7yt8.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512567/02-004_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_wx5f5x.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-002_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_1_o8nmnn.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-009_Concept_a04gsa.png",
+    "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/06-001_%E1%84%86%E1%85%A7%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%AF2_epgofq.png"
   ]
 
   return (
     <main>
       <Hero />
-      <ImageSlider images={images} visibleCount={5} />
+      <ImageSlider images={images} visibleCount={5} autoPlay={false} />
       <WhoWeAreSection />
       <ServicesFeatureSection />
       <ProcessSection />
