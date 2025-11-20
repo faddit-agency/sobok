@@ -22,7 +22,6 @@ export function WorkDetail() {
 
   const title = t(work.titleKey)
   const category = t(work.categoryKey)
-  const description = t(work.descriptionKey)
   const status = t(work.statusKey)
 
   return (
