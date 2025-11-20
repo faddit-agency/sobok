@@ -38,42 +38,34 @@ export function About() {
       </section>
 
       {/* Bottom Section */}
-      <section className="min-h-[30vh] w-full flex items-center">
+      <section className="min-h-[45vh] w-full flex items-center">
         <div className="w-full h-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full min-h-[30vh]">
-            {/* Left: Sketch Image */}
-            <div className="relative w-full h-full min-h-[30vh]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full min-h-[45vh]">
+            {/* Left: Showcase Image */}
+            <div className="relative w-full h-full min-h-[45vh] overflow-hidden bg-black">
               <img
-                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=600&fit=crop"
-                alt="Design sketches"
-                className="w-full h-full object-cover min-h-[30vh]"
+                src="https://res.cloudinary.com/dsg01xpat/image/upload/v1763540335/bozhin-karaivanov-p1jldJ9tZ6c-unsplash_3_znx2wx.jpg"
+                alt="SOBOK craftsmanship"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
 
             {/* Right: Text Content */}
-            <div className="bg-black text-white flex items-center p-8 md:p-12 min-h-[30vh]">
-              <div className="flex gap-6 md:gap-8 w-full max-w-2xl">
-                {/* Left border line */}
-                <div className="w-0.5 bg-white flex-shrink-0 h-full"></div>
-                
-                {/* Text content */}
-                <div className="flex-1 relative pl-8 md:pl-10">
-                  {/* Additional left line */}
-                  <div className="absolute left-0 top-0 bottom-0 w-px bg-white/50"></div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-0">
-                    SOBOK
-                  </h2>
-                  <div className="space-y-3 md:space-y-4 text-lg md:text-xl text-gray-300 leading-relaxed mt-3 md:mt-4">
-                    <p>
-                      소복은 브랜드의 이야기를 '포장'이라는 형태로 담아내는 맞춤형 보자기 제작 전문 브랜드입니다.
-                    </p>
-                    <p>
-                      슬라브·오간자·크리스탈 등 다양한 소재부터 브랜드 패턴을 활용한 직조 보자기 제작까지 지원하며, 디자인 파일 전달만으로 맞춤 목업을 제작해 브랜드가 원하는 분위기와 아이덴티티에 맞춘 결과물을 제공합니다.
-                    </p>
-                    <p>
-                      단순한 포장을 넘어 브랜드 경험을 완성하는 패키지를 만들기 위해 끊임없이 연구하며, 품질과 완성도에 대한 기준을 지켜가고 있습니다.
-                    </p>
-                  </div>
+            <div className="bg-black text-white flex items-center p-8 md:p-12 min-h-[45vh]">
+              <div className="w-full max-w-2xl">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium">
+                  SOBOK
+                </h2>
+                <div className="mt-4 space-y-3 md:space-y-4 text-lg md:text-xl text-gray-300 leading-relaxed">
+                  <p>
+                    소복은 브랜드의 이야기를 '포장'이라는 형태로 담아내는 맞춤형 보자기 제작 전문 브랜드입니다.
+                  </p>
+                  <p>
+                    슬라브·오간자·크리스탈 등 다양한 소재부터 브랜드 패턴을 활용한 직조 보자기 제작까지 지원하며, 디자인 파일 전달만으로 맞춤 목업을 제작해 브랜드가 원하는 분위기와 아이덴티티에 맞춘 결과물을 제공합니다.
+                  </p>
+                  <p>
+                    단순한 포장을 넘어 브랜드 경험을 완성하는 패키지를 만들기 위해 끊임없이 연구하며, 품질과 완성도에 대한 기준을 지켜가고 있습니다.
+                  </p>
                 </div>
               </div>
             </div>

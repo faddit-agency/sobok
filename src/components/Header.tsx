@@ -16,11 +16,37 @@ export function Header() {
   }
 
   const navLinks = [
-    { path: "/", key: "nav.home" },
-    { path: "/about", key: "nav.about" },
-    { path: "/works", key: "nav.works" },
-    { path: "/faq", key: "nav.faq" },
+    { path: "/", key: "nav.home", anchor: null },
+    { path: "/", key: "nav.about", anchor: "#who-we-are" },
+    { path: "/", key: "nav.works", anchor: "#works" },
+    { path: "/faq", key: "nav.faq", anchor: null },
   ]
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null) => {
+    if (anchor) {
+      e.preventDefault()
+      
+      // 홈페이지가 아니면 먼저 홈페이지로 이동
+      if (location.pathname !== "/") {
+        window.location.href = `/${anchor}`
+        return
+      }
+      
+      // 홈페이지에 있으면 스크롤
+      const element = document.querySelector(anchor)
+      if (element) {
+        const headerOffset = 64 // header height
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        })
+      }
+      setIsMenuOpen(false)
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
@@ -39,8 +65,9 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
-                to={link.path}
+                key={link.path + (link.anchor || "")}
+                to={link.anchor ? `${link.path}${link.anchor}` : link.path}
+                onClick={(e) => handleNavClick(e, link.anchor)}
                 className={`text-sm hover:text-gray-600 transition-colors ${
                   isActive(link.path) ? "font-semibold text-gray-900" : ""
                 }`}
@@ -75,9 +102,12 @@ export function Header() {
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
+                  key={link.path + (link.anchor || "")}
+                  to={link.anchor ? `${link.path}${link.anchor}` : link.path}
+                  onClick={(e) => {
+                    handleNavClick(e, link.anchor)
+                    if (!link.anchor) setIsMenuOpen(false)
+                  }}
                   className={`text-sm hover:text-gray-600 transition-colors ${
                     isActive(link.path) ? "font-semibold text-gray-900" : ""
                   }`}

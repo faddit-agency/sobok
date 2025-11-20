@@ -3,11 +3,11 @@ import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
 import { ScrollToTop } from "./components/ScrollToTop"
 import { Home } from "./pages/Home"
-import { About } from "./pages/About"
 import { Inquiry } from "./pages/Inquiry"
 import { Works } from "./pages/Works"
 import { FAQ } from "./pages/FAQ"
 import { Privacy } from "./pages/Privacy"
+import { WorkDetail } from "./pages/WorkDetail"
 
 function App() {
   return (
@@ -18,9 +18,9 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
             <Route path="/inquiry" element={<Inquiry />} />
             <Route path="/works" element={<Works />} />
+            <Route path="/works/:slug" element={<WorkDetail />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>

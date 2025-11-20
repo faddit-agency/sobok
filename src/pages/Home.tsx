@@ -3,6 +3,7 @@ import { ImageSlider } from "../components/ImageSlider"
 import { WhoWeAreSection } from "../components/WhoWeAreSection"
 import { ServicesFeatureSection } from "../components/ServicesFeatureSection"
 import { ProcessSection } from "../components/ProcessSection"
+import { WorksSummarySection } from "../components/WorksSummarySection"
 import { CTASection } from "../components/CTASection"
 
 export function Home() {
@@ -22,6 +23,7 @@ export function Home() {
       <WhoWeAreSection />
       <ServicesFeatureSection />
       <ProcessSection />
+      <WorksSummarySection />
       <CTASection />
     </main>
   )

@@ -7,6 +7,7 @@ export function WhoWeAreSection() {
   
   return (
     <section 
+      id="who-we-are"
       ref={ref}
       className={`py-16 sm:py-24 md:py-32 px-4 md:px-8 bg-white transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

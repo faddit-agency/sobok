@@ -11,9 +11,9 @@ export function PartnersCarousel() {
   const duplicatedLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos]
 
   return (
-    <div className="w-full py-12">
+    <div className="w-full py-8">
       {/* 제목 */}
-      <div className="text-center px-4 mb-8">
+      <div className="text-center px-4 mb-6">
         <p className="text-lg font-semibold text-gray-900 opacity-80">
           소복과 함께 브랜드의 마음을 정해온 기업입니다.
         </p>

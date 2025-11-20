@@ -41,7 +41,7 @@ export function ServicesFeatureSection() {
   return (
     <section 
       ref={ref}
-      className={`py-32 transition-all duration-1000 ${
+      className={`pt-32 pb-16 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
