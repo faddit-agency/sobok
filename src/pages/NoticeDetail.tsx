@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { noticesData } from "../data/notices"
 import { getNoticeViews, incrementNoticeViews } from "../lib/api"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function NoticeDetail() {
   const { t } = useLanguage()
@@ -14,6 +15,14 @@ export function NoticeDetail() {
   
   const noticeId = id ? parseInt(id, 10) : null
   const notice = noticeId ? noticesData.find(n => n.id === noticeId) : null
+  
+  useMetaTags({
+    title: notice ? `${t(notice.titleKey)} | SOBOK` : `${t("notice.title")} | SOBOK`,
+    description: notice ? t(notice.contentKey).substring(0, 150) + "..." : t("notice.subtitle"),
+    image: "/og-notice.jpg",
+    url: `/notice/${id}`,
+    type: "article"
+  })
 
   // 조회수 로드 및 증가
   useEffect(() => {

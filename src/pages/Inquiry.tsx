@@ -5,9 +5,18 @@ import { Input } from "../components/ui/input"
 import { useLanguage } from "../contexts/LanguageContext"
 import { Textarea } from "../components/ui/textarea"
 import { X } from "lucide-react"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function Inquiry() {
   const { t } = useLanguage()
+  
+  useMetaTags({
+    title: "문의하기 | SOBOK",
+    description: "맞춤형 보자기 제작 문의를 남겨주세요. 디자인 파일 기반 목업 제작부터 제작·납품까지 원스톱으로 진행합니다.",
+    image: "/og-inquiry.jpg",
+    url: "/inquiry",
+    type: "website"
+  })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     companyName: "",

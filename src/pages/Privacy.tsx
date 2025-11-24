@@ -1,7 +1,16 @@
 import { useLanguage } from "../contexts/LanguageContext"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function Privacy() {
   const { t } = useLanguage()
+  
+  useMetaTags({
+    title: `${t("privacy.title")} | SOBOK`,
+    description: "SOBOK 개인정보처리방침을 확인하세요.",
+    image: "/og-privacy.jpg",
+    url: "/privacy",
+    type: "website"
+  })
   
   return (
     <main className="pt-32 pb-20 px-4">

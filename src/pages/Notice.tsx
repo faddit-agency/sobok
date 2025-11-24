@@ -4,9 +4,18 @@ import { Link } from "react-router-dom"
 import { useLanguage } from "../contexts/LanguageContext"
 import { noticesData } from "../data/notices"
 import { getAllNoticeViews } from "../lib/api"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function Notice() {
   const { t } = useLanguage()
+  
+  useMetaTags({
+    title: `${t("notice.title")} | SOBOK`,
+    description: t("notice.subtitle"),
+    image: "/og-notice.jpg",
+    url: "/notice",
+    type: "website"
+  })
   const [query, setQuery] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const [viewsMap, setViewsMap] = useState<Record<number, number>>({})

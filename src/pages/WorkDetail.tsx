@@ -4,6 +4,7 @@ import { worksData } from "../data/works"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { useLanguage } from "../contexts/LanguageContext"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function WorkDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -11,6 +12,14 @@ export function WorkDetail() {
   const { t } = useLanguage()
 
   const work = useMemo(() => worksData.find((item) => item.slug === slug), [slug])
+  
+  useMetaTags({
+    title: work ? `${t(work.titleKey)} | SOBOK` : `${t("works.title")} | SOBOK`,
+    description: work ? t(work.descriptionKey) : t("works.subtitle"),
+    image: "/og-works.jpg",
+    url: `/works/${slug}`,
+    type: "article"
+  })
 
   useEffect(() => {
     if (!work) {

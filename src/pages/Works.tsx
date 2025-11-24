@@ -3,9 +3,18 @@ import { ExternalLink, ArrowRight } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { Link } from "react-router-dom"
 import { worksData } from "../data/works"
+import { useMetaTags } from "../hooks/useMetaTags"
 
 export function Works() {
   const { t } = useLanguage()
+  
+  useMetaTags({
+    title: `${t("works.title")} | SOBOK`,
+    description: t("works.subtitle"),
+    image: "/og-works.jpg",
+    url: "/works",
+    type: "website"
+  })
 
   return (
     <main className="pt-32 pb-20 px-4">
