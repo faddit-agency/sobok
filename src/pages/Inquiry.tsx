@@ -207,46 +207,73 @@ export function Inquiry() {
               <div>
                 <label className="block text-sm font-medium mb-4">{t("inquiry.bojagi.regular")}</label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="slab"
-                      checked={formData.bojagiType === "slab"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
-                      className="mt-1"
-                    />
-                    <div>
-                      <div className="font-medium">{t("inquiry.bojagi.regular.slab")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                  <label className="flex flex-col items-start p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 w-full">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="slab"
+                        checked={formData.bojagiType === "slab"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="mt-3 w-full flex justify-center">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1763949818/Gemini_Generated_Image_txqlr4txqlr4txql_zzpmk1.png"
+                        alt={t("inquiry.bojagi.regular.slab")}
+                        className="w-32 h-32 object-contain"
+                      />
                     </div>
                   </label>
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="organza"
-                      checked={formData.bojagiType === "organza"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
-                      className="mt-1"
-                    />
-                    <div>
-                      <div className="font-medium">{t("inquiry.bojagi.regular.organza")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                  <label className="flex flex-col items-start p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 w-full">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="organza"
+                        checked={formData.bojagiType === "organza"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="mt-3 w-full flex justify-center">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1763949404/Gemini_Generated_Image_7wtbel7wtbel7wtb_mtzdkx.png"
+                        alt={t("inquiry.bojagi.regular.organza")}
+                        className="w-32 h-32 object-contain"
+                      />
                     </div>
                   </label>
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="crystal"
-                      checked={formData.bojagiType === "crystal"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
-                      className="mt-1"
-                    />
-                    <div>
-                      <div className="font-medium">{t("inquiry.bojagi.regular.crystal")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                  <label className="flex flex-col items-start p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 w-full">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="crystal"
+                        checked={formData.bojagiType === "crystal"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="mt-3 w-full flex justify-center">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1763950722/Gemini_Generated_Image_x9ac2rx9ac2rx9ac_xh1gkw.png"
+                        alt={t("inquiry.bojagi.regular.crystal")}
+                        className="w-32 h-32 object-contain"
+                      />
                     </div>
                   </label>
                 </div>
