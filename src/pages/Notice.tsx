@@ -3,12 +3,7 @@ import { useMemo, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useLanguage } from "../contexts/LanguageContext"
 import { noticesData } from "../data/notices"
-
-// localStorage에서 조회수 가져오기
-const getViews = (noticeId: number): number => {
-  const stored = localStorage.getItem(`notice_views_${noticeId}`)
-  return stored ? parseInt(stored, 10) : 0
-}
+import { getAllNoticeViews } from "../lib/api"
 
 export function Notice() {
   const { t } = useLanguage()
@@ -19,11 +14,15 @@ export function Notice() {
 
   // 조회수 로드
   useEffect(() => {
-    const views: Record<number, number> = {}
-    noticesData.forEach(notice => {
-      views[notice.id] = getViews(notice.id)
-    })
-    setViewsMap(views)
+    const loadViews = async () => {
+      try {
+        const views = await getAllNoticeViews()
+        setViewsMap(views)
+      } catch (error) {
+        console.error('Error loading views:', error)
+      }
+    }
+    loadViews()
   }, [])
 
   // 번역된 공지사항 데이터

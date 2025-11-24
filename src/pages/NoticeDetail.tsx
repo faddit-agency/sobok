@@ -3,40 +3,37 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { noticesData } from "../data/notices"
-
-// localStorage에서 조회수 가져오기
-const getViews = (noticeId: number): number => {
-  const stored = localStorage.getItem(`notice_views_${noticeId}`)
-  return stored ? parseInt(stored, 10) : 0
-}
-
-// localStorage에 조회수 저장하기
-const setViews = (noticeId: number, views: number): void => {
-  localStorage.setItem(`notice_views_${noticeId}`, views.toString())
-}
-
-// 조회수 증가
-const incrementViews = (noticeId: number): number => {
-  const currentViews = getViews(noticeId)
-  const newViews = currentViews + 1
-  setViews(noticeId, newViews)
-  return newViews
-}
+import { getNoticeViews, incrementNoticeViews } from "../lib/api"
 
 export function NoticeDetail() {
   const { t } = useLanguage()
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [views, setViewsState] = useState<number>(0)
+  const [isLoading, setIsLoading] = useState(true)
   
   const noticeId = id ? parseInt(id, 10) : null
   const notice = noticeId ? noticesData.find(n => n.id === noticeId) : null
 
-  // 조회수 증가 및 로드
+  // 조회수 로드 및 증가
   useEffect(() => {
     if (noticeId) {
-      const newViews = incrementViews(noticeId)
-      setViewsState(newViews)
+      const loadAndIncrementViews = async () => {
+        try {
+          setIsLoading(true)
+          // 조회수 증가
+          const newViews = await incrementNoticeViews(noticeId)
+          setViewsState(newViews)
+        } catch (error) {
+          console.error('Error loading views:', error)
+          // 실패 시 조회수 조회만 시도
+          const currentViews = await getNoticeViews(noticeId)
+          setViewsState(currentViews)
+        } finally {
+          setIsLoading(false)
+        }
+      }
+      loadAndIncrementViews()
     }
   }, [noticeId])
 
@@ -94,7 +91,7 @@ export function NoticeDetail() {
             </h1>
             <div className="flex items-center gap-4 text-sm text-gray-500">
               <span>{formatDate(notice.date)}</span>
-              <span>{t("notice.views")} {views}</span>
+              {!isLoading && <span>{t("notice.views")} {views}</span>}
             </div>
           </div>
 

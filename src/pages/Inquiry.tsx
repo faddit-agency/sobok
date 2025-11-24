@@ -113,14 +113,40 @@ export function Inquiry() {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: 구글 시트 연동 및 이메일 발송 로직 구현
-    // 미리보기 URL 정리
-    imagePreviews.forEach(url => {
-      if (url) {
-        URL.revokeObjectURL(url)
+    
+    try {
+      // 미리보기 URL 정리
+      imagePreviews.forEach(url => {
+        if (url) {
+          URL.revokeObjectURL(url)
+        }
+      })
+
+      // API 호출
+      const response = await fetch('/api/inquiry/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          designFiles: formData.designFiles.map(file => ({
+            name: file.name,
+            size: file.size,
+            type: file.type,
+          })),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit inquiry')
       }
-    })
-    setIsSubmitted(true)
+
+      setIsSubmitted(true)
+    } catch (error) {
+      console.error('Error submitting inquiry:', error)
+      alert('문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.')
+    }
   }
 
   if (isSubmitted) {
