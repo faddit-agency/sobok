@@ -204,7 +204,7 @@ const translations = {
     "inquiry.privacy.label": "(필수) 개인정보 수집 및 이용안내",
     "inquiry.privacy.view": "보기",
     "inquiry.success.title": "문의가 정상적으로 접수되었습니다",
-    "inquiry.success.desc": "담당자가 내용을 확인한 후, 남겨주신 연락처로 순차적으로 연락드립니다.",
+    "inquiry.success.desc": "1-2 영업일 안으로 연락드리겠습니다.",
     
     // Works
     "works.title": "WORKS",
@@ -590,7 +590,7 @@ const translations = {
     "inquiry.privacy.label": "(Required) Privacy Policy and Terms of Use",
     "inquiry.privacy.view": "View",
     "inquiry.success.title": "Your inquiry has been successfully received",
-    "inquiry.success.desc": "After our team reviews the content, we will contact you sequentially at the contact information you provided.",
+    "inquiry.success.desc": "We will contact you within 1-2 business days.",
     
     // Works
     "works.title": "WORKS",
