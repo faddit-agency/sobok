@@ -8,6 +8,8 @@ import { Works } from "./pages/Works"
 import { FAQ } from "./pages/FAQ"
 import { Privacy } from "./pages/Privacy"
 import { WorkDetail } from "./pages/WorkDetail"
+import { Notice } from "./pages/Notice"
+import { NoticeDetail } from "./pages/NoticeDetail"
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="/works/:slug" element={<WorkDetail />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/notice" element={<Notice />} />
+            <Route path="/notice/:id" element={<NoticeDetail />} />
           </Routes>
         </main>
         <Footer />

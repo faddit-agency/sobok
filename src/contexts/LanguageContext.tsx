@@ -102,7 +102,7 @@ const translations = {
     "home.services.quality.delivery": "납품 일정",
     "home.services.quality.guarantee": "100% 보장",
     "home.services.quality.desc": "디자인, 직조, 포장, 납품까지 모든 공정을 데이터 기반으로 관리합니다.",
-    "home.services.partners": "소복과 함께 브랜드의 마음을 전해온 기업들입니다.",
+    "home.services.partners": "소복과 함께 브랜드의 마음을 정해온 기업입니다.",
     
     // Home - CTA
     "home.cta.title": "지금 문의하세요",
@@ -322,10 +322,24 @@ const translations = {
     "faq.a5": "원단 종류, 사이즈, 수량, 인쇄/자수 여부에 따라 산출됩니다. 문의 주시면 구체적인 견적서를 드립니다.",
     "faq.q6": "아직 구체적인 디자인이 없어도 문의할 수 있나요?",
     "faq.a6": "물론입니다. 브랜드의 콘셉트만 알려주셔도 시각적 제안을 드립니다.",
+    "faq.search.placeholder": "검색어를 입력해주세요.",
+    "faq.search.noResult": "검색결과가 없습니다.",
     "faq.contact.title": "더 궁금한 점이 있으신가요?",
     "faq.contact.desc": "추가 문의사항이 있으시면 언제든지 연락주세요",
     "faq.contact.email": "이메일:",
     "faq.contact.hours": "평일 09:00 - 18:00 (주말 및 공휴일 휴무)",
+    
+    // Notice
+    "notice.title": "공지사항",
+    "notice.subtitle": "소복의 주요 소식을 확인하세요",
+    "notice.search.placeholder": "검색어를 입력해주세요.",
+    "notice.search.noResult": "검색결과가 없습니다.",
+    "notice.detail.back": "목록으로",
+    "notice.detail.backToList": "목록으로 돌아가기",
+    "notice.detail.notFound": "공지사항을 찾을 수 없습니다.",
+    "notice.views": "조회",
+    "notice.1.title": "서비스 오픈 안내",
+    "notice.1.content": "소복 서비스가 2025년 11월 21일에 정식 오픈되었습니다.\n\n맞춤형 보자기 제작 서비스를 통해 브랜드의 감성을 포장하는 가장 간결한 방식을 제공해드리겠습니다.\n\n많은 관심과 이용 부탁드립니다.",
     
     // Footer
     "footer.company": "소복",
@@ -430,7 +444,7 @@ const translations = {
     "home.services.quality.delivery": "Delivery Schedule",
     "home.services.quality.guarantee": "100% Guaranteed",
     "home.services.quality.desc": "We manage all processes from design, weaving, packaging to delivery based on data.",
-    "home.services.partners": "Companies that have delivered brand hearts with SOBOK.",
+    "home.services.partners": "Companies that have defined brand hearts with SOBOK.",
     
     // Home - CTA
     "home.cta.title": "Inquire Now",
@@ -618,10 +632,24 @@ const translations = {
     "faq.a5": "It is calculated based on fabric type, size, quantity, and printing/embroidery. Please inquire and we will provide a detailed quote.",
     "faq.q6": "Can I inquire even if I don't have a specific design yet?",
     "faq.a6": "Of course. Just let us know your brand's concept and we will provide visual proposals.",
+    "faq.search.placeholder": "Enter search term",
+    "faq.search.noResult": "No search results found.",
     "faq.contact.title": "Have More Questions?",
     "faq.contact.desc": "Please contact us anytime if you have additional inquiries",
     "faq.contact.email": "Email:",
     "faq.contact.hours": "Weekdays 09:00 - 18:00 (Closed on weekends and holidays)",
+    
+    // Notice
+    "notice.title": "Notice",
+    "notice.subtitle": "Stay updated with SOBOK's latest news",
+    "notice.search.placeholder": "Enter search term",
+    "notice.search.noResult": "No search results found.",
+    "notice.detail.back": "Back to list",
+    "notice.detail.backToList": "Back to list",
+    "notice.detail.notFound": "Notice not found.",
+    "notice.views": "Views",
+    "notice.1.title": "Service Launch Announcement",
+    "notice.1.content": "SOBOK service officially launched on November 21, 2025.\n\nWe will provide the most concise way to package a brand's sensibility through our custom bojagi production service.\n\nWe appreciate your interest and look forward to serving you.",
     
     // Footer
     "footer.company": "SOBOK",

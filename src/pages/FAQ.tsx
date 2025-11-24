@@ -42,8 +42,6 @@ export function FAQ() {
     )
   }, [currentFaqs, query])
 
-  const placeholderText = "검색어를 입력해주세요."
-  const noResultText = "검색결과가 없습니다."
 
   return (
     <main className="pt-32 pb-20 px-4">
@@ -86,7 +84,7 @@ export function FAQ() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder={placeholderText}
+                placeholder={t("faq.search.placeholder")}
                 className="w-full border border-gray-200 rounded-full py-4 pl-6 pr-12 focus:outline-none focus:ring-2 focus:ring-black/30 transition"
               />
               <Search className="w-5 h-5 text-gray-400 absolute right-6 top-1/2 -translate-y-1/2" />
@@ -95,7 +93,7 @@ export function FAQ() {
             <div className="space-y-2">
               {query.trim() && filteredFaqs.length === 0 && (
                 <div className="text-gray-500 py-10 text-center border rounded-2xl">
-                  {noResultText}
+                  {t("faq.search.noResult")}
                 </div>
               )}
               {filteredFaqs.map((faq) => {

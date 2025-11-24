@@ -1,4 +1,7 @@
+import { useLanguage } from "../contexts/LanguageContext"
+
 export function PartnersCarousel() {
+  const { t } = useLanguage()
   const partnerLogos = [
     "https://res.cloudinary.com/dsg01xpat/image/upload/v1763513046/image_529_jv63hp.png",
     "https://res.cloudinary.com/dsg01xpat/image/upload/v1763513047/image_530_jmwayb.png",
@@ -15,7 +18,7 @@ export function PartnersCarousel() {
       {/* 제목 */}
       <div className="text-center px-4 mb-6">
         <p className="text-lg font-semibold text-gray-900 opacity-80">
-          소복과 함께 브랜드의 마음을 정해온 기업입니다.
+          {t("home.services.partners")}
         </p>
       </div>
 

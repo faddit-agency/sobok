@@ -29,7 +29,7 @@ export function Footer() {
             <div className="flex flex-wrap gap-4 mb-6 justify-start md:justify-end">
               <Link to="/privacy" className="text-sm text-gray-300 hover:text-white">{t("footer.privacy")}</Link>
               <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.terms")}</a>
-              <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.notice")}</a>
+              <Link to="/notice" className="text-sm text-gray-300 hover:text-white">{t("footer.notice")}</Link>
             </div>
             
             <div className="flex items-center gap-2 mb-4 justify-start md:justify-end">
