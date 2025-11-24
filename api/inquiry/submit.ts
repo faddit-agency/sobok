@@ -27,33 +27,69 @@ export default async function handler(
 
     // 필수 필드 검증
     if (!formData.companyName || !formData.contactName || !formData.email || !formData.phone) {
-      return res.status(400).json({ error: 'Missing required fields' })
+      return res.status(400).json({ 
+        error: 'Missing required fields',
+        details: {
+          companyName: !formData.companyName,
+          contactName: !formData.contactName,
+          email: !formData.email,
+          phone: !formData.phone
+        }
+      })
+    }
+
+    // 날짜 형식 변환 (YYYY-MM-DD 형식으로 변환)
+    let deadline: string | null = null
+    if (formData.deadline) {
+      // 날짜가 이미 YYYY-MM-DD 형식이면 그대로 사용
+      if (typeof formData.deadline === 'string' && formData.deadline.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        deadline = formData.deadline
+      } else {
+        // 다른 형식이면 Date 객체로 변환 시도
+        try {
+          const date = new Date(formData.deadline)
+          if (!isNaN(date.getTime())) {
+            deadline = date.toISOString().split('T')[0]
+          }
+        } catch (e) {
+          console.warn('Invalid date format:', formData.deadline)
+        }
+      }
     }
 
     // DB에 저장
+    const insertData: Record<string, any> = {
+      company_name: formData.companyName,
+      website: formData.website || null,
+      bojagi_type: formData.bojagiType || null,
+      material: formData.material || null,
+      quantity: formData.quantity ? String(formData.quantity) : null,
+      deadline: deadline,
+      budget: formData.budget || null,
+      contact_name: formData.contactName,
+      email: formData.email,
+      phone: formData.phone,
+      details: formData.details || null,
+      design_files_count: formData.designFiles?.length || 0,
+      privacy_consent: formData.privacyConsent || false,
+    }
+
+    console.log('Inserting data:', JSON.stringify(insertData, null, 2))
+
     const { data: dbData, error: dbError } = await supabase
       .from('inquiries')
-      .insert({
-        company_name: formData.companyName,
-        website: formData.website || null,
-        bojagi_type: formData.bojagiType || null,
-        material: formData.material || null,
-        quantity: formData.quantity || null,
-        deadline: formData.deadline || null,
-        budget: formData.budget || null,
-        contact_name: formData.contactName,
-        email: formData.email,
-        phone: formData.phone,
-        details: formData.details || null,
-        design_files_count: formData.designFiles?.length || 0,
-        privacy_consent: formData.privacyConsent || false,
-      })
+      .insert(insertData)
       .select()
       .single()
 
     if (dbError) {
-      console.error('Database error:', dbError)
-      return res.status(500).json({ error: 'Failed to save inquiry to database' })
+      console.error('Database error:', JSON.stringify(dbError, null, 2))
+      return res.status(500).json({ 
+        error: 'Failed to save inquiry to database',
+        details: dbError.message || 'Unknown database error',
+        code: dbError.code,
+        hint: dbError.hint
+      })
     }
 
     return res.status(200).json({
@@ -61,9 +97,13 @@ export default async function handler(
       message: 'Inquiry submitted successfully',
       id: dbData?.id,
     })
-  } catch (error) {
+  } catch (error: any) {
     console.error('Unexpected error:', error)
-    return res.status(500).json({ error: 'Internal server error' })
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      details: error?.message || 'Unknown error',
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined
+    })
   }
 }
 

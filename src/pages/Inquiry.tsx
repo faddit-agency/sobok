@@ -148,13 +148,18 @@ export function Inquiry() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to submit inquiry')
+        const errorData = await response.json().catch(() => ({}))
+        console.error('API Error:', errorData)
+        throw new Error(errorData.details || errorData.error || 'Failed to submit inquiry')
       }
 
+      const result = await response.json()
+      console.log('Success:', result)
       setIsSubmitted(true)
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting inquiry:', error)
-      alert('문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.')
+      const errorMessage = error?.message || '문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.'
+      alert(errorMessage)
     }
   }
 
