@@ -23,7 +23,7 @@ const translations = {
     
     // Home
     "home.hero.title": "소복",
-    "home.hero.subtitle": "눈에 띄지 않지만 가장 오래 남는",
+    "home.hero.subtitle": "브랜드의 감성을 포장하는 가장 간결한 방식",
     "home.hero.cta": "커스텀 제작 문의하기",
     
     // Home - Who we are
@@ -212,6 +212,8 @@ const translations = {
     "works.more": "자세히 보기",
     "works.cta.title": "나만의 브랜드를 만들어보세요",
     "works.cta.desc": "LINEUP 147에서 바로 시작할 수 있는 브랜드를 확인해보세요",
+    "works.summary.heading": "소복에서 제작한 맞춤 보자기 프로젝트를 소개합니다",
+    "works.summary.viewAll": "더보기",
     "works.cta.button": "LINEUP 147 보러가기",
     "works.brand.milkdive": "밀크다이브",
     "works.brand.puresource": "퓨어소스",
@@ -348,7 +350,7 @@ const translations = {
     
     // Home
     "home.hero.title": "SOBOK",
-    "home.hero.subtitle": "Subtle but lasting",
+    "home.hero.subtitle": "The most concise way to package a brand's sensibility",
     "home.hero.cta": "Request Custom Production",
     
     // Home - Who we are
@@ -506,6 +508,8 @@ const translations = {
     "works.more": "Learn More",
     "works.cta.title": "Create Your Own Brand",
     "works.cta.desc": "Check out brands you can start immediately with LINEUP 147",
+    "works.summary.heading": "Introducing custom bojagi projects crafted by SOBOK",
+    "works.summary.viewAll": "View More",
     "works.cta.button": "View LINEUP 147",
     "works.brand.milkdive": "Milk Dive",
     "works.brand.puresource": "Pure Source",

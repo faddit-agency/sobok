@@ -22,7 +22,22 @@ export function Header() {
     { path: "/faq", key: "nav.faq", anchor: null },
   ]
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null, path: string) => {
+    // HOME 링크 클릭 시 최상단으로 스크롤
+    if (path === "/" && !anchor) {
+      e.preventDefault()
+      if (location.pathname !== "/") {
+        window.location.href = "/"
+        return
+      }
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+      setIsMenuOpen(false)
+      return
+    }
+    
     if (anchor) {
       e.preventDefault()
       
@@ -67,7 +82,7 @@ export function Header() {
               <Link
                 key={link.path + (link.anchor || "")}
                 to={link.anchor ? `${link.path}${link.anchor}` : link.path}
-                onClick={(e) => handleNavClick(e, link.anchor)}
+                onClick={(e) => handleNavClick(e, link.anchor, link.path)}
                 className={`text-sm hover:text-gray-600 transition-colors ${
                   isActive(link.path) ? "font-semibold text-gray-900" : ""
                 }`}
@@ -105,8 +120,8 @@ export function Header() {
                   key={link.path + (link.anchor || "")}
                   to={link.anchor ? `${link.path}${link.anchor}` : link.path}
                   onClick={(e) => {
-                    handleNavClick(e, link.anchor)
-                    if (!link.anchor) setIsMenuOpen(false)
+                    handleNavClick(e, link.anchor, link.path)
+                    if (!link.anchor && link.path !== "/") setIsMenuOpen(false)
                   }}
                   className={`text-sm hover:text-gray-600 transition-colors ${
                     isActive(link.path) ? "font-semibold text-gray-900" : ""

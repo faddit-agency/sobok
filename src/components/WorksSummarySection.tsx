@@ -26,7 +26,7 @@ export function WorksSummarySection() {
             {t("works.title")}
           </span>
           <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.3] mb-6">
-            {t("works.subtitle")}
+            {t("works.summary.heading")}
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export function WorksSummarySection() {
             className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-700 transition-colors group"
           >
             <span className="text-base md:text-lg font-medium border-b border-gray-900 pb-1 group-hover:border-gray-700">
-              {t("works.viewAll") || "모든 작품 보기"}
+              {t("works.summary.viewAll")}
             </span>
             <ArrowRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </Link>

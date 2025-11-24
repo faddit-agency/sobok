@@ -11,10 +11,10 @@ export function Hero() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-4">
           {/* 왼쪽 텍스트 */}
           <div className="flex-1">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-4 text-gray-900">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-gray-900">
               {t("home.hero.title")} <span className="text-gray-900">________</span>
             </h1>
-            <p className="text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-relaxed font-black">
+            <p className="text-3xl md:text-5xl lg:text-6xl text-gray-900 leading-relaxed font-black">
               {t("home.hero.subtitle")}
             </p>
           </div>
