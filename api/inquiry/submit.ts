@@ -60,44 +60,99 @@ export default async function handler(
 
     // 이미지 파일을 Supabase Storage에 업로드
     const uploadedImageUrls: string[] = []
+    const uploadErrors: string[] = []
+    
     if (formData.designFiles && formData.designFiles.length > 0) {
-      for (const fileData of formData.designFiles) {
-        if (fileData.base64) {
-          try {
-            // base64를 Buffer로 변환
-            const fileBuffer = Buffer.from(fileData.base64, 'base64')
-            
-            // 파일명 생성 (타임스탬프 + 원본 파일명)
-            const timestamp = Date.now()
-            const sanitizedFileName = fileData.name.replace(/[^a-zA-Z0-9.-]/g, '_')
-            const filePath = `inquiries/${timestamp}_${sanitizedFileName}`
-            
-            // Supabase Storage에 업로드
-            const { data: uploadData, error: uploadError } = await supabase.storage
-              .from('inquiry-files')
-              .upload(filePath, fileBuffer, {
-                contentType: fileData.type || 'application/octet-stream',
-                upsert: false
-              })
-            
-            if (uploadError) {
-              console.error('File upload error:', uploadError)
-              // 업로드 실패해도 계속 진행
-            } else {
-              // 공개 URL 가져오기
-              const { data: urlData } = supabase.storage
-                .from('inquiry-files')
-                .getPublicUrl(filePath)
-              
-              if (urlData?.publicUrl) {
-                uploadedImageUrls.push(urlData.publicUrl)
-              }
-            }
-          } catch (fileError) {
-            console.error('Error processing file:', fileError)
-            // 파일 처리 실패해도 계속 진행
+      console.log(`Processing ${formData.designFiles.length} file(s) for upload`)
+      
+      // Storage bucket 존재 확인 및 생성 시도
+      const bucketName = 'inquiry-files'
+      const { data: buckets, error: listError } = await supabase.storage.listBuckets()
+      
+      if (listError) {
+        console.error('Error listing buckets:', listError)
+      } else {
+        const bucketExists = buckets?.some(b => b.name === bucketName)
+        console.log(`Bucket '${bucketName}' exists:`, bucketExists)
+        
+        if (!bucketExists) {
+          console.log(`Attempting to create bucket '${bucketName}'`)
+          const { data: newBucket, error: createError } = await supabase.storage.createBucket(bucketName, {
+            public: true,
+            fileSizeLimit: 52428800, // 50MB
+            allowedMimeTypes: ['image/*', 'application/pdf', 'application/postscript', 'image/vnd.adobe.photoshop']
+          })
+          
+          if (createError) {
+            console.error(`Error creating bucket '${bucketName}':`, createError)
+            uploadErrors.push(`Bucket creation failed: ${createError.message}`)
+          } else {
+            console.log(`Bucket '${bucketName}' created successfully:`, newBucket)
           }
         }
+      }
+      
+      for (let i = 0; i < formData.designFiles.length; i++) {
+        const fileData = formData.designFiles[i]
+        console.log(`Processing file ${i + 1}/${formData.designFiles.length}: ${fileData.name}`)
+        
+        if (!fileData.base64) {
+          console.warn(`File ${fileData.name} has no base64 data`)
+          uploadErrors.push(`${fileData.name}: No base64 data`)
+          continue
+        }
+        
+        try {
+          // base64를 Buffer로 변환
+          const fileBuffer = Buffer.from(fileData.base64, 'base64')
+          console.log(`File ${fileData.name} converted to buffer, size: ${fileBuffer.length} bytes`)
+          
+          // 파일명 생성 (타임스탬프 + 원본 파일명)
+          const timestamp = Date.now()
+          const randomSuffix = Math.random().toString(36).substring(2, 9)
+          const sanitizedFileName = fileData.name.replace(/[^a-zA-Z0-9.-]/g, '_')
+          const filePath = `inquiries/${timestamp}_${randomSuffix}_${sanitizedFileName}`
+          
+          console.log(`Uploading to path: ${filePath}`)
+          
+          // Supabase Storage에 업로드
+          const { data: uploadData, error: uploadError } = await supabase.storage
+            .from(bucketName)
+            .upload(filePath, fileBuffer, {
+              contentType: fileData.type || 'application/octet-stream',
+              upsert: false
+            })
+          
+          if (uploadError) {
+            console.error(`File upload error for ${fileData.name}:`, JSON.stringify(uploadError, null, 2))
+            uploadErrors.push(`${fileData.name}: ${uploadError.message || 'Upload failed'}`)
+          } else {
+            console.log(`File ${fileData.name} uploaded successfully:`, uploadData)
+            
+            // 공개 URL 가져오기
+            const { data: urlData } = supabase.storage
+              .from(bucketName)
+              .getPublicUrl(filePath)
+            
+            console.log(`Public URL for ${fileData.name}:`, urlData?.publicUrl)
+            
+            if (urlData?.publicUrl) {
+              uploadedImageUrls.push(urlData.publicUrl)
+              console.log(`Successfully added URL for ${fileData.name}`)
+            } else {
+              console.warn(`No public URL returned for ${fileData.name}`)
+              uploadErrors.push(`${fileData.name}: No public URL returned`)
+            }
+          }
+        } catch (fileError: any) {
+          console.error(`Error processing file ${fileData.name}:`, fileError)
+          uploadErrors.push(`${fileData.name}: ${fileError?.message || 'Processing error'}`)
+        }
+      }
+      
+      console.log(`Upload summary: ${uploadedImageUrls.length} successful, ${uploadErrors.length} failed`)
+      if (uploadErrors.length > 0) {
+        console.error('Upload errors:', uploadErrors)
       }
     }
 
@@ -123,6 +178,7 @@ export default async function handler(
     }
 
     console.log('Inserting data:', JSON.stringify(insertData, null, 2))
+    console.log(`Uploaded ${uploadedImageUrls.length} image(s), URLs:`, uploadedImageUrls)
 
     const { data: dbData, error: dbError } = await supabase
       .from('inquiries')
@@ -136,7 +192,8 @@ export default async function handler(
         error: 'Failed to save inquiry to database',
         details: dbError.message || 'Unknown database error',
         code: dbError.code,
-        hint: dbError.hint
+        hint: dbError.hint,
+        uploadErrors: uploadErrors.length > 0 ? uploadErrors : undefined
       })
     }
 
@@ -144,6 +201,9 @@ export default async function handler(
       success: true,
       message: 'Inquiry submitted successfully',
       id: dbData?.id,
+      uploadedFiles: uploadedImageUrls.length,
+      uploadedUrls: uploadedImageUrls,
+      uploadErrors: uploadErrors.length > 0 ? uploadErrors : undefined
     })
   } catch (error: any) {
     console.error('Unexpected error:', error)
