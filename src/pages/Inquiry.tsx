@@ -120,6 +120,20 @@ export function Inquiry() {
     return lastDot > 0 ? fileName.substring(lastDot + 1).toUpperCase() : 'FILE'
   }
   
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => {
+        const result = reader.result as string
+        // data:image/png;base64, 부분 제거하고 base64만 추출
+        const base64 = result.split(',')[1]
+        resolve(base64)
+      }
+      reader.onerror = (error) => reject(error)
+    })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
@@ -131,6 +145,19 @@ export function Inquiry() {
         }
       })
 
+      // 이미지 파일을 base64로 변환
+      const designFilesData = await Promise.all(
+        formData.designFiles.map(async (file) => {
+          const base64 = await fileToBase64(file)
+          return {
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            base64: base64,
+          }
+        })
+      )
+
       // API 호출
       const response = await fetch('/api/inquiry/submit', {
         method: 'POST',
@@ -139,11 +166,7 @@ export function Inquiry() {
         },
         body: JSON.stringify({
           ...formData,
-          designFiles: formData.designFiles.map(file => ({
-            name: file.name,
-            size: file.size,
-            type: file.type,
-          })),
+          designFiles: designFilesData,
         }),
       })
 

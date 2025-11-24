@@ -58,6 +58,49 @@ export default async function handler(
       }
     }
 
+    // 이미지 파일을 Supabase Storage에 업로드
+    const uploadedImageUrls: string[] = []
+    if (formData.designFiles && formData.designFiles.length > 0) {
+      for (const fileData of formData.designFiles) {
+        if (fileData.base64) {
+          try {
+            // base64를 Buffer로 변환
+            const fileBuffer = Buffer.from(fileData.base64, 'base64')
+            
+            // 파일명 생성 (타임스탬프 + 원본 파일명)
+            const timestamp = Date.now()
+            const sanitizedFileName = fileData.name.replace(/[^a-zA-Z0-9.-]/g, '_')
+            const filePath = `inquiries/${timestamp}_${sanitizedFileName}`
+            
+            // Supabase Storage에 업로드
+            const { data: uploadData, error: uploadError } = await supabase.storage
+              .from('inquiry-files')
+              .upload(filePath, fileBuffer, {
+                contentType: fileData.type || 'application/octet-stream',
+                upsert: false
+              })
+            
+            if (uploadError) {
+              console.error('File upload error:', uploadError)
+              // 업로드 실패해도 계속 진행
+            } else {
+              // 공개 URL 가져오기
+              const { data: urlData } = supabase.storage
+                .from('inquiry-files')
+                .getPublicUrl(filePath)
+              
+              if (urlData?.publicUrl) {
+                uploadedImageUrls.push(urlData.publicUrl)
+              }
+            }
+          } catch (fileError) {
+            console.error('Error processing file:', fileError)
+            // 파일 처리 실패해도 계속 진행
+          }
+        }
+      }
+    }
+
     // DB에 저장
     // website는 선택사항이므로 빈 문자열이면 null로 처리
     const website = formData.website && formData.website.trim() ? formData.website.trim() : null
@@ -75,6 +118,7 @@ export default async function handler(
       phone: formData.phone,
       details: formData.details || null,
       design_files_count: formData.designFiles?.length || 0,
+      design_files_urls: uploadedImageUrls.length > 0 ? uploadedImageUrls : null,
       privacy_consent: formData.privacyConsent || false,
     }
 
