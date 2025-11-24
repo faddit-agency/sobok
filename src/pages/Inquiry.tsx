@@ -205,7 +205,7 @@ export function Inquiry() {
                   {t("inquiry.company.website")} <span className="text-gray-400 text-xs">({t("inquiry.company.website.optional")})</span>
                 </label>
                 <Input
-                  type="url"
+                  type="text"
                   value={formData.website}
                   onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                   placeholder={t("inquiry.company.website.placeholder")}

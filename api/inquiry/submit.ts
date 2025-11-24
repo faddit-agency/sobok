@@ -58,9 +58,12 @@ export default async function handler(
     }
 
     // DB에 저장
+    // website는 선택사항이므로 빈 문자열이면 null로 처리
+    const website = formData.website && formData.website.trim() ? formData.website.trim() : null
+    
     const insertData: Record<string, any> = {
       company_name: formData.companyName,
-      website: formData.website || null,
+      website: website,
       bojagi_type: formData.bojagiType || null,
       material: formData.material || null,
       quantity: formData.quantity ? String(formData.quantity) : null,
