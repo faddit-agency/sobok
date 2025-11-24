@@ -201,6 +201,8 @@ const translations = {
     "inquiry.contact.details": "상세 요청사항",
     "inquiry.contact.details.placeholder": "원하시는 콘셉트, 사용 목적, 참고하실 브랜드나 이미지가 있다면 함께 적어 주세요.",
     "inquiry.submit": "문의 제출",
+    "inquiry.privacy.label": "(필수) 개인정보 수집 및 이용안내",
+    "inquiry.privacy.view": "보기",
     "inquiry.success.title": "문의가 정상적으로 접수되었습니다",
     "inquiry.success.desc": "담당자가 내용을 확인한 후, 남겨주신 연락처로 순차적으로 연락드립니다.",
     
@@ -511,6 +513,8 @@ const translations = {
     "inquiry.contact.details": "Detailed Requirements",
     "inquiry.contact.details.placeholder": "Please include your desired concept, purpose of use, and any reference brands or images if available.",
     "inquiry.submit": "Submit Inquiry",
+    "inquiry.privacy.label": "(Required) Privacy Policy and Terms of Use",
+    "inquiry.privacy.view": "View",
     "inquiry.success.title": "Your inquiry has been successfully received",
     "inquiry.success.desc": "After our team reviews the content, we will contact you sequentially at the contact information you provided.",
     

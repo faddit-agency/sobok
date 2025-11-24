@@ -468,7 +468,7 @@ export function Inquiry() {
                   required
                 />
                 <span className="text-gray-900">
-                  (필수) 개인정보 수집 및 이용안내
+                  {t("inquiry.privacy.label")}
                 </span>
               </label>
               <Link
@@ -476,7 +476,7 @@ export function Inquiry() {
                 target="_blank"
                 className="text-gray-600 underline hover:text-gray-900"
               >
-                보기
+                {t("inquiry.privacy.view")}
               </Link>
             </div>
             <div className="text-center">
