@@ -10,8 +10,14 @@ CREATE TABLE inquiries (
   id BIGSERIAL PRIMARY KEY,
   company_name VARCHAR(255) NOT NULL,
   website VARCHAR(255),
+  country VARCHAR(100),
+  industry VARCHAR(100),
+  custom_industry VARCHAR(255),
+  existing_products TEXT,
   bojagi_type VARCHAR(50),
   material VARCHAR(50),
+  size_width VARCHAR(50),
+  size_height VARCHAR(50),
   quantity VARCHAR(50),
   deadline DATE,
   budget VARCHAR(100),
@@ -20,6 +26,7 @@ CREATE TABLE inquiries (
   phone VARCHAR(50) NOT NULL,
   details TEXT,
   design_files_count INTEGER DEFAULT 0,
+  design_files_urls TEXT[],
   privacy_consent BOOLEAN DEFAULT false,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );

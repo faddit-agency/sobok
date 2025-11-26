@@ -39,6 +39,14 @@ export default async function handler(
       })
     }
 
+    const sanitizeText = (value: any) => {
+      if (typeof value === "string") {
+        const trimmed = value.trim()
+        return trimmed.length > 0 ? trimmed : null
+      }
+      return value ?? null
+    }
+
     // 날짜 형식 변환 (YYYY-MM-DD 형식으로 변환)
     let deadline: string | null = null
     if (formData.deadline) {
@@ -163,8 +171,14 @@ export default async function handler(
     const insertData: Record<string, any> = {
       company_name: formData.companyName,
       website: website,
+      country: sanitizeText(formData.country),
+      industry: sanitizeText(formData.industry),
+      custom_industry: sanitizeText(formData.customIndustry),
+      existing_products: sanitizeText(formData.existingProducts),
       bojagi_type: formData.bojagiType || null,
       material: formData.material || null,
+      size_width: sanitizeText(formData.sizeWidth),
+      size_height: sanitizeText(formData.sizeHeight),
       quantity: formData.quantity ? String(formData.quantity) : null,
       deadline: deadline,
       budget: formData.budget || null,
