@@ -1,5 +1,4 @@
 import { useState, useEffect, ReactNode } from "react"
-import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { useLanguage } from "../contexts/LanguageContext"
@@ -208,7 +207,7 @@ export function Inquiry() {
 
       const result = await response.json()
       console.log('Success:', result)
-      setIsSubmitted(true)
+    setIsSubmitted(true)
     } catch (error: any) {
       console.error('Error submitting inquiry:', error)
       const errorMessage = error?.message || '문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.'
@@ -268,7 +267,7 @@ export function Inquiry() {
                   <li key={index}>{point}</li>
                 ))}
               </ul>
-            </div>
+        </div>
           </aside>
 
           <div className="lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:pr-2 scrollbar-hide">
@@ -284,19 +283,19 @@ export function Inquiry() {
             >
               <div className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      {t("inquiry.company.name")} <span className="text-red-500">*</span>
-                    </label>
-                    <Input
-                      required
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      placeholder={t("inquiry.company.name.placeholder")}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
+              <div>
+                    <label className="block text-sm font-medium mb-3">
+                  {t("inquiry.company.name")} <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  required
+                  value={formData.companyName}
+                  onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                  placeholder={t("inquiry.company.name.placeholder")}
+                />
+              </div>
+              <div>
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.contact.name")} <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -310,7 +309,7 @@ export function Inquiry() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.contact.email")} <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -322,29 +321,29 @@ export function Inquiry() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.contact.phone")} <span className="text-red-500">*</span>
-                    </label>
-                    <Input
+                </label>
+                <Input
                       required
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={t("inquiry.contact.phone.placeholder")}
-                    />
-                  </div>
-                </div>
+                />
+              </div>
+            </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.company.country")}
                     </label>
                     <div className="relative">
                       <select
                         value={formData.country}
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                        className={`w-full appearance-none border border-gray-200 rounded-md px-3 pr-10 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent ${
+                        className={`w-full h-12 appearance-none border border-gray-200 rounded-md px-4 pr-10 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent ${
                           formData.country ? "text-gray-900" : "text-gray-400"
                         }`}
                       >
@@ -359,14 +358,14 @@ export function Inquiry() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.company.industry")}
                     </label>
                     <div className="relative">
                       <select
                         value={formData.industry}
                         onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                        className={`w-full appearance-none border border-gray-200 rounded-md px-3 pr-10 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent ${
+                        className={`w-full h-12 appearance-none border border-gray-200 rounded-md px-4 pr-10 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent ${
                           formData.industry ? "text-gray-900" : "text-gray-400"
                         }`}
                       >
@@ -384,7 +383,7 @@ export function Inquiry() {
 
                 {formData.industry === "custom" && (
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-3">
                       {t("inquiry.company.industry.custom")}
                     </label>
                     <Input
@@ -411,61 +410,61 @@ export function Inquiry() {
               </SectionCard>
 
             <SectionCard number="02" title={t("inquiry.bojagi.title")} description={t("inquiry.bojagi.brand.file")}>
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-4">{t("inquiry.bojagi.regular")}</label>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="slab"
-                        checked={formData.bojagiType === "slab"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
-                        className="mt-1"
-                      />
-                      <div className="flex-1">
-                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
-                      </div>
-                    </label>
-                    <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="organza"
-                        checked={formData.bojagiType === "organza"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
-                        className="mt-1"
-                      />
-                      <div className="flex-1">
-                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
-                      </div>
-                    </label>
-                    <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="crystal"
-                        checked={formData.bojagiType === "crystal"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
-                        className="mt-1"
-                      />
-                      <div className="flex-1">
-                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-                <div>
+            <div className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium mb-4">{t("inquiry.bojagi.regular")}</label>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="bojagiType"
-                      value="brand"
-                      checked={formData.bojagiType === "brand"}
+                      value="slab"
+                      checked={formData.bojagiType === "slab"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
+                      className="mt-1"
+                    />
+                      <div className="flex-1">
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                    </div>
+                  </label>
+                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <input
+                      type="radio"
+                      name="bojagiType"
+                      value="organza"
+                      checked={formData.bojagiType === "organza"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
+                      className="mt-1"
+                    />
+                      <div className="flex-1">
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                    </div>
+                  </label>
+                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <input
+                      type="radio"
+                      name="bojagiType"
+                      value="crystal"
+                      checked={formData.bojagiType === "crystal"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
+                      className="mt-1"
+                    />
+                      <div className="flex-1">
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                  <input
+                    type="radio"
+                    name="bojagiType"
+                    value="brand"
+                    checked={formData.bojagiType === "brand"}
                       onChange={(e) => {
                         setFormData(prev => ({ ...prev, bojagiType: e.target.value, designFiles: [] }))
                         setImagePreviews(prev => {
@@ -478,18 +477,18 @@ export function Inquiry() {
                         })
                         setImageLoadErrors(new Set())
                       }}
-                      className="mt-1"
-                    />
-                    <div className="flex-1">
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
                       <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.brand")}</div>
-                      <div className="text-sm text-gray-600 mb-2">{t("inquiry.bojagi.brand.desc")}</div>
+                    <div className="text-sm text-gray-600 mb-2">{t("inquiry.bojagi.brand.desc")}</div>
                       <div className="text-sm text-gray-500 mb-3">{t("inquiry.bojagi.brand.file")}</div>
-                      {formData.bojagiType === "brand" && (
+                    {formData.bojagiType === "brand" && (
                         <div className="space-y-4">
                           <label className="block">
-                            <input
-                              type="file"
-                              accept="image/*,.pdf,.ai,.psd"
+                      <input
+                        type="file"
+                        accept="image/*,.pdf,.ai,.psd"
                               multiple
                               onChange={handleFileChange}
                               className="mt-2 text-sm cursor-pointer"
@@ -544,11 +543,11 @@ export function Inquiry() {
                             </div>
                           )}
                         </div>
-                      )}
-                    </div>
-                  </label>
-                </div>
+                    )}
+                  </div>
+                </label>
               </div>
+            </div>
 
               <div className="border-t border-gray-100 pt-6">
                 <label className="block text-sm font-medium mb-3">
@@ -590,77 +589,145 @@ export function Inquiry() {
               description={t("inquiry.contact.details.placeholder")}
             >
               <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t("inquiry.supplies.quantity")}</label>
-                    <Input
-                      type="number"
-                      value={formData.quantity}
-                      onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                      placeholder={t("inquiry.supplies.quantity.placeholder")}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t("inquiry.supplies.deadline")}</label>
-                    <Input
-                      type="date"
-                      value={formData.deadline}
-                      onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-                      placeholder={t("inquiry.supplies.deadline.placeholder")}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">{t("inquiry.supplies.budget")}</label>
-                    <Input
-                      type="text"
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      placeholder={t("inquiry.supplies.budget.placeholder")}
-                    />
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                    <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.quantity")}</label>
+                <Input
+                  type="number"
+                  value={formData.quantity}
+                  onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                  placeholder={t("inquiry.supplies.quantity.placeholder")}
+                />
+              </div>
+              <div>
+                    <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.deadline")}</label>
+                <Input
+                  type="date"
+                  value={formData.deadline}
+                  onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
+                  placeholder={t("inquiry.supplies.deadline.placeholder")}
+                />
+              </div>
+              <div>
+                    <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.budget")}</label>
+                <Input
+                  type="text"
+                  value={formData.budget}
+                  onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                  placeholder={t("inquiry.supplies.budget.placeholder")}
+                />
+              </div>
+            </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">{t("inquiry.contact.details")}</label>
-                  <Textarea
+                  <label className="block text-sm font-medium mb-3">{t("inquiry.contact.details")}</label>
+                <Textarea
                     rows={3}
-                    value={formData.details}
-                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    placeholder={t("inquiry.contact.details.placeholder")}
-                  />
-                </div>
-
-                <div className="border-t border-gray-100 pt-6 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
-                    <label className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={formData.privacyConsent}
-                        onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
-                        className="w-4 h-4"
-                        required
-                      />
-                      <span className="text-gray-900">
-                        {t("inquiry.privacy.label")}
-                      </span>
-                    </label>
-                    <Link
-                      to="/privacy"
-                      target="_blank"
-                      className="text-gray-600 underline hover:text-gray-900"
-                    >
-                      {t("inquiry.privacy.view")}
-                    </Link>
-                  </div>
-                  <div className="flex justify-end">
-                    <Button type="submit" size="lg" className="px-12" disabled={!formData.privacyConsent}>
-                      {t("inquiry.submit")}
-                    </Button>
-                  </div>
-                </div>
+                  value={formData.details}
+                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                  placeholder={t("inquiry.contact.details.placeholder")}
+                />
               </div>
+            </div>
               </SectionCard>
-            </form>
+
+            <SectionCard
+              number="04"
+              title={t("inquiry.terms.title")}
+            >
+              <div className="space-y-4">
+                <div className="bg-white border border-gray-200 rounded-lg p-4">
+                  <div className="flex items-start justify-between mb-3 pb-3 border-b border-gray-200">
+                    <h4 className="text-sm font-semibold text-gray-900">
+                      {t("inquiry.privacy.label")}
+                    </h4>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.privacyConsent}
+                  onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
+                  className="w-4 h-4"
+                  required
+                />
+                      <span className="text-sm text-gray-900">
+                        {t("inquiry.privacy.agree")}
+                </span>
+              </label>
+                  </div>
+                  <div className="max-h-48 overflow-y-auto bg-white rounded p-3 text-sm text-gray-900 leading-relaxed scrollbar-hide">
+                    <p className="mb-3 text-sm">{t("privacy.intro1")}</p>
+                    <p className="mb-3 text-sm">{t("privacy.intro2")}</p>
+                    <p className="mb-3 text-sm">
+                      <strong className="text-sm">{t("privacy.section1.title")}</strong>
+                    </p>
+                    <p className="mb-2 text-sm">{t("privacy.section1.intro")}</p>
+                    <p className="mb-2 text-sm">
+                      <strong className="text-sm">{t("privacy.section1.required.title")}</strong>
+                    </p>
+                    <ul className="list-disc pl-5 mb-3 space-y-1 text-sm">
+                      <li className="text-sm">{t("privacy.section1.required.item1")}</li>
+                      <li className="text-sm">{t("privacy.section1.required.item2")}</li>
+                      <li className="text-sm">{t("privacy.section1.required.item3")}</li>
+                      <li className="text-sm">{t("privacy.section1.required.item4")}</li>
+                    </ul>
+                    <p className="mb-2 text-sm">
+                      <strong className="text-sm">{t("privacy.section1.optional.title")}</strong>
+                    </p>
+                    <ul className="list-disc pl-5 mb-3 space-y-1 text-sm">
+                      <li className="text-sm">{t("privacy.section1.optional.item1")}</li>
+                      <li className="text-sm">{t("privacy.section1.optional.item2")}</li>
+                      <li className="text-sm">{t("privacy.section1.optional.item3")}</li>
+                      <li className="text-sm">{t("privacy.section1.optional.item4")}</li>
+                    </ul>
+                    <p className="mb-2 text-sm">
+                      <strong className="text-sm">{t("privacy.section2.title")}</strong>
+                    </p>
+                    <p className="mb-2 text-sm">{t("privacy.section2.intro")}</p>
+                    <ul className="list-disc pl-5 mb-3 space-y-1 text-sm">
+                      <li className="text-sm">
+                        <strong className="text-sm">{t("privacy.section2.purpose1.title")}</strong>
+                        <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li className="text-sm">{t("privacy.section2.purpose1.item1")}</li>
+                          <li className="text-sm">{t("privacy.section2.purpose1.item2")}</li>
+                          <li className="text-sm">{t("privacy.section2.purpose1.item3")}</li>
+                        </ul>
+                      </li>
+                      <li className="text-sm">
+                        <strong className="text-sm">{t("privacy.section2.purpose2.title")}</strong>
+                        <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li className="text-sm">{t("privacy.section2.purpose2.item1")}</li>
+                          <li className="text-sm">{t("privacy.section2.purpose2.item2")}</li>
+                        </ul>
+                      </li>
+                      <li className="text-sm">
+                        <strong className="text-sm">{t("privacy.section2.purpose3.title")}</strong>
+                        <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
+                          <li className="text-sm">{t("privacy.section2.purpose3.item1")}</li>
+                          <li className="text-sm">{t("privacy.section2.purpose3.item2")}</li>
+                        </ul>
+                      </li>
+                      <li className="text-sm"><strong className="text-sm">{t("privacy.section2.purpose4.title")}</strong></li>
+                    </ul>
+                    <p className="mb-2 text-sm">
+                      <strong className="text-sm">{t("privacy.section3.title")}</strong>
+                    </p>
+                    <p className="mb-2 text-sm">{t("privacy.section3.intro")}</p>
+                    <ul className="list-disc pl-5 mb-3 space-y-1 text-sm">
+                      <li className="text-sm">{t("privacy.section3.item1")}</li>
+                      <li className="text-sm">{t("privacy.section3.item2")}</li>
+                      <li className="text-sm">{t("privacy.section3.item3")}</li>
+                    </ul>
+                    <p className="text-gray-600 text-sm">{t("privacy.section3.note")}</p>
+                  </div>
+            </div>
+                <div className="flex justify-end">
+              <Button type="submit" size="lg" className="px-12" disabled={!formData.privacyConsent}>
+                {t("inquiry.submit")}
+              </Button>
+            </div>
+          </div>
+              </SectionCard>
+        </form>
           </div>
         </div>
       </div>

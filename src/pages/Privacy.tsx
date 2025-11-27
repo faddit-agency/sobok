@@ -15,7 +15,7 @@ export function Privacy() {
   return (
     <main className="pt-32 pb-20 px-4">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-sm max-w-none">
           <h1 className="text-4xl font-bold mb-8">{t("privacy.title")}</h1>
           
           <p className="text-gray-600 mb-8">
