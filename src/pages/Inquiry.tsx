@@ -260,7 +260,6 @@ export function Inquiry() {
           <aside className="space-y-10 lg:sticky lg:top-32 self-start">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">{t("inquiry.title")}</h1>
-              <p className="text-lg text-gray-600 mt-4">{t("inquiry.subtitle")}</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-gray-900 mb-4">{t("inquiry.overview.title")}</p>
