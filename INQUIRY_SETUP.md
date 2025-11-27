@@ -2,6 +2,8 @@
 
 ## 1. Supabase 테이블 생성
 
+### 새로 테이블을 생성하는 경우
+
 Supabase 대시보드에서 SQL Editor를 열고 다음 SQL을 실행하세요:
 
 ```sql
@@ -44,6 +46,40 @@ CREATE POLICY "Allow public insert access" ON inquiries
 -- 관리자만 조회 가능하도록 설정 (선택사항)
 -- CREATE POLICY "Allow admin read access" ON inquiries
 --   FOR SELECT USING (auth.role() = 'authenticated');
+```
+
+### 기존 테이블에 컬럼 추가 (마이그레이션)
+
+이미 `inquiries` 테이블이 존재하는 경우, 다음 SQL을 실행하여 누락된 컬럼을 추가하세요:
+
+```sql
+-- country 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS country VARCHAR(100);
+
+-- industry 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS industry VARCHAR(100);
+
+-- custom_industry 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS custom_industry VARCHAR(255);
+
+-- existing_products 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS existing_products TEXT;
+
+-- size_width 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS size_width VARCHAR(50);
+
+-- size_height 컬럼 추가
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS size_height VARCHAR(50);
+
+-- design_files_urls 컬럼 추가 (이미 있으면 스킵)
+ALTER TABLE inquiries 
+ADD COLUMN IF NOT EXISTS design_files_urls TEXT[];
 ```
 
 ## 2. 이메일 발송 설정

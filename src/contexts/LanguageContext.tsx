@@ -30,7 +30,7 @@ const translations = {
     "home.who.title": "Who we are",
     "home.who.main": "상품을 포장하지 않습니다.",
     "home.who.sub": "브랜드를 포장합니다.",
-    "home.who.desc": "포장은 단순한 포장지가 아닙니다. 존중의 표현이자, 배려의 몸짓이며, 말없는 감정의 전달입니다.\n\n한국의 전통에서 보자기는 단순한 천 이상의 의미를 지닙니다. 선물하는 이의 정성과 마음가짐을 담아냅니다. 매 접힘과 매듭마다 의도가 담겨 있습니다.\n\n소복은 작지만 확실한 축복을 뜻하며, 눈처럼 조용히 쌓입니다. 우리의 접근 방식도 같습니다. 은은하지만, 의도적이며, 오래 남습니다.",
+    "home.who.desc": "포장은 단순한 포장지가 아닙니다. 존중의 표현이자, 배려의 몸짓이며, 감정의 전달입니다.\n\n한국의 전통에서 보자기는 단순한 천 이상의 의미를 지닙니다. 선물하는 이의 정성과 마음가짐을 담아냅니다. 매 접힘과 매듭마다 의도가 담겨 있습니다.\n\n소복은 작지만 확실한 축복을 뜻하며, 눈처럼 조용히 쌓입니다. 우리의 접근 방식도 같습니다. 은은하지만, 의도적이며, 오래 남습니다.",
     
     // Home - Service Introduction
     "home.service.title": "맞춤형 보자기 제작 서비스",
@@ -471,7 +471,7 @@ const translations = {
     "home.who.title": "Who we are",
     "home.who.main": "We don't wrap products.",
     "home.who.sub": "We wrap brands.",
-    "home.who.desc": "Packaging is not just wrapping paper. It is an expression of respect, a gesture of care, and a silent delivery of emotion.\n\nIn Korean tradition, bojagi holds meaning beyond mere fabric. It carries the sincerity and mindset of the giver. Every fold and knot contains intention.\n\nSOBOK means a small but certain blessing, quietly accumulating like snow. Our approach is the same. Subtle but intentional, and lasting.",
+    "home.who.desc": "Packaging is not just wrapping paper. It is an expression of respect, a gesture of care, and a delivery of emotion.\n\nIn Korean tradition, bojagi holds meaning beyond mere fabric. It carries the sincerity and mindset of the giver. Every fold and knot contains intention.\n\nSOBOK means a small but certain blessing, quietly accumulating like snow. Our approach is the same. Subtle but intentional, and lasting.",
     
     "home.lineup.title": "From Brand Planning to Production,\nEverything is Ready at SOBOK",
     "home.lineup.subtitle": "Launch your beauty brand immediately with LINEUP 147,\neven without product planners or designers",
