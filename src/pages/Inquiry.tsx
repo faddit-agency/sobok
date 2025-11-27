@@ -425,7 +425,7 @@ export function Inquiry() {
                         className="mt-1"
                       />
                       <div className="flex-1">
-                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
                         <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
                       </div>
                     </label>
@@ -439,7 +439,7 @@ export function Inquiry() {
                         className="mt-1"
                       />
                       <div className="flex-1">
-                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
                         <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
                       </div>
                     </label>
@@ -453,7 +453,7 @@ export function Inquiry() {
                         className="mt-1"
                       />
                       <div className="flex-1">
-                        <div className="font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
+                        <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
                         <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
                       </div>
                     </label>
@@ -481,7 +481,7 @@ export function Inquiry() {
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <div className="font-medium mb-2">{t("inquiry.bojagi.brand")}</div>
+                      <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.brand")}</div>
                       <div className="text-sm text-gray-600 mb-2">{t("inquiry.bojagi.brand.desc")}</div>
                       <div className="text-sm text-gray-500 mb-3">{t("inquiry.bojagi.brand.file")}</div>
                       {formData.bojagiType === "brand" && (
