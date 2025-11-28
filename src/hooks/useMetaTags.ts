@@ -10,7 +10,7 @@ interface MetaTagsConfig {
 
 export function useMetaTags(config: MetaTagsConfig) {
   useEffect(() => {
-    const baseUrl = 'https://sobok.kr'
+    const baseUrl = 'https://www.sobok.co.kr'
     
     // Update title
     if (config.title) {
