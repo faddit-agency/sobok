@@ -29,3 +29,4 @@ ADD COLUMN IF NOT EXISTS size_height VARCHAR(50);
 ALTER TABLE inquiries 
 ADD COLUMN IF NOT EXISTS design_files_urls TEXT[];
 
+

@@ -17,24 +17,24 @@ export function Footer() {
                 className="h-6 w-auto"
               />
             </div>
-            <div className="space-y-2 text-base text-gray-300">
-              <p>{t("footer.company")} | {t("footer.ceo")}</p>
-              <p>{t("footer.businessNumber")}</p>
-              <p>{t("footer.address")}</p>
-              <p>{t("footer.inquiry")}</p>
+            <div className="space-y-2 text-gray-300">
+              <p className="text-sm">{t("footer.company")} | {t("footer.ceo")}</p>
+              <p className="text-sm">{t("footer.businessNumber")}</p>
+              <p className="text-sm">{t("footer.address")}</p>
+              <p className="text-sm">{t("footer.inquiry")}</p>
             </div>
           </div>
           
           <div className="flex-1">
             <div className="flex flex-wrap gap-4 mb-6 justify-start md:justify-end">
-              <Link to="/privacy" className="text-base text-gray-300 hover:text-white">{t("footer.privacy")}</Link>
-              <a href="#" className="text-base text-gray-300 hover:text-white">{t("footer.terms")}</a>
-              <Link to="/notice" className="text-base text-gray-300 hover:text-white">{t("footer.notice")}</Link>
+              <Link to="/privacy" className="text-sm text-gray-300 hover:text-white">{t("footer.privacy")}</Link>
+              <a href="#" className="text-sm text-gray-300 hover:text-white">{t("footer.terms")}</a>
+              <Link to="/notice" className="text-sm text-gray-300 hover:text-white">{t("footer.notice")}</Link>
             </div>
             
             <div className="flex items-center gap-2 mb-4 justify-start md:justify-end">
               <Mail size={16} className="text-gray-300" />
-              <a href="mailto:contact@faddit.co.kr" className="text-base text-gray-300 hover:text-white">
+              <a href="mailto:contact@faddit.co.kr" className="text-sm text-gray-300 hover:text-white">
                 contact@faddit.co.kr
               </a>
             </div>
@@ -53,8 +53,8 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 text-center text-base text-gray-400">
-          <p>{t("footer.copyright")}</p>
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <p className="text-sm">{t("footer.copyright")}</p>
         </div>
       </div>
     </footer>
