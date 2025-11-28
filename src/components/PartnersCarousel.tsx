@@ -60,6 +60,12 @@ export function PartnersCarousel() {
             transform: translateX(calc(-100% / 3));
           }
         }
+        
+        @media (max-width: 768px) {
+          .scroll-container {
+            animation: scroll 15s linear infinite;
+          }
+        }
       `}</style>
     </div>
   )

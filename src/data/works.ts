@@ -12,6 +12,8 @@ export type WorkCaseStudy = {
   highlights: { title: string; description: string }[]
   palette: string[]
   metrics: { label: string; value: string }[]
+  company?: string
+  products?: string[]
 }
 
 export const worksData: WorkCaseStudy[] = [
@@ -24,6 +26,8 @@ export const worksData: WorkCaseStudy[] = [
     imageClass: "bg-gradient-to-br from-blue-100 to-purple-100",
     heroImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&h=800&fit=crop",
     heroSummary: "미백 앰플 라인의 첫 글로벌 런칭을 위한 미니멀 & 크랙 패턴 보자기 패키지.",
+    company: "설아래",
+    products: ["제품 1", "제품 2"],
     overview:
       "투명 앰플이 돋보이도록 광택감 있는 오간자 소재를 선택하고, 브랜드 로고 패턴을 직조하여 럭셔리한 분위기를 강조했습니다. 디지털 목업을 통해 결정을 빠르게 도와드렸고, 총 6가지 색상으로 시즌 한정 패키지를 구성했습니다.",
     deliverables: [
@@ -62,6 +66,8 @@ export const worksData: WorkCaseStudy[] = [
     imageClass: "bg-gradient-to-br from-green-100 to-teal-100",
     heroImage: "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=1200&h=800&fit=crop",
     heroSummary: "피부과 전용 더마 라인을 위한 차분한 무드의 텍스처 보자기.",
+    company: "설아래",
+    products: ["제품 1", "제품 2"],
     overview:
       "슬라브 면 조직을 활용해 따뜻하면서도 전문적인 인상을 주도록 설계했습니다. FSC 인증지를 사용한 태그와 결합하여 친환경 메시지를 강화하고, 진료실에서 빠르게 포장할 수 있도록 스티치 가이드를 추가했습니다.",
     deliverables: [

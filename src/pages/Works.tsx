@@ -1,5 +1,4 @@
-import { Button } from "../components/ui/button"
-import { ExternalLink, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { Link } from "react-router-dom"
 import { worksData } from "../data/works"
@@ -29,7 +28,7 @@ export function Works() {
 
         {/* Works Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {worksData.map((work) => {
+          {worksData.filter((work) => work.company === "설아래").map((work) => {
             const title = t(work.titleKey)
             const category = t(work.categoryKey)
             const description = t(work.descriptionKey)
@@ -69,20 +68,6 @@ export function Works() {
               </Link>
             )
           })}
-        </section>
-
-        {/* CTA Section */}
-        <section className="text-center bg-gray-50 rounded-lg p-12">
-          <h2 className="text-3xl font-bold mb-4">{t("works.cta.title")}</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            {t("works.cta.desc")}
-          </p>
-          <Button size="lg" asChild>
-            <a href="/lineup">
-              {t("works.cta.button")}
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </a>
-          </Button>
         </section>
       </div>
     </main>
