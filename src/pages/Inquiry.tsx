@@ -642,15 +642,19 @@ export function Inquiry() {
               </div>
               <div>
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.budget")}</label>
-                <Input
-                  type="text"
-                  value={formData.budget}
-                  onChange={(e) => {
-                    const formatted = formatNumberWithCommas(e.target.value)
-                    setFormData({ ...formData, budget: formatted })
-                  }}
-                  placeholder={t("inquiry.supplies.budget.placeholder")}
-                />
+                <div className="relative">
+                  <Input
+                    type="text"
+                    value={formData.budget}
+                    onChange={(e) => {
+                      const formatted = formatNumberWithCommas(e.target.value)
+                      setFormData({ ...formData, budget: formatted })
+                    }}
+                    placeholder={t("inquiry.supplies.budget.placeholder")}
+                    className="pr-12"
+                  />
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none">{t("inquiry.supplies.budget.unit")}</span>
+                </div>
               </div>
             </div>
 
