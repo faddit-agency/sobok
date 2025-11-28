@@ -148,6 +148,31 @@ export function Inquiry() {
     const lastDot = fileName.lastIndexOf('.')
     return lastDot > 0 ? fileName.substring(lastDot + 1).toUpperCase() : 'FILE'
   }
+
+  // 숫자에 콤마 추가 (천 단위)
+  const formatNumberWithCommas = (value: string): string => {
+    // 숫자가 아닌 문자 제거
+    const numbers = value.replace(/[^\d]/g, '')
+    if (!numbers) return ''
+    // 콤마 추가
+    return numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
+  // 전화번호에 하이픈 추가
+  const formatPhoneNumber = (value: string): string => {
+    // 숫자가 아닌 문자 제거
+    const numbers = value.replace(/[^\d]/g, '')
+    if (!numbers) return ''
+    
+    // 한국 전화번호 형식: 010-1234-5678
+    if (numbers.length <= 3) {
+      return numbers
+    } else if (numbers.length <= 7) {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3)}`
+    } else {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`
+    }
+  }
   
   const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -187,16 +212,20 @@ export function Inquiry() {
         })
       )
 
-      // API 호출
+      // API 호출 (콤마와 하이픈 제거하여 순수 숫자만 전송)
+      const submitData = {
+        ...formData,
+        budget: formData.budget.replace(/,/g, ''), // 콤마 제거
+        phone: formData.phone.replace(/-/g, ''), // 하이픈 제거
+        designFiles: designFilesData,
+      }
+      
       const response = await fetch('/api/inquiry/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          designFiles: designFilesData,
-        }),
+        body: JSON.stringify(submitData),
       })
 
       if (!response.ok) {
@@ -328,7 +357,10 @@ export function Inquiry() {
                       required
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => {
+                        const formatted = formatPhoneNumber(e.target.value)
+                        setFormData({ ...formData, phone: formatted })
+                      }}
                       placeholder={t("inquiry.contact.phone.placeholder")}
                 />
               </div>
@@ -613,7 +645,10 @@ export function Inquiry() {
                 <Input
                   type="text"
                   value={formData.budget}
-                  onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                  onChange={(e) => {
+                    const formatted = formatNumberWithCommas(e.target.value)
+                    setFormData({ ...formData, budget: formatted })
+                  }}
                   placeholder={t("inquiry.supplies.budget.placeholder")}
                 />
               </div>

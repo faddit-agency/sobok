@@ -165,12 +165,8 @@ export default async function handler(
     }
 
     // DB에 저장
-    // website는 선택사항이므로 빈 문자열이면 null로 처리
-    const website = formData.website && formData.website.trim() ? formData.website.trim() : null
-    
     const insertData: Record<string, any> = {
       company_name: formData.companyName,
-      website: website,
       country: sanitizeText(formData.country),
       industry: sanitizeText(formData.industry),
       custom_industry: sanitizeText(formData.customIndustry),
