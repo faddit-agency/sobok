@@ -1,0 +1,80 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node'
+
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse,
+) {
+  // XML Content-Type 명시적 설정
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8')
+  res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 홈페이지 -->
+  <url>
+    <loc>https://www.sobok.co.kr/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- 문의하기 -->
+  <url>
+    <loc>https://www.sobok.co.kr/inquiry</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 작품 목록 -->
+  <url>
+    <loc>https://www.sobok.co.kr/works</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- 작품 상세 - 밀크다이브 -->
+  <url>
+    <loc>https://www.sobok.co.kr/works/milkdive</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 작품 상세 - 퓨어소스 -->
+  <url>
+    <loc>https://www.sobok.co.kr/works/puresource</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.sobok.co.kr/faq</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- 개인정보처리방침 -->
+  <url>
+    <loc>https://www.sobok.co.kr/privacy</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- 공지사항 -->
+  <url>
+    <loc>https://www.sobok.co.kr/notice</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>`
+
+  return res.status(200).send(sitemap)
+}
+
