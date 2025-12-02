@@ -47,7 +47,6 @@ export function Inquiry() {
     country: "KR",
     industry: "",
     customIndustry: "",
-    existingProducts: "",
     bojagiType: "",
     material: "",
     sizeWidth: "",
@@ -56,7 +55,6 @@ export function Inquiry() {
     calculatedBojagiSize: "",
     quantity: "",
     deadline: "",
-    budget: "",
     contactName: "",
     email: "",
     phone: "",
@@ -160,15 +158,6 @@ export function Inquiry() {
     return lastDot > 0 ? fileName.substring(lastDot + 1).toUpperCase() : 'FILE'
   }
 
-  // 숫자에 콤마 추가 (천 단위)
-  const formatNumberWithCommas = (value: string): string => {
-    // 숫자가 아닌 문자 제거
-    const numbers = value.replace(/[^\d]/g, '')
-    if (!numbers) return ''
-    // 콤마 추가
-    return numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-  }
-
   // 전화번호에 하이픈 추가
   const formatPhoneNumber = (value: string): string => {
     // 숫자가 아닌 문자 제거
@@ -261,10 +250,9 @@ export function Inquiry() {
         })
       )
 
-      // API 호출 (콤마와 하이픈 제거하여 순수 숫자만 전송)
+      // API 호출 (하이픈 제거하여 순수 숫자만 전송)
       const submitData = {
         ...formData,
-        budget: formData.budget.replace(/,/g, ''), // 콤마 제거
         phone: formData.phone.replace(/-/g, ''), // 하이픈 제거
         designFiles: designFilesData,
       }
@@ -474,18 +462,6 @@ export function Inquiry() {
                     />
                   </div>
                 )}
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    {t("inquiry.company.products")}
-                  </label>
-                  <Textarea
-                    rows={4}
-                    value={formData.existingProducts}
-                    onChange={(e) => setFormData({ ...formData, existingProducts: e.target.value })}
-                    placeholder={t("inquiry.company.products.placeholder")}
-                  />
-                </div>
 
               </div>
               </SectionCard>
@@ -857,7 +833,7 @@ export function Inquiry() {
               description={t("inquiry.contact.details.placeholder")}
             >
               <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.quantity")}</label>
                 <Input
@@ -875,22 +851,6 @@ export function Inquiry() {
                   onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                   placeholder={t("inquiry.supplies.deadline.placeholder")}
                 />
-              </div>
-              <div>
-                    <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.budget")}</label>
-                <div className="relative">
-                <Input
-                  type="text"
-                  value={formData.budget}
-                    onChange={(e) => {
-                      const formatted = formatNumberWithCommas(e.target.value)
-                      setFormData({ ...formData, budget: formatted })
-                    }}
-                  placeholder={t("inquiry.supplies.budget.placeholder")}
-                    className="pr-12"
-                  />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none">{t("inquiry.supplies.budget.unit")}</span>
-                </div>
               </div>
               </div>
 
