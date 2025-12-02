@@ -473,17 +473,17 @@ export function Inquiry() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <div className="flex items-start space-x-3 mb-3">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="slab"
-                        checked={formData.bojagiType === "slab"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
-                        className="mt-1"
-                      />
+                    <input
+                      type="radio"
+                      name="bojagiType"
+                      value="slab"
+                      checked={formData.bojagiType === "slab"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
+                      className="mt-1"
+                    />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
                       </div>
                     </div>
                     <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
@@ -496,17 +496,17 @@ export function Inquiry() {
                   </label>
                   <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <div className="flex items-start space-x-3 mb-3">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="organza"
-                        checked={formData.bojagiType === "organza"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
-                        className="mt-1"
-                      />
+                    <input
+                      type="radio"
+                      name="bojagiType"
+                      value="organza"
+                      checked={formData.bojagiType === "organza"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
+                      className="mt-1"
+                    />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
                       </div>
                     </div>
                     <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
@@ -519,17 +519,17 @@ export function Inquiry() {
                   </label>
                   <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <div className="flex items-start space-x-3 mb-3">
-                      <input
-                        type="radio"
-                        name="bojagiType"
-                        value="crystal"
-                        checked={formData.bojagiType === "crystal"}
-                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
-                        className="mt-1"
-                      />
+                    <input
+                      type="radio"
+                      name="bojagiType"
+                      value="crystal"
+                      checked={formData.bojagiType === "crystal"}
+                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
+                      className="mt-1"
+                    />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
-                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
                       </div>
                     </div>
                     <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
@@ -640,17 +640,27 @@ export function Inquiry() {
                       {t("inquiry.bojagi.size.label")}
                     </label>
                     <div
-                      className="relative"
+                      className="relative inline-block"
                       onMouseEnter={() => setShowSizeTooltip(true)}
                       onMouseLeave={() => setShowSizeTooltip(false)}
                     >
-                      <HelpCircle className="w-4 h-4 text-gray-400 cursor-help" />
+                      <HelpCircle className="w-4 h-4 text-gray-400 cursor-help hover:text-gray-600 transition-colors" />
                       {showSizeTooltip && (
-                        <div className="absolute left-0 top-6 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-2">
+                        <div 
+                          className="absolute left-6 top-6 z-[9999] bg-white border-2 border-gray-300 rounded-lg shadow-2xl p-3"
+                          style={{ minWidth: '329px', minHeight: '383px' }}
+                          onMouseEnter={() => setShowSizeTooltip(true)}
+                          onMouseLeave={() => setShowSizeTooltip(false)}
+                        >
                           <img
-                            src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764637164/Frame_131_uft7oz.svg"
+                            src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764658959/Frame_131_rgjd0y.svg"
                             alt="사이즈 가이드"
-                            className="w-[302px] h-[394px]"
+                            className="w-full h-auto block"
+                            style={{ width: '329px', height: '383px' }}
+                            onLoad={() => console.log("툴팁 이미지 로드 성공")}
+                            onError={(e) => {
+                              console.error("툴팁 이미지 로드 실패", e)
+                            }}
                           />
                         </div>
                       )}
@@ -834,7 +844,7 @@ export function Inquiry() {
             >
               <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className="min-w-0">
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.quantity")}</label>
                 <Input
                   type="number"
@@ -843,13 +853,14 @@ export function Inquiry() {
                   placeholder={t("inquiry.supplies.quantity.placeholder")}
                 />
               </div>
-              <div>
+              <div className="min-w-0">
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.deadline")}</label>
                 <Input
                   type="date"
                   value={formData.deadline}
                   onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                   placeholder={t("inquiry.supplies.deadline.placeholder")}
+                  className="min-w-0"
                 />
               </div>
               </div>
