@@ -348,7 +348,7 @@ export function Inquiry() {
         </div>
           </aside>
 
-          <div className="lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:pr-2 scrollbar-hide">
+          <div className="lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:pr-2 scrollbar-light">
             <form
               onSubmit={handleSubmit}
               className="bg-white border border-gray-100 rounded-2xl divide-y divide-gray-100"
