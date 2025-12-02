@@ -175,6 +175,8 @@ export default async function handler(
       material: formData.material || null,
       size_width: sanitizeText(formData.sizeWidth),
       size_height: sanitizeText(formData.sizeHeight),
+      size_depth: sanitizeText(formData.sizeDepth),
+      calculated_bojagi_size: sanitizeText(formData.calculatedBojagiSize),
       quantity: formData.quantity ? String(formData.quantity) : null,
       deadline: deadline,
       budget: formData.budget || null,

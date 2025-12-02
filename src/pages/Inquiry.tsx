@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { useLanguage } from "../contexts/LanguageContext"
 import { Textarea } from "../components/ui/textarea"
-import { X, ChevronDown } from "lucide-react"
+import { X, ChevronDown, HelpCircle } from "lucide-react"
 import { useMetaTags } from "../hooks/useMetaTags"
 
 interface SectionCardProps {
@@ -52,6 +52,8 @@ export function Inquiry() {
     material: "",
     sizeWidth: "",
     sizeHeight: "",
+    sizeDepth: "",
+    calculatedBojagiSize: "",
     quantity: "",
     deadline: "",
     budget: "",
@@ -62,6 +64,15 @@ export function Inquiry() {
     designFiles: [] as File[],
     privacyConsent: false
   })
+  
+  const [calculatorData, setCalculatorData] = useState({
+    width: "",
+    height: "",
+    depth: ""
+  })
+  const [calculatedSize, setCalculatedSize] = useState<number | null>(null)
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
+  const [showSizeTooltip, setShowSizeTooltip] = useState(false)
   
   const [imagePreviews, setImagePreviews] = useState<(string | null)[]>([])
   const [imageLoadErrors, setImageLoadErrors] = useState<Set<number>>(new Set())
@@ -172,6 +183,44 @@ export function Inquiry() {
     } else {
       return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`
     }
+  }
+  
+  // 보자기 사이즈 계산 함수
+  const handleCalculate = () => {
+    const width = parseFloat(calculatorData.width)
+    const depth = parseFloat(calculatorData.depth)
+    
+    if (width > 0 && depth > 0) {
+      // {(가로×2) + (높이×2) + 40} ÷ 1.41
+      const result = ((width * 2) + (depth * 2) + 40) / 1.41
+      setCalculatedSize(Math.round(result * 100) / 100) // 소수점 둘째 자리까지
+    } else {
+      setCalculatedSize(null)
+    }
+  }
+  
+  // 계산된 값을 폼에 적용
+  const handleApplyCalculatedSize = () => {
+    if (calculatedSize !== null) {
+      setFormData({
+        ...formData,
+        sizeWidth: calculatorData.width,
+        sizeHeight: calculatorData.height,
+        sizeDepth: calculatorData.depth,
+        calculatedBojagiSize: calculatedSize.toFixed(2)
+      })
+      setIsCalculatorOpen(false)
+      // 계산기 데이터 초기화
+      setCalculatorData({ width: "", height: "", depth: "" })
+      setCalculatedSize(null)
+    }
+  }
+  
+  // 계산기 닫기
+  const handleCloseCalculator = () => {
+    setIsCalculatorOpen(false)
+    setCalculatorData({ width: "", height: "", depth: "" })
+    setCalculatedSize(null)
   }
   
   const fileToBase64 = (file: File): Promise<string> => {
@@ -446,46 +495,73 @@ export function Inquiry() {
               <div>
                 <label className="block text-sm font-medium mb-4">{t("inquiry.bojagi.regular")}</label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="slab"
-                      checked={formData.bojagiType === "slab"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
-                      className="mt-1"
-                    />
+                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 mb-3">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="slab"
+                        checked={formData.bojagiType === "slab"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "slab" })}
+                        className="mt-1"
+                      />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%87%E1%85%B3_jz4mfi.png"
+                        alt={t("inquiry.bojagi.regular.slab")}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </label>
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="organza"
-                      checked={formData.bojagiType === "organza"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
-                      className="mt-1"
-                    />
+                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 mb-3">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="organza"
+                        checked={formData.bojagiType === "organza"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "organza" })}
+                        className="mt-1"
+                      />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%8B%E1%85%A9%E1%84%80%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1_v7nsch.png"
+                        alt={t("inquiry.bojagi.regular.organza")}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </label>
-                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="bojagiType"
-                      value="crystal"
-                      checked={formData.bojagiType === "crystal"}
-                      onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
-                      className="mt-1"
-                    />
+                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <div className="flex items-start space-x-3 mb-3">
+                      <input
+                        type="radio"
+                        name="bojagiType"
+                        value="crystal"
+                        checked={formData.bojagiType === "crystal"}
+                        onChange={(e) => setFormData({ ...formData, bojagiType: e.target.value, material: "crystal" })}
+                        className="mt-1"
+                      />
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
-                      <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                        <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
+                      </div>
+                    </div>
+                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
+                      <img
+                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%86%AF_uosqiy.png"
+                        alt={t("inquiry.bojagi.regular.crystal")}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </label>
                 </div>
@@ -582,11 +658,39 @@ export function Inquiry() {
             </div>
 
               <div className="border-t border-gray-100 pt-6">
-                <label className="block text-sm font-medium mb-3">
-                  {t("inquiry.bojagi.size.label")}
-                </label>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2 relative">
+                    <label className="block text-sm font-medium">
+                      {t("inquiry.bojagi.size.label")}
+                    </label>
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setShowSizeTooltip(true)}
+                      onMouseLeave={() => setShowSizeTooltip(false)}
+                    >
+                      <HelpCircle className="w-4 h-4 text-gray-400 cursor-help" />
+                      {showSizeTooltip && (
+                        <div className="absolute left-0 top-6 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-2">
+                          <img
+                            src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764637164/Frame_131_uft7oz.svg"
+                            alt="사이즈 가이드"
+                            className="w-[302px] h-[394px]"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setIsCalculatorOpen(true)}
+                    className="text-sm"
+                  >
+                    {t("inquiry.bojagi.size.calculator.button")}
+                  </Button>
+                </div>
                 <p className="text-sm text-gray-500 mb-4">{t("inquiry.bojagi.size.description")}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
                     <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
                       {t("inquiry.bojagi.size.width")}
@@ -594,6 +698,7 @@ export function Inquiry() {
                     <Input
                       type="number"
                       min="0"
+                      step="0.1"
                       placeholder={t("inquiry.bojagi.size.width.placeholder")}
                       value={formData.sizeWidth}
                       onChange={(e) => setFormData({ ...formData, sizeWidth: e.target.value })}
@@ -606,13 +711,144 @@ export function Inquiry() {
                     <Input
                       type="number"
                       min="0"
+                      step="0.1"
                       placeholder={t("inquiry.bojagi.size.height.placeholder")}
                       value={formData.sizeHeight}
                       onChange={(e) => setFormData({ ...formData, sizeHeight: e.target.value })}
                     />
                   </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
+                      {t("inquiry.bojagi.size.depth")}
+                    </label>
+                    <Input
+                      type="number"
+                      min="0"
+                      step="0.1"
+                      placeholder={t("inquiry.bojagi.size.depth.placeholder")}
+                      value={formData.sizeDepth}
+                      onChange={(e) => setFormData({ ...formData, sizeDepth: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
+                      {t("inquiry.bojagi.size.calculated")}
+                    </label>
+                    <Input
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder={t("inquiry.bojagi.size.calculated.placeholder")}
+                      value={formData.calculatedBojagiSize}
+                      onChange={(e) => setFormData({ ...formData, calculatedBojagiSize: e.target.value })}
+                    />
+                  </div>
                 </div>
               </div>
+              
+              {/* 계산기 모달 */}
+              {isCalculatorOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleCloseCalculator}>
+                  <div className="bg-white rounded-lg p-6 max-w-xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {t("inquiry.bojagi.size.calculator.title")}
+                      </h3>
+                      <button
+                        type="button"
+                        onClick={handleCloseCalculator}
+                        className="text-gray-400 hover:text-gray-600"
+                      >
+                        <X size={20} />
+                      </button>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-3 gap-4">
+                        <div>
+                          <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
+                            {t("inquiry.bojagi.size.calculator.width")}
+                          </label>
+                          <Input
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder={t("inquiry.bojagi.size.calculator.width.placeholder")}
+                            value={calculatorData.width}
+                            onChange={(e) => setCalculatorData({ ...calculatorData, width: e.target.value })}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
+                            {t("inquiry.bojagi.size.calculator.height")}
+                          </label>
+                          <Input
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder={t("inquiry.bojagi.size.calculator.height.placeholder")}
+                            value={calculatorData.height}
+                            onChange={(e) => setCalculatorData({ ...calculatorData, height: e.target.value })}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs uppercase tracking-wide text-gray-500 mb-1">
+                            {t("inquiry.bojagi.size.calculator.depth")}
+                          </label>
+                          <Input
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder={t("inquiry.bojagi.size.calculator.depth.placeholder")}
+                            value={calculatorData.depth}
+                            onChange={(e) => setCalculatorData({ ...calculatorData, depth: e.target.value })}
+                          />
+                        </div>
+                      </div>
+                      
+                      <Button
+                        type="button"
+                        onClick={handleCalculate}
+                        className="w-full"
+                      >
+                        {t("inquiry.bojagi.size.calculator.calculate")}
+                      </Button>
+                      
+                      {calculatedSize !== null && (
+                        <div className="mt-4">
+                          <p className="text-sm text-gray-600 text-center mb-2">
+                            {t("inquiry.bojagi.size.calculator.result")}
+                          </p>
+                          <p className="text-2xl font-bold text-gray-900 text-center">
+                            {calculatedSize.toFixed(2)} {t("inquiry.bojagi.size.calculator.result.unit")}
+                          </p>
+                          <div className="mt-4 space-y-2">
+                            <p className="text-sm text-gray-600 text-center">{t("inquiry.bojagi.size.calculator.note")}</p>
+                            <p className="text-sm text-gray-600 text-center">{t("inquiry.bojagi.size.calculator.recommendation")}</p>
+                          </div>
+                          <div className="flex gap-3 mt-4">
+                            <Button
+                              type="button"
+                              onClick={handleApplyCalculatedSize}
+                              className="flex-1"
+                            >
+                              {t("inquiry.bojagi.size.calculator.apply")}
+                            </Button>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              onClick={handleCloseCalculator}
+                              className="flex-1"
+                            >
+                              {t("inquiry.bojagi.size.calculator.cancel")}
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </SectionCard>
 
             <SectionCard
@@ -643,22 +879,22 @@ export function Inquiry() {
               <div>
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.budget")}</label>
                 <div className="relative">
-                  <Input
-                    type="text"
-                    value={formData.budget}
+                <Input
+                  type="text"
+                  value={formData.budget}
                     onChange={(e) => {
                       const formatted = formatNumberWithCommas(e.target.value)
                       setFormData({ ...formData, budget: formatted })
                     }}
-                    placeholder={t("inquiry.supplies.budget.placeholder")}
+                  placeholder={t("inquiry.supplies.budget.placeholder")}
                     className="pr-12"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none">{t("inquiry.supplies.budget.unit")}</span>
                 </div>
               </div>
-            </div>
+              </div>
 
-                <div>
+              <div>
                   <label className="block text-sm font-medium mb-3">{t("inquiry.contact.details")}</label>
                 <Textarea
                     rows={3}

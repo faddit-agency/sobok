@@ -30,3 +30,4 @@ ALTER TABLE inquiries
 ADD COLUMN IF NOT EXISTS design_files_urls TEXT[];
 
 
+
