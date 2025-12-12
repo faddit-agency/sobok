@@ -44,8 +44,18 @@ export function WorksSummarySection() {
                 className="group cursor-pointer"
               >
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col border border-gray-100">
-                  <div className={`${work.imageClass} aspect-square flex items-center justify-center`}>
-                    <span className="text-2xl font-bold text-gray-600">{title}</span>
+                  <div className="aspect-square relative overflow-hidden bg-gray-100">
+                    {work.heroImage ? (
+                      <img
+                        src={work.heroImage}
+                        alt={title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className={`${work.imageClass} w-full h-full flex items-center justify-center`}>
+                        <span className="text-2xl font-bold text-gray-600">{title}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="p-6 space-y-3 flex flex-col flex-1">
                     <div className="flex items-center justify-between">

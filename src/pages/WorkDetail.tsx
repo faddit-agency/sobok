@@ -68,7 +68,7 @@ export function WorkDetail() {
               </Button>
               <Button
                 variant="outline"
-                className="text-white border-white hover:bg-white/10"
+                className="bg-transparent text-white border-white hover:bg-transparent hover:text-white"
                 onClick={() => navigate("/works")}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -107,6 +107,27 @@ export function WorkDetail() {
           </ul>
         </div>
       </section>
+
+      {/* Gallery */}
+      {work.images && work.images.length > 0 && (
+        <section className="container mx-auto px-4 py-16 space-y-8">
+          <div className="flex flex-col gap-2">
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-500">Gallery</p>
+            <h2 className="text-3xl font-semibold text-gray-900">프로젝트 이미지</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {work.images.map((image, index) => (
+              <div key={index} className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={image}
+                  alt={`${title} - 이미지 ${index + 1}`}
+                  className="w-full h-full object-cover aspect-square"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Highlights */}
       <section className="bg-gray-900 text-white py-16">
@@ -150,20 +171,20 @@ export function WorkDetail() {
         <div className="container mx-auto px-4 flex flex-col gap-6 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Next Project</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-            브랜드가 원하는 분위기를<br className="hidden sm:block" />패키지로 구현해 드립니다.
+            브랜드가 원하는 분위기를<br />패키지로 구현해 드립니다.
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            소재 제안, 직조, 패턴 개발, 목업까지 한 번에 진행해보세요. 미팅 예약 또는 메일 문의로 프로젝트를 빠르게 시작할 수 있습니다.
+            소재 제안, 직조, 패턴 개발, 목업까지 한 번에 진행해보세요.<br />미팅 예약 또는 메일 문의로 프로젝트를 빠르게 시작할 수 있습니다.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
-              <Link to="/inquiry">
+              <Link to="/inquiry" className="flex items-center justify-center">
                 프로젝트 상담하기
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link to="/works">
+              <Link to="/works" className="flex items-center justify-center">
                 다른 작업 보기
               </Link>
             </Button>

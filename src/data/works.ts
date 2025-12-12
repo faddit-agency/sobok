@@ -14,47 +14,53 @@ export type WorkCaseStudy = {
   metrics: { label: string; value: string }[]
   company?: string
   products?: string[]
+  images?: string[]
 }
 
 export const worksData: WorkCaseStudy[] = [
   {
     slug: "milkdive",
     titleKey: "works.brand.milkdive",
-    categoryKey: "works.category.skincare",
+    categoryKey: "works.category.derma",
     descriptionKey: "works.desc.milkdive",
     statusKey: "works.launchable",
     imageClass: "bg-gradient-to-br from-blue-100 to-purple-100",
-    heroImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&h=800&fit=crop",
-    heroSummary: "미백 앰플 라인의 첫 글로벌 런칭을 위한 미니멀 & 크랙 패턴 보자기 패키지.",
+    heroImage: "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504060/KakaoTalk_20251211_194019890_01_x3csk9.jpg",
+    heroSummary: "부모님의 청춘을 되찾아 줄 3세대 침향환, 연유침향환 포장 프로젝트",
     company: "설아래",
-    products: ["제품 1", "제품 2"],
+    products: ["3세대 침향환", "연유침향환"],
     overview:
-      "투명 앰플이 돋보이도록 광택감 있는 오간자 소재를 선택하고, 브랜드 로고 패턴을 직조하여 럭셔리한 분위기를 강조했습니다. 디지털 목업을 통해 결정을 빠르게 도와드렸고, 총 6가지 색상으로 시즌 한정 패키지를 구성했습니다.",
+      "효도선물끝판왕 프로젝트를 위한 맞춤형 보자기 제작입니다. 전통적인 침향환에 연유를 더해 흡수율과 맛을 개선한 제품의 고급스러운 이미지를 포장에 담아냈습니다. 부모님께 드리는 선물이라는 특별한 의미를 고려하여 정성스러운 디자인과 소재를 선택했고, 와디즈 펀딩을 통해 성공적으로 출시된 제품의 포장을 담당했습니다.",
     deliverables: [
-      "브랜드 로고 패턴 오간자 보자기",
-      "제품 박스 맞춤 실크 리본",
-      "런칭 키트 안내 카드 & 봉투",
-      "포장 매뉴얼 & 인스토어 디스플레이"
+      "효도선물 맞춤 보자기 제작",
+      "전통과 현대가 조화된 디자인",
+      "고급스러운 포장 솔루션",
+      "와디즈 펀딩 출시 지원"
     ],
     highlights: [
       {
-        title: "패턴 섬세화",
-        description: "패턴 반복 간격과 실 두께를 조정하여 광택감을 살리면서도 번짐 없이 로고를 구현."
+        title: "전통과 현대의 조화",
+        description: "전통적인 침향환의 가치를 현대적인 포장 디자인으로 표현하여 부모님께 드리는 선물의 의미를 강조했습니다."
       },
       {
-        title: "프로토타입 3회",
-        description: "실제 충진된 제품 무게와 동일한 더미로 여러 번 테스트해 촬영과 인도 상황 모두 안정적으로 유지."
+        title: "고품질 원료 반영",
+        description: "엄선된 침향과 천연 재료를 사용한 제품의 품격을 포장 디자인에 반영하여 신뢰감을 높였습니다."
       },
       {
-        title: "패키지 매뉴얼",
-        description: "리테일 매장에서 바로 사용할 수 있는 6단계 포장 가이드를 제작하여 브랜드 일관성을 확보."
+        title: "효도선물 특화 디자인",
+        description: "부모님의 건강과 활력을 되찾아드리겠다는 브랜드 메시지를 포장에 담아 효도선물로 최적화된 디자인을 완성했습니다."
       }
     ],
-    palette: ["#E4ECFF", "#C3D4FF", "#A4B9F5", "#8B9FD8"],
+    palette: ["#F5D7E8", "#E8B4C8", "#DC143C", "#B22222"],
     metrics: [
       { label: "제작 기간", value: "5 Weeks" },
       { label: "포장 수량", value: "12,000ea" },
-      { label: "재주문율", value: "92%" }
+      { label: "펀딩 성공률", value: "100%" }
+    ],
+    images: [
+      "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504060/KakaoTalk_20251211_194019890_vt3up9.jpg",
+      "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504060/KakaoTalk_20251211_194019890_01_x3csk9.jpg",
+      "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504061/24%E1%84%82%E1%85%A7%E1%86%AB7%E1%84%8B%E1%85%AF%E1%86%AF_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%85%E1%85%A2_%E1%84%8A%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%84%92%E1%85%AA%E1%86%AB-116_w8l7qc.jpg"
     ]
   },
   {
@@ -64,37 +70,41 @@ export const worksData: WorkCaseStudy[] = [
     descriptionKey: "works.desc.puresource",
     statusKey: "works.launchable",
     imageClass: "bg-gradient-to-br from-green-100 to-teal-100",
-    heroImage: "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=1200&h=800&fit=crop",
-    heroSummary: "피부과 전용 더마 라인을 위한 차분한 무드의 텍스처 보자기.",
+    heroImage: "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504060/KakaoTalk_20251211_194019890_03_yeaizp.jpg",
+    heroSummary: "1억 천종산삼과 DNA 98.8% 동일, 백년 산삼배양근 포장 프로젝트",
     company: "설아래",
-    products: ["제품 1", "제품 2"],
+    products: ["백년 산삼배양근"],
     overview:
-      "슬라브 면 조직을 활용해 따뜻하면서도 전문적인 인상을 주도록 설계했습니다. FSC 인증지를 사용한 태그와 결합하여 친환경 메시지를 강화하고, 진료실에서 빠르게 포장할 수 있도록 스티치 가이드를 추가했습니다.",
+      "설선물끝판왕 프로젝트를 위한 맞춤형 보자기 제작입니다. 1억 원 상당의 천종산삼과 DNA가 98.8% 동일한 백년 산삼배양근이라는 고품질 제품의 가치를 포장에 담아냈습니다. 합리적인 가격으로 산삼의 효능을 제공한다는 브랜드 메시지를 반영하여 설 선물로 적합한 고급스러우면서도 접근 가능한 포장 디자인을 완성했습니다. 와디즈 펀딩을 통해 성공적으로 출시된 제품의 포장을 담당했습니다.",
     deliverables: [
-      "슬라브 면 맞춤 직조 보자기",
-      "FSC 인증지 태그 & 마킹 스티커",
-      "시즌별 컬러칩 & 가이드 샘플",
-      "클리닉 전용 포장 트레이"
+      "설선물 맞춤 보자기 제작",
+      "고품질 산삼 이미지 반영",
+      "설 선물 특화 디자인",
+      "와디즈 펀딩 출시 지원"
     ],
     highlights: [
       {
-        title: "친환경 인증",
-        description: "전체 소재에 대해 LCA 리포트를 제공하여 B2B 파트너의 서류 작업까지 지원."
+        title: "고품질 산삼 이미지",
+        description: "천종산삼과 유사한 DNA를 가진 배양근의 가치를 포장 디자인에 반영하여 제품의 품격을 높였습니다."
       },
       {
-        title: "원스텝 포장",
-        description: "스티치 라인을 따라 매듭만 묶으면 형태가 잡히도록 설계해 교육 시간을 60% 절감."
+        title: "설 선물 최적화",
+        description: "설 명절에 부모님께 드리는 선물이라는 특별한 의미를 고려하여 정성스럽고 고급스러운 포장 디자인을 완성했습니다."
       },
       {
-        title: "컬러 시스템",
-        description: "클리닉별로 고를 수 있는 4가지 컬러 팔레트를 제안해 브랜드 경험을 확장."
+        title: "안전성과 신뢰감 강조",
+        description: "청정 지역에서 철저한 관리하에 재배된 안전한 제품임을 포장을 통해 전달하여 신뢰감을 높였습니다."
       }
     ],
-    palette: ["#E3F2ED", "#C4E0D5", "#A3CABF", "#6FA093"],
+    palette: ["#B8A9C9", "#6B5B95", "#4A4A5C", "#E8E4E8"],
     metrics: [
       { label: "제작 기간", value: "4 Weeks" },
       { label: "포장 세트", value: "8,500ea" },
-      { label: "교육 방문", value: "6 Sessions" }
+      { label: "펀딩 성공률", value: "100%" }
+    ],
+    images: [
+      "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504061/24%E1%84%82%E1%85%A7%E1%86%AB7%E1%84%8B%E1%85%AF%E1%86%AF_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%85%E1%85%A2_%E1%84%8A%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AA%E1%84%92%E1%85%AA%E1%86%AB-116_w8l7qc.jpg",
+      "https://res.cloudinary.com/dsg01xpat/image/upload/v1765504060/KakaoTalk_20251211_194019890_02_zj8bh8.jpg"
     ]
   },
   {
