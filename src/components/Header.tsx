@@ -70,9 +70,9 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/Sobok_black.svg" 
-              alt="SOBOK" 
-              className="h-6 w-auto"
+              src="https://res.cloudinary.com/dsg01xpat/image/upload/v1766393707/%E7%B4%A0%E7%B5%86_rwuenu.png" 
+              alt="SOBIN" 
+              className="h-7 w-auto"
             />
           </Link>
 

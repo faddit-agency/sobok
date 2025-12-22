@@ -1,6 +1,6 @@
-# SOBOK
+# SOBIN
 
-SOBOK 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
+SOBIN 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
 
 ## 기술 스택
 
@@ -80,4 +80,4 @@ src/
 
 ## 라이선스
 
-Copyright © SOBOK All rights reserved.
+Copyright © SOBIN All rights reserved.

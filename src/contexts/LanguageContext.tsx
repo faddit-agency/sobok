@@ -22,7 +22,7 @@ const translations = {
     "nav.faq": "FAQ",
     
     // Home
-    "home.hero.title": "소복",
+    "home.hero.title": "소빈",
     "home.hero.subtitle": "브랜드의 감성을 포장하는 가장 간결한 방식",
     "home.hero.cta": "커스텀 제작 문의하기",
     
@@ -30,14 +30,14 @@ const translations = {
     "home.who.title": "Who we are",
     "home.who.main": "상품을 포장하지 않습니다.",
     "home.who.sub": "브랜드를 포장합니다.",
-    "home.who.desc": "포장은 단순한 포장지가 아닙니다. 존중의 표현이자, 배려의 몸짓이며, 감정의 전달입니다.\n\n한국의 전통에서 보자기는 단순한 천 이상의 의미를 지닙니다. 선물하는 이의 정성과 마음가짐을 담아냅니다. 매 접힘과 매듭마다 의도가 담겨 있습니다.\n\n소복은 작지만 확실한 축복을 뜻하며, 눈처럼 조용히 쌓입니다. 우리의 접근 방식도 같습니다. 은은하지만, 의도적이며, 오래 남습니다.",
+    "home.who.desc": "포장은 단순한 포장지가 아닙니다. 존중의 표현이자, 배려의 몸짓이며, 감정의 전달입니다.\n\n한국의 전통에서 보자기는 단순한 천 이상의 의미를 지닙니다. 선물하는 이의 정성과 마음가짐을 담아냅니다. 매 접힘과 매듭마다 의도가 담겨 있습니다.\n\n소빈은 작지만 확실한 축복을 뜻하며, 눈처럼 조용히 쌓입니다. 우리의 접근 방식도 같습니다. 은은하지만, 의도적이며, 오래 남습니다.",
     
     // Home - Service Introduction
     "home.service.title": "맞춤형 보자기 제작 서비스",
-    "home.service.desc": "SOBOK은 브랜드의 아이덴티티를 담은 맞춤형 보자기와 포장 소모품을 제작합니다. 리테일 브랜드, 선물 전문 브랜드, 이벤트 기획사 등 다양한 고객에게 브랜드 톤앤매너에 맞는 포장 솔루션을 제공합니다.",
+    "home.service.desc": "SOBIN은 브랜드의 아이덴티티를 담은 맞춤형 보자기와 포장 소모품을 제작합니다. 리테일 브랜드, 선물 전문 브랜드, 이벤트 기획사 등 다양한 고객에게 브랜드 톤앤매너에 맞는 포장 솔루션을 제공합니다.",
     
     // Home - Strengths
-    "home.strengths.title": "SOBOK의 강점",
+    "home.strengths.title": "SOBIN의 강점",
     "home.strengths.weaving.title": "직조 기반 맞춤 패턴 제작 가능",
     "home.strengths.weaving.desc": "브랜드의 패턴과 로고를 직접 직조하여 완전히 독특한 보자기를 제작할 수 있습니다.",
     "home.strengths.experience.title": "브랜드 전용 보자기 제작 경험",
@@ -102,7 +102,7 @@ const translations = {
     "home.services.quality.delivery": "납품 일정",
     "home.services.quality.guarantee": "100% 보장",
     "home.services.quality.desc": "디자인, 직조, 포장, 납품까지 모든 공정을 데이터 기반으로 관리합니다.",
-    "home.services.partners": "소복과 함께 브랜드의 마음을 정해온 기업입니다.",
+    "home.services.partners": "소빈과 함께 브랜드의 마음을 정해온 기업입니다.",
     
     // Home - CTA
     "home.cta.title": "지금 문의하세요",
@@ -111,7 +111,7 @@ const translations = {
     "home.cta.footer": "포장은 단순한 마감이 아니라, 브랜드의 시작입니다.",
     "home.cta.button": "문의하기",
     
-    "home.lineup.title": "브랜드 기획부터 생산까지 SOBOK에서\n다 준비해 놨으니까",
+    "home.lineup.title": "브랜드 기획부터 생산까지 SOBIN에서\n다 준비해 놨으니까",
     "home.lineup.subtitle": "상품기획자, 디자이너 없이도\n바로 뷰티 브랜드 런칭이 가능하도록, LINEUP 147",
     "home.lineup.cta": "LINEUP 147 주문하러 가기",
     
@@ -129,11 +129,11 @@ const translations = {
     "home.features.reliable.subtitle": "믿을 수 있는",
     "home.features.reliable.desc": "머신러닝을 기반으로 개발한 상품 모형 평가 및 예측 알고리즘을 토대로 고객에게 제안합니다.",
     
-    "home.newsletter.title": "SOBOK LETTER",
+    "home.newsletter.title": "SOBIN LETTER",
     "home.newsletter.subtitle": "뷰티 브랜드 인큐베이터",
-    "home.newsletter.desc": "SOBOK에서 전하는 화장품 이야기",
+    "home.newsletter.desc": "SOBIN에서 전하는 화장품 이야기",
     "home.newsletter.placeholder": "이메일을 입력하세요",
-    "home.newsletter.cta": "SOBOK LETTER 뉴스레터 신청하기",
+    "home.newsletter.cta": "SOBIN LETTER 뉴스레터 신청하기",
     
     "home.update.title": "새롭게 업데이트 된 Lineup 147",
     "home.update.cta": "자세히 보기",
@@ -144,12 +144,12 @@ const translations = {
     "home.update.launchable": "런칭가능",
     
     // About
-    "about.title": "ABOUT SOBOK",
+    "about.title": "ABOUT SOBIN",
     "about.intro.title": "브랜드 소개",
-    "about.intro.desc": "SOBOK은 포장을 통해 순간을 더 오래 기억하게 만들고 싶다는 생각으로 시작된 브랜드입니다. 전통적인 보자기 문화와 현대적인 브랜드 패키지를 연결하는 역할을 합니다.",
+    "about.intro.desc": "SOBIN은 포장을 통해 순간을 더 오래 기억하게 만들고 싶다는 생각으로 시작된 브랜드입니다. 전통적인 보자기 문화와 현대적인 브랜드 패키지를 연결하는 역할을 합니다.",
     "about.culture.title": "포장 문화에 대한 관점",
-    "about.culture.desc": "한국의 보자기 문화는 선물을 감싸는 행위 자체에 의미를 부여하는 독특한 전통입니다. SOBOK은 이러한 전통의 가치를 현대적인 브랜드 경험에 접목하여, 단순한 포장을 넘어선 감성적 가치를 제공합니다.",
-    "about.values.title": "SOBOK이 제공하는 가치",
+    "about.culture.desc": "한국의 보자기 문화는 선물을 감싸는 행위 자체에 의미를 부여하는 독특한 전통입니다. SOBIN은 이러한 전통의 가치를 현대적인 브랜드 경험에 접목하여, 단순한 포장을 넘어선 감성적 가치를 제공합니다.",
+    "about.values.title": "SOBIN이 제공하는 가치",
     "about.values.custom.title": "브랜드 아이덴티티를 담는 맞춤 패턴",
     "about.values.custom.desc": "브랜드의 고유한 패턴과 로고를 직접 직조하여 완전히 독특한 보자기를 제작합니다.",
     "about.values.trust.title": "제작 공정과 품질에 대한 신뢰",
@@ -160,16 +160,16 @@ const translations = {
     "about.cases.retail": "리테일 브랜드 시즌 프로모션 패키지",
     "about.cases.event": "기념일/행사용 선물 패키지",
     "about.cta.title": "함께 시작해볼까요?",
-    "about.cta.desc": "SOBOK과 함께 브랜드만의 특별한 포장 솔루션을 만들어보세요",
+    "about.cta.desc": "SOBIN과 함께 브랜드만의 특별한 포장 솔루션을 만들어보세요",
     "about.cta.button": "문의하기",
     
     // Inquiry
     "inquiry.title": "상담·견적 문의",
     "inquiry.subtitle": "프로젝트에 맞는 보자기 제작을 위해 문의 양식을 작성해주세요",
     "inquiry.overview.title": "상담 전 다시 한번 확인해주세요!",
-    "inquiry.overview.point1": "소복은 브랜딩과 패키지 디자인에 집중하며, 더욱 효율적이고 감각적인 보자기 개발이 가능한 서비스입니다.",
+    "inquiry.overview.point1": "소빈은 브랜딩과 패키지 디자인에 집중하며, 더욱 효율적이고 감각적인 보자기 개발이 가능한 서비스입니다.",
     "inquiry.overview.point2": "상담 신청 후 바로 결제와 생산이 진행되지 않습니다.",
-    "inquiry.overview.point3": "소복 전문가가 영업일 3일 이내로 연락 드릴 예정입니다.",
+    "inquiry.overview.point3": "소빈 전문가가 영업일 3일 이내로 연락 드릴 예정입니다.",
     "inquiry.profile.title": "회사 및 담당자 정보",
     "inquiry.profile.requiredNote": "는 필수 입력 정보입니다.",
     "inquiry.company.title": "회사 정보",
@@ -252,13 +252,13 @@ const translations = {
     
     // Works
     "works.title": "WORKS",
-    "works.subtitle": "SOBOK에서 기획하고 런칭한 뷰티 브랜드들을 소개합니다",
+    "works.subtitle": "SOBIN에서 기획하고 런칭한 뷰티 브랜드들을 소개합니다",
     "works.launchable": "런칭가능",
     "works.preparing": "준비중",
     "works.more": "자세히 보기",
     "works.cta.title": "나만의 보자기를 만들어보세요",
     "works.cta.desc": "LINEUP 147에서 바로 시작할 수 있는 브랜드를 확인해보세요",
-    "works.summary.heading": "소복에서 제작한 맞춤 보자기 프로젝트를 소개합니다",
+    "works.summary.heading": "소빈에서 제작한 맞춤 보자기 프로젝트를 소개합니다",
     "works.summary.viewAll": "더보기",
     "works.cta.button": "문의하고 견적받기",
     "works.brand.milkdive": "[설아래]침향환 보자기 제작",
@@ -281,7 +281,7 @@ const translations = {
     // Lineup
     "lineup.title": "LINEUP 147",
     "lineup.subtitle": "상품기획자, 디자이너 없이도 바로 뷰티 브랜드 런칭이 가능하도록",
-    "lineup.desc": "브랜드 기획부터 생산까지 SOBOK에서 다 준비해 놨으니까",
+    "lineup.desc": "브랜드 기획부터 생산까지 SOBIN에서 다 준비해 놨으니까",
     "lineup.launchable": "런칭가능",
     "lineup.preparing": "준비중",
     "lineup.includes": "포함 내용:",
@@ -327,11 +327,11 @@ const translations = {
     
     // Blog
     "blog.title": "BLOG",
-    "blog.subtitle": "SOBOK에서 전하는 화장품 이야기",
+    "blog.subtitle": "SOBIN에서 전하는 화장품 이야기",
     "blog.all": "전체",
     "blog.readMore": "더 읽기",
-    "blog.newsletter.title": "SOBOK LETTER 구독하기",
-    "blog.newsletter.desc": "뷰티 브랜드 인큐베이터 SOBOK의 최신 소식을 받아보세요",
+    "blog.newsletter.title": "SOBIN LETTER 구독하기",
+    "blog.newsletter.desc": "뷰티 브랜드 인큐베이터 SOBIN의 최신 소식을 받아보세요",
     "blog.newsletter.button": "뉴스레터 신청하기",
     "blog.category.guide": "가이드",
     "blog.category.trend": "트렌드",
@@ -355,7 +355,7 @@ const translations = {
     
     // FAQ
     "faq.title": "FAQ",
-    "faq.subtitle": "소복에 자주 들어오는 질문들",
+    "faq.subtitle": "소빈에 자주 들어오는 질문들",
     "faq.q1": "맞춤 제작은 최소 수량이 있나요?",
     "faq.a1": "브랜드 규모와 목적에 맞춰 유연하게 진행합니다. 10장부터 수백 장까지 모두 가능합니다.",
     "faq.q2": "우리 브랜드의 컬러나 로고를 보자기에 적용할 수 있나요?",
@@ -377,7 +377,7 @@ const translations = {
     
     // Notice
     "notice.title": "공지사항",
-    "notice.subtitle": "소복의 주요 소식을 확인하세요",
+    "notice.subtitle": "소빈의 주요 소식을 확인하세요",
     "notice.search.placeholder": "검색어를 입력해주세요.",
     "notice.search.noResult": "검색결과가 없습니다.",
     "notice.detail.back": "목록으로",
@@ -385,10 +385,10 @@ const translations = {
     "notice.detail.notFound": "공지사항을 찾을 수 없습니다.",
     "notice.views": "조회",
     "notice.1.title": "서비스 오픈 안내",
-    "notice.1.content": "소복 서비스가 2025년 11월 21일에 정식 오픈되었습니다.\n\n맞춤형 보자기 제작 서비스를 통해 브랜드의 감성을 포장하는 가장 간결한 방식을 제공해드리겠습니다.\n\n많은 관심과 이용 부탁드립니다.",
+    "notice.1.content": "소빈 서비스가 2025년 11월 21일에 정식 오픈되었습니다.\n\n맞춤형 보자기 제작 서비스를 통해 브랜드의 감성을 포장하는 가장 간결한 방식을 제공해드리겠습니다.\n\n많은 관심과 이용 부탁드립니다.",
     
     // Footer
-    "footer.company": "소복",
+    "footer.company": "소빈",
     "footer.ceo": "대표 최성락",
     "footer.businessNumber": "사업자등록번호 : 521-87-03693",
     "footer.address": "서울시 동대문구 경희대로 26, 삼의원창업센터 308호",
@@ -396,12 +396,12 @@ const translations = {
     "footer.privacy": "개인정보 처리방침",
     "footer.terms": "이용약관",
     "footer.notice": "공지사항",
-    "footer.copyright": "Copyright © SOBOK All rights reserved.",
+    "footer.copyright": "Copyright © SOBIN All rights reserved.",
     
     // Privacy Policy
-    "privacy.title": "📄 소복(SOBOK) 개인정보처리방침",
+    "privacy.title": "📄 소빈(SOBIN) 개인정보처리방침",
     "privacy.effectiveDate": "시행일: 2025년 11월 19일",
-    "privacy.intro1": "소복(SOBOK)(이하 '회사')는 「개인정보 보호법」과 관련 법령을 준수하며, 고객의 개인정보를 안전하게 보호하기 위해 최선을 다하고 있습니다. 본 개인정보처리방침은 보자기 제작 및 상담 서비스 이용과 관련하여 개인정보가 어떤 방식으로 수집·이용·보관·파기되는지 안내하기 위한 것입니다.",
+    "privacy.intro1": "소빈(SOBIN)(이하 '회사')는 「개인정보 보호법」과 관련 법령을 준수하며, 고객의 개인정보를 안전하게 보호하기 위해 최선을 다하고 있습니다. 본 개인정보처리방침은 보자기 제작 및 상담 서비스 이용과 관련하여 개인정보가 어떤 방식으로 수집·이용·보관·파기되는지 안내하기 위한 것입니다.",
     "privacy.intro2": "본 방침은 서비스 운영 정책에 따라 변경될 수 있으며, 변경 시 웹사이트를 통해 공지합니다.",
     "privacy.section1.title": "1. 수집하는 개인정보 항목",
     "privacy.section1.intro": "회사는 상담 신청 및 문의 접수 시 다음의 개인정보를 수집합니다.",
@@ -483,7 +483,7 @@ const translations = {
     "nav.faq": "FAQ",
     
     // Home
-    "home.hero.title": "SOBOK",
+    "home.hero.title": "SOBIN",
     "home.hero.subtitle": "The most concise way to package a brand's sensibility",
     "home.hero.cta": "Request Custom Production",
     
@@ -491,9 +491,9 @@ const translations = {
     "home.who.title": "Who we are",
     "home.who.main": "We don't wrap products.",
     "home.who.sub": "We wrap brands.",
-    "home.who.desc": "Packaging is not just wrapping paper. It is an expression of respect, a gesture of care, and a delivery of emotion.\n\nIn Korean tradition, bojagi holds meaning beyond mere fabric. It carries the sincerity and mindset of the giver. Every fold and knot contains intention.\n\nSOBOK means a small but certain blessing, quietly accumulating like snow. Our approach is the same. Subtle but intentional, and lasting.",
+    "home.who.desc": "Packaging is not just wrapping paper. It is an expression of respect, a gesture of care, and a delivery of emotion.\n\nIn Korean tradition, bojagi holds meaning beyond mere fabric. It carries the sincerity and mindset of the giver. Every fold and knot contains intention.\n\nSOBIN means a small but certain blessing, quietly accumulating like snow. Our approach is the same. Subtle but intentional, and lasting.",
     
-    "home.lineup.title": "From Brand Planning to Production,\nEverything is Ready at SOBOK",
+    "home.lineup.title": "From Brand Planning to Production,\nEverything is Ready at SOBIN",
     "home.lineup.subtitle": "Launch your beauty brand immediately with LINEUP 147,\neven without product planners or designers",
     "home.lineup.cta": "Order LINEUP 147",
     
@@ -511,11 +511,11 @@ const translations = {
     "home.features.reliable.subtitle": "Trustworthy",
     "home.features.reliable.desc": "We propose to customers based on product model evaluation and prediction algorithms developed using machine learning.",
     
-    "home.newsletter.title": "SOBOK LETTER",
+    "home.newsletter.title": "SOBIN LETTER",
     "home.newsletter.subtitle": "Beauty Brand Incubator",
-    "home.newsletter.desc": "Cosmetics stories from SOBOK",
+    "home.newsletter.desc": "Cosmetics stories from SOBIN",
     "home.newsletter.placeholder": "Enter your email",
-    "home.newsletter.cta": "Subscribe to SOBOK LETTER",
+    "home.newsletter.cta": "Subscribe to SOBIN LETTER",
     
     "home.update.title": "Newly Updated Lineup 147",
     "home.update.cta": "Learn More",
@@ -564,7 +564,7 @@ const translations = {
     "home.services.quality.delivery": "Delivery Schedule",
     "home.services.quality.guarantee": "100% Guaranteed",
     "home.services.quality.desc": "We manage all processes from design, weaving, packaging to delivery based on data.",
-    "home.services.partners": "Companies that have defined brand hearts with SOBOK.",
+    "home.services.partners": "Companies that have defined brand hearts with SOBIN.",
     
     // Home - CTA
     "home.cta.title": "Inquire Now",
@@ -574,12 +574,12 @@ const translations = {
     "home.cta.button": "Inquire",
     
     // About
-    "about.title": "ABOUT SOBOK",
+    "about.title": "ABOUT SOBIN",
     "about.intro.title": "Brand Introduction",
-    "about.intro.desc": "SOBOK is a brand that started with the idea of making moments last longer through packaging. It serves as a bridge between traditional Korean bojagi culture and modern brand packaging.",
+    "about.intro.desc": "SOBIN is a brand that started with the idea of making moments last longer through packaging. It serves as a bridge between traditional Korean bojagi culture and modern brand packaging.",
     "about.culture.title": "Perspective on Packaging Culture",
-    "about.culture.desc": "Korean bojagi culture is a unique tradition that gives meaning to the act of wrapping gifts itself. SOBOK incorporates the value of this tradition into modern brand experiences, providing emotional value beyond simple packaging.",
-    "about.values.title": "Values SOBOK Provides",
+    "about.culture.desc": "Korean bojagi culture is a unique tradition that gives meaning to the act of wrapping gifts itself. SOBIN incorporates the value of this tradition into modern brand experiences, providing emotional value beyond simple packaging.",
+    "about.values.title": "Values SOBIN Provides",
     "about.values.custom.title": "Custom Patterns That Embody Brand Identity",
     "about.values.custom.desc": "We create completely unique bojagi by directly weaving brand patterns and logos.",
     "about.values.trust.title": "Trust in Manufacturing Process and Quality",
@@ -590,16 +590,16 @@ const translations = {
     "about.cases.retail": "Retail Brand Seasonal Promotion Package",
     "about.cases.event": "Commemorative/Event Gift Package",
     "about.cta.title": "Shall we start together?",
-    "about.cta.desc": "Create a special packaging solution unique to your brand with SOBOK",
+    "about.cta.desc": "Create a special packaging solution unique to your brand with SOBIN",
     "about.cta.button": "Inquire Now",
     
     // Inquiry
     "inquiry.title": "Consultation & Quote Inquiry",
     "inquiry.subtitle": "Please fill out the inquiry form for bojagi production that fits your project",
     "inquiry.overview.title": "Please double-check before submitting!",
-    "inquiry.overview.point1": "SOBOK focuses on branding and packaging design to develop bojagi that are more efficient and sophisticated.",
+    "inquiry.overview.point1": "SOBIN focuses on branding and packaging design to develop bojagi that are more efficient and sophisticated.",
     "inquiry.overview.point2": "Payment and production do not begin immediately after submitting the inquiry.",
-    "inquiry.overview.point3": "A SOBOK specialist will get back to you within 3 business days.",
+    "inquiry.overview.point3": "A SOBIN specialist will get back to you within 3 business days.",
     "inquiry.profile.title": "Company & Contact Information",
     "inquiry.profile.requiredNote": "indicates required fields.",
     "inquiry.company.title": "Company Information",
@@ -682,13 +682,13 @@ const translations = {
     
     // Works
     "works.title": "WORKS",
-    "works.subtitle": "Introducing beauty brands planned and launched by SOBOK",
+    "works.subtitle": "Introducing beauty brands planned and launched by SOBIN",
     "works.launchable": "Launchable",
     "works.preparing": "Preparing",
     "works.more": "Learn More",
     "works.cta.title": "Create Your Own Bojagi",
     "works.cta.desc": "Check out brands you can start immediately with LINEUP 147",
-    "works.summary.heading": "Introducing custom bojagi projects crafted by SOBOK",
+    "works.summary.heading": "Introducing custom bojagi projects crafted by SOBIN",
     "works.summary.viewAll": "View More",
     "works.cta.button": "Inquire and Get a Quote",
     "works.brand.milkdive": "[설아래] Agalloch Incense Pills Bojagi Production",
@@ -711,7 +711,7 @@ const translations = {
     // Lineup
     "lineup.title": "LINEUP 147",
     "lineup.subtitle": "Launch your beauty brand immediately, even without product planners or designers",
-    "lineup.desc": "Everything from brand planning to production is ready at SOBOK",
+    "lineup.desc": "Everything from brand planning to production is ready at SOBIN",
     "lineup.launchable": "Launchable",
     "lineup.preparing": "Preparing",
     "lineup.includes": "Includes:",
@@ -757,11 +757,11 @@ const translations = {
     
     // Blog
     "blog.title": "BLOG",
-    "blog.subtitle": "Cosmetics stories from SOBOK",
+    "blog.subtitle": "Cosmetics stories from SOBIN",
     "blog.all": "All",
     "blog.readMore": "Read More",
-    "blog.newsletter.title": "Subscribe to SOBOK LETTER",
-    "blog.newsletter.desc": "Receive the latest news from beauty brand incubator SOBOK",
+    "blog.newsletter.title": "Subscribe to SOBIN LETTER",
+    "blog.newsletter.desc": "Receive the latest news from beauty brand incubator SOBIN",
     "blog.newsletter.button": "Subscribe to Newsletter",
     "blog.category.guide": "Guide",
     "blog.category.trend": "Trend",
@@ -785,7 +785,7 @@ const translations = {
     
     // FAQ
     "faq.title": "FAQ",
-    "faq.subtitle": "Frequently Asked Questions about SOBOK",
+    "faq.subtitle": "Frequently Asked Questions about SOBIN",
     "faq.q1": "Is there a minimum quantity for custom production?",
     "faq.a1": "We proceed flexibly according to brand size and purpose. Everything from 10 pieces to hundreds of pieces is possible.",
     "faq.q2": "Can I apply my brand's colors or logo to the bojagi?",
@@ -807,7 +807,7 @@ const translations = {
     
     // Notice
     "notice.title": "Notice",
-    "notice.subtitle": "Stay updated with SOBOK's latest news",
+    "notice.subtitle": "Stay updated with SOBIN's latest news",
     "notice.search.placeholder": "Enter search term",
     "notice.search.noResult": "No search results found.",
     "notice.detail.back": "Back to list",
@@ -815,10 +815,10 @@ const translations = {
     "notice.detail.notFound": "Notice not found.",
     "notice.views": "Views",
     "notice.1.title": "Service Launch Announcement",
-    "notice.1.content": "SOBOK service officially launched on November 21, 2025.\n\nWe will provide the most concise way to package a brand's sensibility through our custom bojagi production service.\n\nWe appreciate your interest and look forward to serving you.",
+    "notice.1.content": "SOBIN service officially launched on November 21, 2025.\n\nWe will provide the most concise way to package a brand's sensibility through our custom bojagi production service.\n\nWe appreciate your interest and look forward to serving you.",
     
     // Footer
-    "footer.company": "SOBOK",
+    "footer.company": "SOBIN",
     "footer.ceo": "CEO Choi Seong-rak",
     "footer.businessNumber": "Business Registration Number: 521-87-03693",
     "footer.address": "26, Kyungheedae-ro, Dongdaemun-gu, Seoul, Samuiwon Startup Center, Room 308",
@@ -826,12 +826,12 @@ const translations = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
     "footer.notice": "Notice",
-    "footer.copyright": "Copyright © SOBOK All rights reserved.",
+    "footer.copyright": "Copyright © SOBIN All rights reserved.",
     
     // Privacy Policy
-    "privacy.title": "📄 SOBOK Privacy Policy",
+    "privacy.title": "📄 SOBIN Privacy Policy",
     "privacy.effectiveDate": "Effective Date: November 19, 2025",
-    "privacy.intro1": "SOBOK (hereinafter referred to as 'the Company') complies with the Personal Information Protection Act and related laws, and strives to protect customers' personal information safely. This privacy policy is intended to inform how personal information is collected, used, stored, and destroyed in relation to bojagi production and consultation services.",
+    "privacy.intro1": "SOBIN (hereinafter referred to as 'the Company') complies with the Personal Information Protection Act and related laws, and strives to protect customers' personal information safely. This privacy policy is intended to inform how personal information is collected, used, stored, and destroyed in relation to bojagi production and consultation services.",
     "privacy.intro2": "This policy may be changed according to service operation policies, and will be announced through the website when changed.",
     "privacy.section1.title": "1. Items of Personal Information Collected",
     "privacy.section1.intro": "The company collects the following personal information when applying for consultation or submitting inquiries.",

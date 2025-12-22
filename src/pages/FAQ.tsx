@@ -7,8 +7,8 @@ export function FAQ() {
   const { t } = useLanguage()
   
   useMetaTags({
-    title: "FAQ | SOBOK",
-    description: "SOBOK 보자기 제작 서비스에 대한 자주 묻는 질문과 답변을 확인하세요.",
+    title: "FAQ | SOBIN",
+    description: "SOBIN 보자기 제작 서비스에 대한 자주 묻는 질문과 답변을 확인하세요.",
     image: "/og-faq.jpg",
     url: "/faq",
     type: "website"

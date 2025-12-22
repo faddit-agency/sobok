@@ -34,7 +34,7 @@ export function Inquiry() {
   const { t, language } = useLanguage()
   
   useMetaTags({
-    title: "문의하기 | SOBOK",
+    title: "문의하기 | SOBIN",
     description: "맞춤형 보자기 제작 문의를 남겨주세요. 디자인 파일 기반 목업 제작부터 제작·납품까지 원스톱으로 진행합니다.",
     image: "/og-inquiry.jpg",
     url: "/inquiry",
@@ -47,6 +47,7 @@ export function Inquiry() {
     country: "KR",
     industry: "",
     customIndustry: "",
+    existingProducts: "",
     bojagiType: "",
     material: "",
     sizeWidth: "",
@@ -55,6 +56,7 @@ export function Inquiry() {
     calculatedBojagiSize: "",
     quantity: "",
     deadline: "",
+    budget: "",
     contactName: "",
     email: "",
     phone: "",
@@ -158,6 +160,15 @@ export function Inquiry() {
     return lastDot > 0 ? fileName.substring(lastDot + 1).toUpperCase() : 'FILE'
   }
 
+  // 숫자에 콤마 추가 (천 단위)
+  const formatNumberWithCommas = (value: string): string => {
+    // 숫자가 아닌 문자 제거
+    const numbers = value.replace(/[^\d]/g, '')
+    if (!numbers) return ''
+    // 콤마 추가
+    return numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
   // 전화번호에 하이픈 추가
   const formatPhoneNumber = (value: string): string => {
     // 숫자가 아닌 문자 제거
@@ -250,9 +261,10 @@ export function Inquiry() {
         })
       )
 
-      // API 호출 (하이픈 제거하여 순수 숫자만 전송)
+      // API 호출 (콤마와 하이픈 제거하여 순수 숫자만 전송)
       const submitData = {
         ...formData,
+        budget: formData.budget.replace(/,/g, ''), // 콤마 제거
         phone: formData.phone.replace(/-/g, ''), // 하이픈 제거
         designFiles: designFilesData,
       }
@@ -336,7 +348,7 @@ export function Inquiry() {
         </div>
           </aside>
 
-          <div className="lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:pr-2 scrollbar-light">
+          <div className="lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto lg:pr-2 scrollbar-hide">
             <form
               onSubmit={handleSubmit}
               className="bg-white border border-gray-100 rounded-2xl divide-y divide-gray-100"
@@ -463,6 +475,18 @@ export function Inquiry() {
                   </div>
                 )}
 
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    {t("inquiry.company.products")}
+                  </label>
+                  <Textarea
+                    rows={4}
+                    value={formData.existingProducts}
+                    onChange={(e) => setFormData({ ...formData, existingProducts: e.target.value })}
+                    placeholder={t("inquiry.company.products.placeholder")}
+                  />
+                </div>
+
               </div>
               </SectionCard>
 
@@ -471,8 +495,7 @@ export function Inquiry() {
               <div>
                 <label className="block text-sm font-medium mb-4">{t("inquiry.bojagi.regular")}</label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <div className="flex items-start space-x-3 mb-3">
+                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="bojagiType"
@@ -484,18 +507,9 @@ export function Inquiry() {
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.slab")}</div>
                       <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.slab.desc")}</div>
-                      </div>
-                    </div>
-                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
-                      <img
-                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%87%E1%85%B3_jz4mfi.png"
-                        alt={t("inquiry.bojagi.regular.slab")}
-                        className="w-full h-full object-cover"
-                      />
                     </div>
                   </label>
-                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <div className="flex items-start space-x-3 mb-3">
+                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="bojagiType"
@@ -507,18 +521,9 @@ export function Inquiry() {
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.organza")}</div>
                       <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.organza.desc")}</div>
-                      </div>
-                    </div>
-                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
-                      <img
-                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%8B%E1%85%A9%E1%84%80%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1_v7nsch.png"
-                        alt={t("inquiry.bojagi.regular.organza")}
-                        className="w-full h-full object-cover"
-                      />
                     </div>
                   </label>
-                  <label className="flex flex-col p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <div className="flex items-start space-x-3 mb-3">
+                  <label className="flex items-start space-x-3 p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
                       name="bojagiType"
@@ -530,14 +535,6 @@ export function Inquiry() {
                       <div className="flex-1">
                         <div className="text-sm font-medium mb-2">{t("inquiry.bojagi.regular.crystal")}</div>
                       <div className="text-sm text-gray-500">{t("inquiry.bojagi.regular.crystal.desc")}</div>
-                      </div>
-                    </div>
-                    <div className="w-full aspect-square rounded overflow-hidden bg-gray-50">
-                      <img
-                        src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764639242/%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%86%AF_uosqiy.png"
-                        alt={t("inquiry.bojagi.regular.crystal")}
-                        className="w-full h-full object-cover"
-                      />
                     </div>
                   </label>
                 </div>
@@ -640,27 +637,17 @@ export function Inquiry() {
                       {t("inquiry.bojagi.size.label")}
                     </label>
                     <div
-                      className="relative inline-block"
+                      className="relative"
                       onMouseEnter={() => setShowSizeTooltip(true)}
                       onMouseLeave={() => setShowSizeTooltip(false)}
                     >
-                      <HelpCircle className="w-4 h-4 text-gray-400 cursor-help hover:text-gray-600 transition-colors" />
+                      <HelpCircle className="w-4 h-4 text-gray-400 cursor-help" />
                       {showSizeTooltip && (
-                        <div 
-                          className="absolute left-6 top-6 z-[9999] bg-white border-2 border-gray-300 rounded-lg shadow-2xl p-3"
-                          style={{ minWidth: '329px', minHeight: '383px' }}
-                          onMouseEnter={() => setShowSizeTooltip(true)}
-                          onMouseLeave={() => setShowSizeTooltip(false)}
-                        >
+                        <div className="absolute left-0 top-6 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-2">
                           <img
-                            src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764658959/Frame_131_rgjd0y.svg"
+                            src="https://res.cloudinary.com/dsg01xpat/image/upload/v1764637164/Frame_131_uft7oz.svg"
                             alt="사이즈 가이드"
-                            className="w-full h-auto block"
-                            style={{ width: '329px', height: '383px' }}
-                            onLoad={() => console.log("툴팁 이미지 로드 성공")}
-                            onError={(e) => {
-                              console.error("툴팁 이미지 로드 실패", e)
-                            }}
+                            className="w-[302px] h-[394px]"
                           />
                         </div>
                       )}
@@ -843,8 +830,8 @@ export function Inquiry() {
               description={t("inquiry.contact.details.placeholder")}
             >
               <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="min-w-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.quantity")}</label>
                 <Input
                   type="number"
@@ -853,15 +840,30 @@ export function Inquiry() {
                   placeholder={t("inquiry.supplies.quantity.placeholder")}
                 />
               </div>
-              <div className="min-w-0">
+              <div>
                     <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.deadline")}</label>
                 <Input
                   type="date"
                   value={formData.deadline}
                   onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                   placeholder={t("inquiry.supplies.deadline.placeholder")}
-                  className="min-w-0"
                 />
+              </div>
+              <div>
+                    <label className="block text-sm font-medium mb-3">{t("inquiry.supplies.budget")}</label>
+                <div className="relative">
+                <Input
+                  type="text"
+                  value={formData.budget}
+                    onChange={(e) => {
+                      const formatted = formatNumberWithCommas(e.target.value)
+                      setFormData({ ...formData, budget: formatted })
+                    }}
+                  placeholder={t("inquiry.supplies.budget.placeholder")}
+                    className="pr-12"
+                  />
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none">{t("inquiry.supplies.budget.unit")}</span>
+                </div>
               </div>
               </div>
 

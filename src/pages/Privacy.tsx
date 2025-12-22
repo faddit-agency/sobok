@@ -5,8 +5,8 @@ export function Privacy() {
   const { t } = useLanguage()
   
   useMetaTags({
-    title: `${t("privacy.title")} | SOBOK`,
-    description: "SOBOK 개인정보처리방침을 확인하세요.",
+    title: `${t("privacy.title")} | SOBIN`,
+    description: "SOBIN 개인정보처리방침을 확인하세요.",
     image: "/og-privacy.jpg",
     url: "/privacy",
     type: "website"
