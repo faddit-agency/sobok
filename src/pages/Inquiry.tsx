@@ -34,7 +34,7 @@ export function Inquiry() {
   const { t, language } = useLanguage()
   
   useMetaTags({
-    title: "문의하기 | SOBIN",
+    title: "문의하기 | 소복",
     description: "맞춤형 보자기 제작 문의를 남겨주세요. 디자인 파일 기반 목업 제작부터 제작·납품까지 원스톱으로 진행합니다.",
     image: "/og-inquiry.jpg",
     url: "/inquiry",

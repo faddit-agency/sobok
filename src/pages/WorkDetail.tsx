@@ -14,7 +14,7 @@ export function WorkDetail() {
   const work = useMemo(() => worksData.find((item) => item.slug === slug), [slug])
   
   useMetaTags({
-    title: work ? `${t(work.titleKey)} | SOBIN` : `${t("works.title")} | SOBIN`,
+    title: work ? `${t(work.titleKey)} | 소복` : `${t("works.title")} | 소복`,
     description: work ? t(work.descriptionKey) : t("works.subtitle"),
     image: "/og-works.jpg",
     url: `/works/${slug}`,

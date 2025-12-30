@@ -9,7 +9,7 @@ import { useMetaTags } from "../hooks/useMetaTags"
 
 export function Home() {
   useMetaTags({
-    title: "SOBIN | 브랜드 맞춤형 보자기 제작 서비스",
+    title: "소복 | 브랜드 맞춤형 보자기 제작 서비스",
     description: "브랜드를 위한 맞춤형 보자기 제작 서비스. 슬라브·오간자·크리스탈부터 직조 패턴 보자기까지, 디자인 파일만 전달하면 목업 제작부터 납품까지 전 과정을 책임집니다.",
     image: "/og-home.jpg",
     url: "/",

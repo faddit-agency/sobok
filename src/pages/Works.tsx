@@ -8,7 +8,7 @@ export function Works() {
   const { t } = useLanguage()
   
   useMetaTags({
-    title: `${t("works.title")} | SOBIN`,
+    title: `${t("works.title")} | 소복`,
     description: t("works.subtitle"),
     image: "/og-works.jpg",
     url: "/works",

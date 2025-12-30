@@ -17,7 +17,7 @@ export function NoticeDetail() {
   const notice = noticeId ? noticesData.find(n => n.id === noticeId) : null
   
   useMetaTags({
-    title: notice ? `${t(notice.titleKey)} | SOBIN` : `${t("notice.title")} | SOBIN`,
+    title: notice ? `${t(notice.titleKey)} | 소복` : `${t("notice.title")} | 소복`,
     description: notice ? t(notice.contentKey).substring(0, 150) + "..." : t("notice.subtitle"),
     image: "/og-notice.jpg",
     url: `/notice/${id}`,

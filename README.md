@@ -1,6 +1,6 @@
-# SOBIN
+# 소복
 
-SOBIN 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
+소복 웹사이트를 React, Tailwind CSS, shadcn/ui로 구현한 프로젝트입니다.
 
 ## 기술 스택
 
@@ -80,4 +80,4 @@ src/
 
 ## 라이선스
 
-Copyright © SOBIN All rights reserved.
+Copyright © 소복 All rights reserved.

@@ -30,7 +30,7 @@ export function About() {
               <div className="space-y-3 text-lg md:text-xl text-black">
                 <p>정성으로 만든 포장, 브랜드의 가치를 담습니다.</p>
                 <p>브랜드를 위한 맞춤형 보자기 제작 서비스.</p>
-                <p>전통적 감성과 현대적 디자인을 결합해 소빈만의 차별화된 포장 솔루션을 제공합니다.</p>
+                <p>전통적 감성과 현대적 디자인을 결합해 소복만의 차별화된 포장 솔루션을 제공합니다.</p>
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@ export function About() {
             <div className="relative w-full h-full min-h-[45vh] overflow-hidden bg-black">
               <img
                 src="https://res.cloudinary.com/dsg01xpat/image/upload/v1763540335/bozhin-karaivanov-p1jldJ9tZ6c-unsplash_3_znx2wx.jpg"
-                alt="SOBIN craftsmanship"
+                alt="소복 craftsmanship"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -54,11 +54,11 @@ export function About() {
             <div className="bg-black text-white flex items-center p-8 md:p-12 min-h-[45vh]">
               <div className="w-full max-w-2xl">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium">
-                  SOBIN
+                  소복
                 </h2>
                 <div className="mt-4 space-y-3 md:space-y-4 text-lg md:text-xl text-gray-300 leading-relaxed">
                   <p>
-                    소빈은 브랜드의 이야기를 '포장'이라는 형태로 담아내는 맞춤형 보자기 제작 전문 브랜드입니다.
+                    소복은 브랜드의 이야기를 '포장'이라는 형태로 담아내는 맞춤형 보자기 제작 전문 브랜드입니다.
                   </p>
                   <p>
                     슬라브·오간자·크리스탈 등 다양한 소재부터 브랜드 패턴을 활용한 직조 보자기 제작까지 지원하며, 디자인 파일 전달만으로 맞춤 목업을 제작해 브랜드가 원하는 분위기와 아이덴티티에 맞춘 결과물을 제공합니다.
@@ -85,9 +85,9 @@ export function About() {
         </div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 drop-shadow-lg">Design Laboratory — SOBIN</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 drop-shadow-lg">Design Laboratory — 소복</h2>
             <p className="text-base md:text-lg text-white/90 drop-shadow-md max-w-2xl mx-auto px-4">
-              소빈 보자기 디자인 연구소는 브랜드의 개성과 스토리를 시각적으로 표현할 수 있는 보자기 패턴과 패키지 디자인을 개발하고 있습니다.
+              소복 보자기 디자인 연구소는 브랜드의 개성과 스토리를 시각적으로 표현할 수 있는 보자기 패턴과 패키지 디자인을 개발하고 있습니다.
             </p>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function About() {
               <div className="border-t border-gray-300 w-16"></div>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  소빈 보자기 디자인 연구소는 브랜드가 원하는 분위기, 시즌 무드, 프로젝트 목적에 맞춘 맞춤형 보자기 및 포장 소모품 디자인을 연구합니다.
+                  소복 보자기 디자인 연구소는 브랜드가 원하는 분위기, 시즌 무드, 프로젝트 목적에 맞춘 맞춤형 보자기 및 포장 소모품 디자인을 연구합니다.
                 </p>
                 <p>
                   자재 선택부터 제작 방식까지 브랜드 컨셉과 톤앤매너에 맞추어 브랜드를 가장 잘 표현할 수 있는 포장 솔루션을 제공합니다.

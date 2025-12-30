@@ -12,8 +12,8 @@ export function Footer() {
           <div className="flex-1">
             <div className="mb-4">
               <img 
-                src="https://res.cloudinary.com/dsg01xpat/image/upload/v1766393961/%E7%B4%A0%E7%B5%86_white_odvwou.png" 
-                alt="SOBIN" 
+                src="/Sobok_white.svg" 
+                alt="소복" 
                 className="h-6 w-auto"
               />
             </div>

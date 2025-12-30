@@ -10,7 +10,7 @@ export function Notice() {
   const { t } = useLanguage()
   
   useMetaTags({
-    title: `${t("notice.title")} | SOBIN`,
+    title: `${t("notice.title")} | 소복`,
     description: t("notice.subtitle"),
     image: "/og-notice.jpg",
     url: "/notice",

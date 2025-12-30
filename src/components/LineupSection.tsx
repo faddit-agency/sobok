@@ -23,7 +23,7 @@ export function LineupSection() {
           <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
             <OptimizedImage
               src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=60"
-              alt="SOBIN 뷰티 컨셉"
+              alt="소복 뷰티 컨셉"
               className="w-full h-full"
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="eager"
@@ -32,7 +32,7 @@ export function LineupSection() {
           <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
             <OptimizedImage
               src="https://images.unsplash.com/photo-1502767089025-6572583495b4?auto=format&fit=crop&w=1400&q=60"
-              alt="SOBIN 라인 일러스트"
+              alt="소복 라인 일러스트"
               className="w-full h-full"
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="eager"

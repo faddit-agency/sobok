@@ -1,6 +1,6 @@
 {
-  "name": "SOBIN",
-  "short_name": "SOBIN",
+  "name": "소복",
+  "short_name": "소복",
   "description": "브랜드 맞춤형 보자기 제작 서비스. 슬라브·오간자·크리스탈과 직조 패턴 보자기를 한 번에 제작합니다.",
   "start_url": "/",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "lang": "ko-KR",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dsg01xpat/image/upload/v1766393707/%E7%B4%A0%E7%B5%86_rwuenu.png",
+      "src": "/Sobok_black.svg",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any"
