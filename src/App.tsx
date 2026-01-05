@@ -12,6 +12,7 @@ import { Privacy } from "./pages/Privacy"
 import { WorkDetail } from "./pages/WorkDetail"
 import { Notice } from "./pages/Notice"
 import { NoticeDetail } from "./pages/NoticeDetail"
+import { NotFound } from "./pages/NotFound"
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/notice" element={<Notice />} />
             <Route path="/notice/:id" element={<NoticeDetail />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

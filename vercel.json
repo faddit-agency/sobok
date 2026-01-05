@@ -4,6 +4,33 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/product/list.html",
+      "destination": "/404",
+      "permanent": false
+    },
+    {
+      "source": "/product/(.*)",
+      "destination": "/404",
+      "permanent": false
+    },
+    {
+      "source": "/board/(.*)",
+      "destination": "/404",
+      "permanent": false
+    },
+    {
+      "source": "/customer.html",
+      "destination": "/404",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

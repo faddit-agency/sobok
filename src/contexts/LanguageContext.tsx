@@ -387,6 +387,12 @@ const translations = {
     "notice.1.title": "서비스 오픈 안내",
     "notice.1.content": "소복 서비스가 2025년 11월 21일에 정식 오픈되었습니다.\n\n맞춤형 보자기 제작 서비스를 통해 브랜드의 감성을 포장하는 가장 간결한 방식을 제공해드리겠습니다.\n\n많은 관심과 이용 부탁드립니다.",
     
+    // 404 Not Found
+    "notFound.title": "404",
+    "notFound.subtitle": "페이지를 찾을 수 없습니다",
+    "notFound.description": "요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.",
+    "notFound.home": "홈으로 돌아가기",
+    
     // Footer
     "footer.company": "소복",
     "footer.ceo": "대표 최성락",
@@ -816,6 +822,12 @@ const translations = {
     "notice.views": "Views",
     "notice.1.title": "Service Launch Announcement",
     "notice.1.content": "SOBOK service officially launched on November 21, 2025.\n\nWe will provide the most concise way to package a brand's sensibility through our custom bojagi production service.\n\nWe appreciate your interest and look forward to serving you.",
+    
+    // 404 Not Found
+    "notFound.title": "404",
+    "notFound.subtitle": "Page Not Found",
+    "notFound.description": "The page you are looking for does not exist or may have been moved.",
+    "notFound.home": "Go to Home",
     
     // Footer
     "footer.company": "SOBOK",
