@@ -50,7 +50,7 @@ export function WhoWeAreSection() {
           {/* 오른쪽: 이미지 */}
           <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=1200&q=80"
+              src="https://res.cloudinary.com/dsg01xpat/image/upload/v1767758554/hani-izza-86O0KRdf50Y-unsplash_p1cahe.jpg"
               alt="Fabric texture"
               className="w-full h-full object-cover"
             />
