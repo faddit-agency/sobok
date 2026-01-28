@@ -161,15 +161,6 @@ export function Inquiry() {
     return lastDot > 0 ? fileName.substring(lastDot + 1).toUpperCase() : 'FILE'
   }
 
-  // 숫자에 콤마 추가 (천 단위)
-  const formatNumberWithCommas = (value: string): string => {
-    // 숫자가 아닌 문자 제거
-    const numbers = value.replace(/[^\d]/g, '')
-    if (!numbers) return ''
-    // 콤마 추가
-    return numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-  }
-
   // 전화번호에 하이픈 추가
   const formatPhoneNumber = (value: string): string => {
     // 숫자가 아닌 문자 제거
@@ -264,10 +255,9 @@ export function Inquiry() {
         })
       )
 
-      // API 호출 (콤마와 하이픈 제거하여 순수 숫자만 전송)
+      // API 호출 (하이픈 제거하여 순수 숫자만 전송)
       const submitData = {
         ...formData,
-        budget: formData.budget.replace(/,/g, ''), // 콤마 제거
         phone: formData.phone.replace(/-/g, ''), // 하이픈 제거
         designFiles: designFilesData,
       }

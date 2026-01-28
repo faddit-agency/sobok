@@ -22,7 +22,7 @@ export function Header() {
     { path: "/faq", key: "nav.faq", anchor: null },
   ]
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null, path: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null) => {
     if (anchor) {
       e.preventDefault()
       
@@ -67,7 +67,7 @@ export function Header() {
               <Link
                 key={link.path + (link.anchor || "")}
                 to={link.anchor ? `${link.path}${link.anchor}` : link.path}
-                onClick={(e) => handleNavClick(e, link.anchor, link.path)}
+                onClick={(e) => handleNavClick(e, link.anchor)}
                 className={`text-sm hover:text-gray-600 transition-colors ${
                   isActive(link.path) ? "font-semibold text-gray-900" : ""
                 }`}
