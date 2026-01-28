@@ -105,7 +105,7 @@ export function Header() {
                   key={link.path + (link.anchor || "")}
                   to={link.anchor ? `${link.path}${link.anchor}` : link.path}
                   onClick={(e) => {
-                    handleNavClick(e, link.anchor, link.path)
+                    handleNavClick(e, link.anchor)
                     if (!link.anchor && link.path !== "/") setIsMenuOpen(false)
                   }}
                   className={`text-sm hover:text-gray-600 transition-colors ${
