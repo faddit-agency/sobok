@@ -13,6 +13,7 @@ import { WorkDetail } from "./pages/WorkDetail"
 import { Notice } from "./pages/Notice"
 import { NoticeDetail } from "./pages/NoticeDetail"
 import { NotFound } from "./pages/NotFound"
+import { Products } from "./pages/Products"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/inquiry" element={<Inquiry />} />
             <Route path="/works" element={<Works />} />
             <Route path="/works/:slug" element={<WorkDetail />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/notice" element={<Notice />} />

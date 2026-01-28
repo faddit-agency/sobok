@@ -16,28 +16,13 @@ export function Header() {
   }
 
   const navLinks = [
-    { path: "/", key: "nav.home", anchor: null },
     { path: "/", key: "nav.about", anchor: "#who-we-are" },
     { path: "/", key: "nav.works", anchor: "#works" },
+    { path: "/products", key: "nav.products", anchor: null },
     { path: "/faq", key: "nav.faq", anchor: null },
   ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string | null, path: string) => {
-    // HOME 링크 클릭 시 최상단으로 스크롤
-    if (path === "/" && !anchor) {
-      e.preventDefault()
-      if (location.pathname !== "/") {
-        window.location.href = "/"
-        return
-      }
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-      setIsMenuOpen(false)
-      return
-    }
-    
     if (anchor) {
       e.preventDefault()
       
