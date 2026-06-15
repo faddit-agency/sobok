@@ -4,10 +4,10 @@ import nodemailer from 'nodemailer'
 
 const INQUIRY_EMAIL_TO = ['sunny@faddit.co.kr', 'seok@faddit.co.kr']
 
-const supabaseUrl = process.env.SUPABASE_URL || 'https://unsvjfkkzqzqftdhkpef.supabase.co'
+const supabaseUrl = process.env.SUPABASE_URL || 'https://knijwgqdwtnpufipduuo.supabase.co'
 // 서비스 역할 키를 우선 사용 (RLS 우회), 없으면 ANON_KEY 사용
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVuc3ZqZmtrenF6cWZ0ZGhrcGVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5MzU5NDAsImV4cCI6MjA3OTUxMTk0MH0.rAiKKEvelAdXOGvAsFgM1D5CUqmrXp6-NeNLsXsJoa0'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY
+const supabase = supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
 
 export default async function handler(
   req: VercelRequest,
@@ -24,6 +24,13 @@ export default async function handler(
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
+  }
+
+  if (!supabase) {
+    return res.status(500).json({
+      error: 'Supabase is not configured',
+      details: 'Set SUPABASE_URL and SUPABASE_ANON_KEY (or SUPABASE_SERVICE_ROLE_KEY) in environment variables',
+    })
   }
 
   try {
