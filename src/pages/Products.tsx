@@ -33,7 +33,7 @@ export function Products() {
       id: "crystal",
       titleKey: "products.crystal.title",
       descKey: "products.crystal.desc",
-      image: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/07-002_Concept_kpjdxq.png",
+      image: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-002_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_1_o8nmnn.png",
       category: "regular"
     },
     {
