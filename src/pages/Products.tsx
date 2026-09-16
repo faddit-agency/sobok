@@ -19,21 +19,21 @@ export function Products() {
       id: "slab",
       titleKey: "products.slab.title",
       descKey: "products.slab.desc",
-      image: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/05-004_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_sevqcw.png",
+      image: "/products/slab.png",
       category: "regular"
     },
     {
       id: "organza",
       titleKey: "products.organza.title",
       descKey: "products.organza.desc",
-      image: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512568/06-007_Concept_ae7yt8.png",
+      image: "/products/organza.png",
       category: "regular"
     },
     {
       id: "crystal",
       titleKey: "products.crystal.title",
       descKey: "products.crystal.desc",
-      image: "https://res.cloudinary.com/dsg01xpat/image/upload/v1763512570/05-002_%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A6%E1%86%B8_1_o8nmnn.png",
+      image: "/products/crystal.png",
       category: "regular"
     },
     {
