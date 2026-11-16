@@ -17,7 +17,17 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "system-ui", "sans-serif"],
+      },
       colors: {
+        sobok: {
+          bg: "var(--sobok-bg)",
+          ink: "var(--sobok-ink)",
+          muted: "var(--sobok-muted)",
+          line: "var(--sobok-line)",
+          surface: "var(--sobok-surface)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -56,6 +66,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      transitionDuration: {
+        sobok: "220ms",
       },
       keyframes: {
         "accordion-down": {

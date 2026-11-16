@@ -17,8 +17,7 @@ export function Header() {
 
   const navLinks = [
     { path: "/", key: "nav.about", anchor: "#who-we-are" },
-    { path: "/", key: "nav.works", anchor: "#works" },
-    { path: "/products", key: "nav.products", anchor: null },
+    { path: "/design", key: "nav.design", anchor: null },
     { path: "/faq", key: "nav.faq", anchor: null },
   ]
 
@@ -49,7 +48,7 @@ export function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="brand-header fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -82,7 +81,7 @@ export function Header() {
             <LanguageToggle />
             <Link to="/inquiry">
               <button className="text-white px-6 py-2 rounded-md text-sm font-medium transition-colors" style={{ backgroundColor: '#222222' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#333333'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#222222'}>
-                {t("nav.inquiry")}
+                {t("nav.request")}
               </button>
             </Link>
           </div>
@@ -90,6 +89,8 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -120,7 +121,7 @@ export function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-white px-6 py-2 rounded-md text-sm font-medium text-center transition-colors" style={{ backgroundColor: '#222222' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#333333'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#222222'}
               >
-                {t("nav.inquiry")}
+                {t("nav.request")}
               </Link>
               <div className="pt-2">
                 <LanguageToggle />

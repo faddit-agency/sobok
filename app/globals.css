@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --sobok-bg: #ffffff;
+    --sobok-ink: #0a0a0a;
+    --sobok-muted: #777777;
+    --sobok-line: #e8e8e8;
+    --sobok-surface: #f4f4f4;
+    --font-body: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-black antialiased;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    /* 한글 어절 중간에서 끊기지 않게 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  dd,
+  dt,
+  label,
+  span {
+    word-break: keep-all;
+    line-break: strict;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), var(--font-body);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    font-weight: 600;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 1px solid #000;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-body);
+  }
+
+  /* 한 문장 = 한 블록. 좁은 화면에서는 자연 줄바꿈, sm 이상에서는 한 줄 유지 */
+  .sentence {
+    display: block;
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: normal;
+  }
+
+  @media (min-width: 640px) {
+    .sentence-nowrap {
+      white-space: nowrap;
+    }
+  }
+}

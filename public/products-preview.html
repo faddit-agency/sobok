@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>일반 보자기 이미지 미리보기</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f8f8;
+      color: #111;
+      padding: 48px 24px 80px;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    .sub { color: #666; margin: 0 0 32px; font-size: 15px; }
+    h2 { font-size: 22px; margin: 0 0 8px; }
+    .desc { color: #666; margin: 0 0 24px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    }
+    .img-wrap {
+      aspect-ratio: 1 / 1;
+      background: #eee;
+      overflow: hidden;
+    }
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .body { padding: 20px; }
+    .body h3 { margin: 0 0 8px; font-size: 18px; }
+    .body p { margin: 0; font-size: 13px; color: #666; line-height: 1.5; }
+    .note {
+      margin-top: 28px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #444;
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>일반 보자기 이미지 미리보기</h1>
+    <p class="sub">커밋/푸시 전 확인용 · Products 페이지와 동일한 카드 레이아웃</p>
+
+    <h2>일반 보자기</h2>
+    <p class="desc">슬라브, 오간자, 크리스탈 등 다양한 소재의 보자기를 제작합니다.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="img-wrap">
+          <img src="./products/slab.png" alt="슬라브" />
+        </div>
+        <div class="body">
+          <h3>슬라브</h3>
+          <p>자연스러운 결과 따뜻한 느낌을 주는 소재입니다. 한복, 전통 선물 포장에 적합합니다.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img-wrap">
+          <img src="./products/organza.png" alt="오간자" />
+        </div>
+        <div class="body">
+          <h3>오간자</h3>
+          <p>반투명한 고급스러운 분위기를 연출합니다. 웨딩, 프리미엄 선물 포장에 적합합니다.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img-wrap">
+          <img src="./products/crystal.png" alt="크리스탈" />
+        </div>
+        <div class="body">
+          <h3>크리스탈</h3>
+          <p>광택감이 있어 행사나 프로모션용 대량 제작에 적합합니다.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="note">이미지 경로: <code>/products/slab.png</code>, <code>/products/organza.png</code>, <code>/products/crystal.png</code> · 승인하시면 커밋/푸시합니다.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login Bojagi Button Preview</title>
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f4f4f4;
+    --line: #d8d8d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+    background: #ececec;
+    color: var(--ink);
+    padding: 48px 24px 80px;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    margin: 0 0 36px;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+  }
+  .grid {
+    display: grid;
+    gap: 28px;
+    max-width: 980px;
+  }
+  @media (min-width: 860px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 28px 24px 32px;
+  }
+  .card h2 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #888;
+    font-weight: 500;
+  }
+  .card p {
+    margin: 0 0 22px;
+    font-size: 13px;
+    color: #555;
+  }
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    min-height: 160px;
+    background: #111;
+    color: #fff;
+  }
+  .stage.light {
+    background: #f7f7f7;
+    color: #111;
+    border: 1px solid var(--line);
+  }
+  .label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    opacity: 0.55;
+  }
+
+  /* —— Bojagi login mark —— */
+  .bojagi-login {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+  }
+  .bojagi-login:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
+  .bojagi-login .caption {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    opacity: 0.85;
+  }
+  .icon {
+    width: 36px;
+    height: 36px;
+    display: block;
+  }
+  .bojagi-login:hover .icon { transform: translateY(-1px); }
+  .icon { transition: transform 180ms ease; }
+
+  /* open / untied cloth */
+  .open .cloth {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .open .fold {
+    stroke-dasharray: 2.2 2.2;
+    opacity: 0.55;
+  }
+
+  /* stacked / wrapped cloth */
+  .wrapped .layer {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.35;
+    stroke-linejoin: round;
+  }
+  .wrapped .knot {
+    fill: currentColor;
+  }
+  .wrapped .layer.back { opacity: 0.35; }
+  .wrapped .layer.mid { opacity: 0.65; }
+
+  .note {
+    margin-top: 28px;
+    max-width: 980px;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <h1>로그인 버튼 · 보자기 시안</h1>
+  <p class="lead">
+    비로그인 = 보자기가 펼쳐져 풀린 느낌 · 로그인 = 보자기가 묶여 겹쳐진 느낌.<br />
+    헤더에 들어갈 작은 아이콘 버튼 시안입니다. 괜찮으면 적용 후 배포할게요.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>LOGGED OUT</h2>
+      <p>펼쳐진 보자기 — 모서리가 열려 있고, 매듭이 없습니다.</p>
+      <div class="stage">
+        <span class="label">DARK HEADER</span>
+        <button class="bojagi-login open" type="button" aria-label="로그인">
+          <svg class="icon" viewBox="0 0 36 36" aria-hidden="true">
+            <!-- unfolded square cloth, corners open -->
+            <path class="cloth" d="M7 11 L18 7 L29 11 L29 25 L18 29 L7 25 Z" />
+            <path class="cloth fold" d="M18 7 V29" />
+            <path class="cloth fold" d="M7 11 H29" />
+            <path class="cloth" d="M11 15 L18 12.5 L25 15" opacity="0.7" />
+          </svg>
+          <span class="caption">LOGIN</span>
+        </button>
+      </div>
+      <div class="stage light" style="margin-top:12px">
+        <span class="label">LIGHT HEADER</span>
+        <button class="bojagi-login open" type="button" aria-label="로그인">
+          <svg class="icon" viewBox="0 0 36 36" aria-hidden="true">
+            <path class="cloth" d="M7 11 L18 7 L29 11 L29 25 L18 29 L7 25 Z" />
+            <path class="cloth fold" d="M18 7 V29" />
+            <path class="cloth fold" d="M7 11 H29" />
+            <path class="cloth" d="M11 15 L18 12.5 L25 15" opacity="0.7" />
+          </svg>
+          <span class="caption">LOGIN</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>LOGGED IN</h2>
+      <p>쌓여 묶인 보자기 — 겹친 층과 중앙 매듭이 보입니다.</p>
+      <div class="stage">
+        <span class="label">DARK HEADER</span>
+        <button class="bojagi-login wrapped" type="button" aria-label="내 문의">
+          <svg class="icon" viewBox="0 0 36 36" aria-hidden="true">
+            <rect class="layer back" x="8" y="10" width="20" height="16" rx="0.5" />
+            <rect class="layer mid" x="9.5" y="11.5" width="17" height="14.5" rx="0.5" />
+            <rect class="layer" x="11" y="13" width="14" height="13" rx="0.5" />
+            <path class="layer" d="M18 13 V26" />
+            <path class="layer" d="M11 19.5 H25" />
+            <circle class="knot" cx="18" cy="19.5" r="1.6" />
+          </svg>
+          <span class="caption">MY</span>
+        </button>
+      </div>
+      <div class="stage light" style="margin-top:12px">
+        <span class="label">LIGHT HEADER</span>
+        <button class="bojagi-login wrapped" type="button" aria-label="내 문의">
+          <svg class="icon" viewBox="0 0 36 36" aria-hidden="true">
+            <rect class="layer back" x="8" y="10" width="20" height="16" rx="0.5" />
+            <rect class="layer mid" x="9.5" y="11.5" width="17" height="14.5" rx="0.5" />
+            <rect class="layer" x="11" y="13" width="14" height="13" rx="0.5" />
+            <path class="layer" d="M18 13 V26" />
+            <path class="layer" d="M11 19.5 H25" />
+            <circle class="knot" cx="18" cy="19.5" r="1.6" />
+          </svg>
+          <span class="caption">MY</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    적용 시: 기존 LOGIN 텍스트 버튼 대신 이 아이콘을 쓰고,<br />
+    비로그인 → /login , 로그인 → /inquiries 로 연결합니다.
+  </p>
+</body>
+</html>

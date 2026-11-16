@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Logo Animation</title>
+<style>
+  body { margin:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; background:#f2f2f2; font-family:sans-serif; }
+  svg { width:320px; height:320px; }
+  button { padding:8px 18px; border:0; border-radius:6px; background:#040000; color:#fff; cursor:pointer; }
+</style>
+</head>
+<body>
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.33 130.33">
+  <defs>
+    <!-- 원호: 위쪽 끝에서부터 선이 그려지듯 -->
+    <mask id="arcMask" maskUnits="userSpaceOnUse" x="-5" y="-5" width="140" height="140">
+      <path d="M89.9,-3 C89.9,48 50,84.5 -3,84.5" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="butt"
+            pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1">
+        <animate id="arc" attributeName="stroke-dashoffset" from="1" to="0" begin="0.4s" dur="2.2s" fill="freeze"
+                 calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"/>
+      </path>
+    </mask>
+    <!-- 삼각형: 오른쪽 → 가운데, 이어서 아래로 -->
+    <mask id="triMask" maskUnits="userSpaceOnUse" x="-5" y="-5" width="140" height="140">
+      <path d="M134,43.95 H54.2 L106,134" fill="none" stroke="#fff" stroke-width="11" stroke-linejoin="miter" stroke-miterlimit="10"
+            pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1">
+        <animate attributeName="stroke-dashoffset" from="1" to="0" begin="arc.end+0.3s" dur="2.6s" fill="freeze"
+                 calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"/>
+      </path>
+    </mask>
+  </defs>
+
+  <!-- 고정: 검정 배경 + 흰 테두리 -->
+  <rect fill="#040000" x="0" y="0" width="130.33" height="130.33"/>
+  <path fill="#fff" d="M121.9,121.9H8.43V8.43h113.48v113.48ZM12.04,118.3h106.26V12.04H12.04v106.26Z"/>
+
+  <path fill="#fff" mask="url(#arcMask)" d="M91.67,5.48c0,.98-.02,1.970-.06,2.94-.04,1.21-.11,2.42-.22,3.61-.89,10.81-3.97,21-8.81,30.12-.64,1.22-1.320,2.43-2.03,3.61-3.71,6.21-8.26,11.86-13.48,16.8-.89.85-1.81,1.67-2.74,2.470-13.78,11.89-31.72,19.09-51.31,19.09-.33,0-.65,0-.98-.01-1.21-.01-2.41-.05-3.61-.13-2.86-.16-5.67-.48-8.43-.94v-3.66c2.76.49,5.58.82,8.43.98,1.2.08,2.4.13,3.61.14.32.01.65.01.98.01,18.93,0,36.25-7.04,49.47-18.67.93-.8,1.84-1.64,2.72-2.5,4.2-4.07,7.93-8.630,11.1-13.58.76-1.18,1.48-2.38,2.16-3.61,5.1-9.05,8.36-19.26,9.3-30.12.11-1.2.19-2.4.23-3.61.04-.97.06-1.96.06-2.94,0-1.84-.07-3.67-.2-5.48h3.62c.13,1.81.19,3.64.19,5.48Z"/>
+  <polygon fill="#fff" mask="url(#triMask)" points="130.33 42.15 130.33 45.76 57.37 45.76 65.21 59.34 67.07 62.56 99.25 118.29 101.33 121.9 106.2 130.33 102.03 130.33 97.17 121.9 95.08 118.29 64.33 65.03 62.49 61.840 51.12 42.15 130.33 42.15"/>
+</svg>
+<button onclick="replay()">다시 재생</button>
+<script>
+  function replay(){ const s=document.getElementById('logo'); s.pauseAnimations(); s.setCurrentTime(0); s.unpauseAnimations(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+/* Port of /Downloads/bojagi-gallery-site — Project page */
+
+.bg-gal {
+  --bg-accent: #2f5bff;
+  --bg-H: calc(100vh - 5.5rem - 48px);
+  --bg-H: calc(100dvh - 5.5rem - 48px);
+  --bg-top: 5.5rem;
+  --bg-ease: cubic-bezier(0.8, 0, 0.2, 1);
+  position: relative;
+  height: calc(100vh - 5.5rem);
+  height: calc(100dvh - 5.5rem);
+  min-height: 420px;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-gal * {
+  box-sizing: border-box;
+}
+
+.bg-gal.is-detail .bg-gal__cats,
+.bg-gal.is-detail .bg-gal__counter,
+.bg-gal.is-detail .bg-gal__zoom,
+.bg-gal.is-detail .bg-gal__hint,
+.bg-gal.is-detail .bg-gal__mcap {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.bg-gal.is-detail .bg-gal__stage {
+  pointer-events: none;
+}
+
+/* category switch — download site 2 */
+.bg-gal__cats {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  font-size: 13px;
+  pointer-events: auto;
+}
+
+.bg-gal__cats-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bg-gal__cats .sep {
+  opacity: 0.3;
+}
+
+.bg-gal__cat {
+  position: relative;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 30px;
+  background: none;
+  color: #fff;
+  font-size: inherit;
+  opacity: 0.42;
+  cursor: pointer;
+  transition:
+    opacity 0.5s,
+    background-color 0.5s,
+    color 0.5s;
+}
+
+.bg-gal__cat:hover {
+  opacity: 0.85;
+}
+
+.bg-gal__cat.on {
+  opacity: 1;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+
+.bg-gal__counter {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  z-index: 40;
+  transform: translateY(-50%);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.bg-gal__stage {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  cursor: grab;
+}
+
+.bg-gal__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.bg-gal__shelf {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 80%,
+    #0d0d0d 83.5%,
+    #191919 86.5%,
+    #1a1a1a 90%,
+    #0c0c0c 94%,
+    #000 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: repeat-y;
+  transition: background-size 1s var(--bg-ease);
+}
+
+.bg-gal__scaler {
+  transform-origin: top left;
+  transition: transform 1s var(--bg-ease);
+  will-change: transform;
+  height: 100%;
+}
+
+.bg-gal__track {
+  padding: 0 12vh;
+  will-change: transform;
+  height: 100%;
+}
+
+.bg-gal__row {
+  display: flex;
+  align-items: flex-end;
+  height: var(--bg-H);
+  width: max-content;
+  transition: opacity 0.45s ease;
+}
+
+.bg-gal__item {
+  position: relative;
+  z-index: 2;
+  height: var(--bg-H);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 2.2vw calc(var(--bg-H) * 0.115);
+  flex: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: inherit;
+  pointer-events: auto;
+}
+
+.bg-gal__item img {
+  display: block;
+  height: calc(var(--bg-H) * var(--s));
+  width: auto;
+  max-width: none;
+  pointer-events: none;
+  transition:
+    filter 0.5s var(--bg-ease),
+    transform 0.9s var(--bg-ease),
+    opacity 1.2s ease;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.bg-gal__item:hover img {
+  filter: brightness(1.12);
+}
+
+.bg-gal__item .idx {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--bg-H) * 0.045);
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.bg-gal__item:hover .idx {
+  opacity: 0.5;
+}
+
+/* poster wall */
+.bg-gal__shelf.wall {
+  background-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 2.4%,
+    #262626 2.8%,
+    #3a3a3a 3.1%,
+    #151515 3.5%,
+    #080808 9%,
+    #050505 70%,
+    #000 100%
+  );
+}
+
+.bg-gal__stage.wall .bg-gal__row {
+  align-items: flex-start;
+}
+
+.bg-gal__stage.wall .bg-gal__item {
+  align-items: flex-start;
+  /* 상단 카테고리 탭과 걸개가 겹치지 않도록 여유 */
+  padding: max(52px, calc(var(--bg-H) * 0.08)) 1.8vw 0;
+}
+
+.bg-gal__stage.wall .bg-gal__item img {
+  transform-origin: 50% 0;
+}
+
+.bg-gal__stage.wall .bg-gal__item .idx {
+  bottom: auto;
+  top: calc(var(--bg-H) * 0.93);
+}
+
+.bg-gal__item img.swing {
+  animation: bg-gal-swing 2.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes bg-gal-swing {
+  0% {
+    transform: rotate(-2.2deg);
+  }
+  35% {
+    transform: rotate(1.2deg);
+  }
+  65% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.bg-gal__row.leave .bg-gal__item img {
+  transition:
+    opacity 0.55s ease,
+    transform 0.7s var(--bg-ease) !important;
+  opacity: 0 !important;
+  transform: translate3d(0, -6%, 0) !important;
+}
+
+.bg-gal__zoom {
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  z-index: 60;
+  display: flex;
+  height: 200px;
+  width: 30px;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg-gal__zoom .pm {
+  width: 30px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.8;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bg-gal__zoom .rail {
+  position: relative;
+  flex: 1;
+  width: 30px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.bg-gal__zoom .rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #fff;
+  opacity: 0.7;
+}
+
+.bg-gal__zoom .thumb {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  transform: translate(-50%, -50%) scale(var(--ts, 1.4));
+  transition:
+    top 0.8s var(--bg-ease),
+    transform 0.5s var(--bg-ease);
+}
+
+.bg-gal__crsr {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition:
+    width 1s cubic-bezier(0.8, 0, 0.2, 2),
+    height 1s cubic-bezier(0.8, 0, 0.2, 2),
+    background-color 0.3s;
+}
+
+.bg-gal__crsr::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: opacity 0.6s;
+}
+
+.bg-gal__crsr.s {
+  width: 20px;
+  height: 20px;
+  transition:
+    width 1s cubic-bezier(0, 0.8, 0.2, 1),
+    height 1s cubic-bezier(0, 0.8, 0.2, 1);
+}
+
+.bg-gal__crsr.tint {
+  background: var(--bg-accent);
+  mix-blend-mode: normal;
+}
+
+.bg-gal__crsr.tint::after {
+  opacity: 0;
+}
+
+.bg-gal__ctxt {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 998;
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #fff;
+  mix-blend-mode: difference;
+  text-align: center;
+}
+
+.bg-gal__ctxt[data-anchored] {
+  /* 이미지 밖(아래)에 둘 때는 difference보다 가독성 우선 */
+  mix-blend-mode: normal;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
+}
+
+.bg-gal__ctxt .n {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.bg-gal__ctxt .c {
+  opacity: 0.8;
+}
+
+.bg-gal__mcap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  z-index: 45;
+  display: none;
+  text-align: center;
+  pointer-events: none;
+}
+
+.bg-gal__mcap .n {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.bg-gal__mcap .c {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.bg-gal__mcap > div {
+  transition: opacity 0.35s;
+}
+
+.bg-gal__hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 30;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* detail — matches download index.html */
+.bg-gal__detail {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.bg-gal__detail .veil {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.9s var(--bg-ease);
+}
+
+.bg-gal__detail.on {
+  pointer-events: auto;
+}
+
+.bg-gal__detail.on .veil {
+  opacity: 1;
+}
+
+.bg-gal__fly {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 81;
+  max-width: none;
+  transform-origin: top left;
+  transition: transform 1.1s var(--bg-ease);
+  pointer-events: none;
+}
+
+.bg-gal__info {
+  position: absolute;
+  right: 7vw;
+  top: 50%;
+  z-index: 82;
+  width: min(420px, 38vw);
+  transform: translate3d(0, -46%, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.8s ease,
+    transform 1s var(--bg-ease);
+}
+
+.bg-gal__detail.on .bg-gal__info {
+  pointer-events: auto;
+}
+
+.bg-gal__detail.show .bg-gal__info {
+  opacity: 1;
+  transform: translate3d(0, -50%, 0);
+}
+
+.bg-gal__info .no {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+.bg-gal__info h2 {
+  margin: 14px 0 6px;
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.bg-gal__info .en {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.bg-gal__info p {
+  margin: 26px 0;
+  font-size: 15px;
+  line-height: 1.75;
+  opacity: 0.85;
+  word-break: keep-all;
+}
+
+.bg-gal__info dl {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  row-gap: 10px;
+  border-top: 1px solid #333;
+  padding-top: 18px;
+  font-size: 13px;
+}
+
+.bg-gal__info dt {
+  opacity: 0.5;
+}
+
+.bg-gal__info .cta {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 26px;
+  border-radius: 40px;
+  background: var(--bg-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.25s;
+}
+
+.bg-gal__info .cta:hover {
+  opacity: 0.85;
+}
+
+.bg-gal__close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 83;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.6s;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.bg-gal__detail.on .bg-gal__close {
+  pointer-events: auto;
+}
+
+.bg-gal__detail.show .bg-gal__close {
+  opacity: 1;
+}
+
+.bg-gal.is-touch {
+  cursor: auto;
+  touch-action: pan-y;
+}
+
+.bg-gal.is-touch .bg-gal__crsr,
+.bg-gal.is-touch .bg-gal__ctxt {
+  display: none;
+}
+
+.bg-gal.is-touch .bg-gal__mcap {
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .bg-gal {
+    --bg-H: calc(100vh - 5.5rem - 36px);
+    --bg-H: calc(100svh - 5.5rem - 36px);
+  }
+
+  .bg-gal__cats {
+    top: 12px;
+    font-size: 12px;
+    max-width: calc(100% - 72px);
+  }
+
+  .bg-gal__cat {
+    padding: 5px 10px;
+  }
+
+  .bg-gal__zoom {
+    left: 10px;
+    height: 150px;
+  }
+
+  .bg-gal__counter {
+    right: 8px;
+  }
+
+  .bg-gal__item {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .bg-gal__track {
+    padding: 0 10vw;
+  }
+
+  .bg-gal__info {
+    top: auto;
+    right: 7vw;
+    bottom: 6vh;
+    left: 7vw;
+    width: auto;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  .bg-gal__detail.show .bg-gal__info {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .bg-gal__info p {
+    margin: 14px 0;
+    font-size: 14px;
+  }
+
+  .bg-gal__info h2 {
+    margin-top: 8px;
+  }
+
+  .bg-gal__info .cta {
+    margin-top: 18px;
+  }
+
+  .bg-gal__close {
+    right: 16px;
+    top: 14px;
+  }
+}

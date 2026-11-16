@@ -4,6 +4,7 @@ type Language = "ko" | "en"
 
 interface LanguageContextType {
   language: Language
+  setLanguage: (lang: Language) => void
   toggleLanguage: () => void
   t: (key: string) => string
 }
@@ -14,13 +15,17 @@ const translations = {
   ko: {
     // Header
     "nav.home": "HOME",
-    "nav.about": "ABOUT",
+    "nav.studio": "스튜디오",
+    "nav.start": "디자인 시작하기",
+    "nav.design": "디자인 스튜디오",
+    "nav.request": "의뢰하기",
+    "nav.about": "소개",
     "nav.inquiry": "문의하기",
     "nav.works": "WORKS",
     "nav.products": "PRODUCTS",
     "nav.lineup": "LINEUP 147",
     "nav.blog": "BLOG",
-    "nav.faq": "FAQ",
+    "nav.faq": "자주 묻는 질문",
     
     // Home
     "home.hero.title": "소복",
@@ -187,7 +192,7 @@ const translations = {
     "inquiry.company.industry.custom.placeholder": "예) 웰니스, 퍼퓸, 리빙 등",
     "inquiry.company.products": "기존 판매 제품",
     "inquiry.company.products.placeholder": "현재 판매 중이거나 출시 예정인 제품을 간단히 적어주세요.",
-    "inquiry.bojagi.title": "보자기 종류",
+    "inquiry.bojagi.title": "보자기 정보",
     "inquiry.bojagi.regular": "소복 보자기",
     "inquiry.bojagi.regular.slab": "슬라브",
     "inquiry.bojagi.regular.slab.desc": "자연스러운 결과 따뜻한 느낌",
@@ -506,6 +511,10 @@ const translations = {
   en: {
     // Header
     "nav.home": "HOME",
+    "nav.studio": "STUDIO",
+    "nav.start": "Start designing",
+    "nav.design": "Design studio",
+    "nav.request": "Request",
     "nav.about": "ABOUT",
     "nav.inquiry": "Inquiry",
     "nav.works": "WORKS",
@@ -648,7 +657,7 @@ const translations = {
     "inquiry.company.industry.custom.placeholder": "e.g. Wellness, Perfume, Living",
     "inquiry.company.products": "Existing Products",
     "inquiry.company.products.placeholder": "Briefly describe products you currently sell or plan to launch.",
-    "inquiry.bojagi.title": "Bojagi Type",
+    "inquiry.bojagi.title": "Bojagi details",
     "inquiry.bojagi.regular": "SOBOK Bojagi",
     "inquiry.bojagi.regular.slab": "Slab",
     "inquiry.bojagi.regular.slab.desc": "Natural texture, warm feeling",
@@ -979,7 +988,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   )
