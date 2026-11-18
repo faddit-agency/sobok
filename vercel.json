@@ -6,29 +6,39 @@
   "framework": null,
   "redirects": [
     {
-      "source": "/product/list.html",
-      "destination": "/404",
-      "permanent": false
+      "source": "/",
+      "destination": "https://gababo.co.kr/",
+      "permanent": true
     },
     {
-      "source": "/product/(.*)",
-      "destination": "/404",
-      "permanent": false
+      "source": "/inquiry",
+      "destination": "https://gababo.co.kr/inquiry",
+      "permanent": true
     },
     {
-      "source": "/board/(.*)",
-      "destination": "/404",
-      "permanent": false
+      "source": "/works",
+      "destination": "https://gababo.co.kr/archive",
+      "permanent": true
     },
     {
-      "source": "/customer.html",
-      "destination": "/404",
-      "permanent": false
+      "source": "/works/:slug*",
+      "destination": "https://gababo.co.kr/archive",
+      "permanent": true
     },
     {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": false
+      "source": "/faq",
+      "destination": "https://gababo.co.kr/about",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "https://gababo.co.kr/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://gababo.co.kr/",
+      "permanent": true
     }
   ],
   "rewrites": [
