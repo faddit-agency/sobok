@@ -36,6 +36,16 @@
       "permanent": true
     },
     {
+      "source": "/terms",
+      "destination": "https://gababo.co.kr/terms",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "https://gababo.co.kr/about",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://gababo.co.kr/",
       "permanent": true
