@@ -46,6 +46,51 @@
       "permanent": true
     },
     {
+      "source": "/guide",
+      "destination": "https://gababo.co.kr/about",
+      "permanent": true
+    },
+    {
+      "source": "/archive",
+      "destination": "https://gababo.co.kr/archive",
+      "permanent": true
+    },
+    {
+      "source": "/archive/himuro-yuri-a3-fabric-posters",
+      "destination": "https://gababo.co.kr/archive/himuro-yuri-a3-fabric-posters",
+      "permanent": true
+    },
+    {
+      "source": "/archive/himuro-yuri-long-fabric-posters",
+      "destination": "https://gababo.co.kr/archive/himuro-yuri-long-fabric-posters",
+      "permanent": true
+    },
+    {
+      "source": "/archive/seolarae-floral-jacquard-bojagi",
+      "destination": "https://gababo.co.kr/archive/seolarae-floral-jacquard-bojagi",
+      "permanent": true
+    },
+    {
+      "source": "/archive/seolarae-red-horse-jacquard-bojagi",
+      "destination": "https://gababo.co.kr/archive/seolarae-red-horse-jacquard-bojagi",
+      "permanent": true
+    },
+    {
+      "source": "/archive/standard-chartered-slub-bojagi",
+      "destination": "https://gababo.co.kr/archive/standard-chartered-slub-bojagi",
+      "permanent": true
+    },
+    {
+      "source": "/archive/yosigo-custom-fabric-posters",
+      "destination": "https://gababo.co.kr/archive/yosigo-custom-fabric-posters",
+      "permanent": true
+    },
+    {
+      "source": "/archive/:slug*",
+      "destination": "https://gababo.co.kr/archive",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://gababo.co.kr/",
       "permanent": true
